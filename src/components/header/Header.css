@@ -1,0 +1,32 @@
+.header {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-areas:
+    "heading heading action"
+    "search search search";
+}
+.header .header_heading {
+  grid-area: heading;
+}
+.header .header_heading h2 {
+  margin: 0;
+}
+.header .header_search {
+  grid-area: search;
+}
+.header .header_action {
+  grid-area: action;
+  display: flex;
+}
+.header .header_action p {
+  margin: 0;
+}
+
+@media (min-width: 640px) {
+  .header {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    grid-template-areas: "heading search action";
+  }
+}
