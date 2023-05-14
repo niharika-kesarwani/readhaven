@@ -1,0 +1,30 @@
+.home {
+  background: url("../../assets/hero-image.webp");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: center;
+  min-height: 350px;
+  max-height: 450px;
+}
+img {
+  width: 100%;
+}
+.shop-btn {
+  margin: 15px;
+  height: 40px;
+  width: 100px;
+  border-radius: 5px;
+  border: none;
+  background-color: var(--header-color);
+}
+@media (min-width: 640px) {
+  .home {
+    background-size: none;
+  }
+  .hero-img {
+    max-height: 450px;
+  }
+}
