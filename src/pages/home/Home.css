@@ -7,7 +7,6 @@
   justify-content: end;
   align-items: center;
   min-height: 350px;
-  max-height: 450px;
 }
 img {
   width: 100%;
@@ -23,8 +22,6 @@ img {
 @media (min-width: 640px) {
   .home {
     background-size: none;
-  }
-  .hero-img {
-    max-height: 450px;
+    min-height: 450px;
   }
 }
