@@ -8,20 +8,23 @@
   align-items: center;
   min-height: 350px;
 }
-img {
-  width: 100%;
-}
+
 .shop-btn {
-  margin: 15px;
-  height: 40px;
-  width: 100px;
+  margin: 20px;
+  min-height: 40px;
+  padding: 0 10px;
   border-radius: 5px;
   border: none;
   background-color: var(--header-color);
 }
-@media (min-width: 640px) {
+
+.shop-btn:hover {
+  scale: 1.15;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
   .home {
-    background-size: none;
     min-height: 450px;
   }
 }
