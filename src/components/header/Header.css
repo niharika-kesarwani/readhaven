@@ -13,12 +13,14 @@
   grid-area: heading;
   text-align: start;
   margin: 0;
-  padding: 0 20px;
+  padding-left: 5px;
   letter-spacing: 0.15em;
 }
 
 .header .header_heading:hover {
   cursor: pointer;
+  scale: 1.1;
+  padding-left: 5%;
   color: var(--header-color);
 }
 
