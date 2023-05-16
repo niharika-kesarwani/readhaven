@@ -1,5 +1,4 @@
 .header {
-  background: var(--header-color);
   display: grid;
   min-height: 75px;
   grid-template-columns: repeat(3, 1fr);
@@ -14,12 +13,13 @@
   grid-area: heading;
   text-align: start;
   margin: 0;
-  padding: 0 10px;
+  padding: 0 20px;
   letter-spacing: 0.15em;
 }
 
 .header .header_heading:hover {
   cursor: pointer;
+  color: var(--header-color);
 }
 
 .header .header_search {
@@ -43,6 +43,7 @@
   grid-area: action;
   display: flex;
   justify-content: end;
+  margin-right: 1rem;
 }
 
 .header .header_action p {
@@ -61,11 +62,28 @@
 .user:hover {
   scale: 1;
   cursor: pointer;
+  color: var(--header-color);
 }
 
 .navlink {
   text-decoration: none;
   color: black;
+}
+
+.navlink p {
+  position: absolute;
+  height: 15%;
+  width: 15%;
+  top: 0rem;
+  right: 0rem;
+  background: var(--header-color);
+  color: black;
+  border-radius: 50%;
+  font-size: 10px;
+  padding: 0.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @media (min-width: 768px) {
@@ -77,9 +95,6 @@
   .header .header_search {
     margin: 0;
   }
-  .header .header_action {
-    overflow: hidden;
-  }
   .header .header_action .wishlist,
   .cart,
   .user {
@@ -90,6 +105,10 @@
   .cart:hover,
   .user:hover {
     scale: 1.2;
+  }
+  .navlink p {
+    height: 20%;
+    width: 20%;
   }
 }
 
@@ -104,5 +123,9 @@
   .cart:hover,
   .user:hover {
     scale: 1.4;
+  }
+  .navlink p {
+    height: 25%;
+    width: 25%;
   }
 }

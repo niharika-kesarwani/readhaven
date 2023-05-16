@@ -1,11 +1,10 @@
-.home {
+.home-hero {
   background: url("../../assets/hero-image.webp");
   background-size: cover;
   background-position: center;
   display: flex;
   flex-direction: column;
   justify-content: end;
-  align-items: center;
   min-height: 350px;
 }
 
@@ -24,7 +23,7 @@
 }
 
 @media (min-width: 768px) {
-  .home {
-    min-height: 450px;
+  .home-hero {
+    min-height: 400px;
   }
 }

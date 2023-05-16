@@ -9,14 +9,16 @@ export const Header = () => {
   return (
     <div className="header">
       <NavLink className="navlink header_heading" to="/">
-        <h2 className="header_heading">READHAVEN</h2>
+        <h1 className="header_heading">READHAVEN</h1>
       </NavLink>
       <div className="header_action">
         <NavLink className="navlink wishlist" to="/wishlist">
           <FavoriteOutlinedIcon />
+          <p>0</p>
         </NavLink>
         <NavLink className="navlink cart" to="/cart">
           <ShoppingCartIcon />
+          <p>0</p>
         </NavLink>
         <NavLink className="navlink user" to="/user">
           <PersonIcon />
