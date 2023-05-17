@@ -5,6 +5,7 @@
   right: 2em;
   cursor: pointer;
   scale: 2;
+  color: var(--secondary-color);
 }
 
 .go_to_top:hover {

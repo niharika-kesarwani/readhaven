@@ -46,7 +46,7 @@
 
 .home .home-wrapper .home-wrapper-item:hover {
   cursor: pointer;
-  color: var(--header-color);
+  color: var(--secondary-color);
 }
 
 @media (min-width: 768px) {

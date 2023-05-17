@@ -18,7 +18,7 @@ export const Home = () => {
             to={`/books/${categoryName}`}
             className="home-wrapper-item"
           >
-            {categoryName}
+            <p>{categoryName}</p>
           </NavLink>
         ))}
       </ul>

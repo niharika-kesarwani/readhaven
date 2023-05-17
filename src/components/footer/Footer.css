@@ -18,7 +18,7 @@
   row-gap: 1rem;
 }
 
-.footer-connect {
+.footer .footer-connect {
   grid-area: connect;
   display: flex;
   flex-direction: column;
@@ -41,18 +41,19 @@
   row-gap: 1rem;
 }
 
-.footer .footer-links-list {
+.footer .footer-links .footer-links-list {
   display: flex;
   justify-content: center;
   column-gap: 0.5rem;
 }
 
-.navlink {
+.footer .navlink {
   text-decoration: none;
+  color: black;
   display: flex;
 }
 
-.navlink:hover {
+.footer .navlink:hover {
   scale: 1.2;
 }
 
@@ -69,7 +70,7 @@
     grid-template-areas: "connect app-info links";
   }
 
-  .footer .footer-links-list {
+  .footer .footer-links .footer-links-list {
     flex-direction: column;
     align-items: center;
     row-gap: 0.5rem;
