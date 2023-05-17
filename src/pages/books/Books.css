@@ -1,0 +1,28 @@
+.books {
+  display: grid;
+  grid-template-areas: "list";
+}
+
+.books .books-filters {
+  grid-area: filters;
+  display: none;
+}
+
+.books .books-list {
+  grid-area: list;
+}
+
+@media (min-width: 768px) {
+  .books {
+    grid-template-areas: "filters list list";
+  }
+  .books .books-filters {
+    display: block;
+  }
+}
+
+@media (min-width: 1024px) {
+  .books {
+    grid-template-areas: "filters list list list";
+  }
+}

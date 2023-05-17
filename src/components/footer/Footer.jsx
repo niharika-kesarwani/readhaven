@@ -65,6 +65,11 @@ export const Footer = () => {
             </NavLink>
           </p>
           <p>
+            <NavLink className="navlink" to="/books">
+              Books
+            </NavLink>
+          </p>
+          <p>
             <NavLink className="navlink" to="/cart">
               Cart
             </NavLink>

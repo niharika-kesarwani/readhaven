@@ -1,5 +1,5 @@
 .footer {
-  background: pink;
+  background: var(--header-color);
   width: 100%;
   padding: 1rem;
   bottom: 0;

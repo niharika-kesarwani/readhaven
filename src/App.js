@@ -9,6 +9,7 @@ import { Wishlist } from "./pages/wishlist/Wishlist";
 import { User } from "./pages/user/User";
 import { Error } from "./components/error/Error";
 import { Footer } from "./components/footer/Footer";
+import { GoToTop } from "./components/goToTop/GoToTop";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/books" element={<Books />} />
+        <Route path="/books/:category" element={<Books />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/wishlist" element={<Wishlist />} />
         <Route path="/user" element={<User />} />
@@ -24,6 +26,7 @@ function App() {
         <Route path="/*" element={<Error />} />
       </Routes>
       <Footer />
+      <GoToTop />
     </>
   );
 }

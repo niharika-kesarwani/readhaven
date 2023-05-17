@@ -1,0 +1,12 @@
+.go_to_top {
+  display: flex;
+  position: fixed;
+  bottom: 2em;
+  right: 2em;
+  cursor: pointer;
+  scale: 2;
+}
+
+.go_to_top:hover {
+  scale: 2.25;
+}

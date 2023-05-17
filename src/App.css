@@ -4,6 +4,27 @@
   --header-color: #fecaca;
 }
 
+::-webkit-scrollbar {
+  width: 0.5em;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 100vw;
+  margin-block: 0.25em;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--header-color);
+  border-radius: 100vw;
+}
+
+@supports (scrollbar-color: red blue) {
+  * {
+    scrollbar-color: var(--header-color) white;
+    scrollbar-width: thin;
+  }
+}
+
 #root {
   margin: 0 auto;
   text-align: center;

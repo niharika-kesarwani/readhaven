@@ -53,15 +53,15 @@
 }
 
 .header .header_action .wishlist,
-.cart,
-.user {
+.header .header_action .cart,
+.header .header_action .user {
   padding: 10px 5px;
   scale: 0.8;
 }
 
 .header .header_action .wishlist:hover,
-.cart:hover,
-.user:hover {
+.header .header_action .cart:hover,
+.header .header_action .user:hover {
   scale: 1;
   cursor: pointer;
   color: var(--header-color);
@@ -98,14 +98,14 @@
     margin: 0;
   }
   .header .header_action .wishlist,
-  .cart,
-  .user {
+  .header .header_action .cart,
+  .header .header_action .user {
     padding: 10px 15px;
     scale: 1;
   }
   .header .header_action .wishlist:hover,
-  .cart:hover,
-  .user:hover {
+  .header .header_action .cart:hover,
+  .header .header_action .user:hover {
     scale: 1.2;
   }
   .navlink p {
@@ -116,14 +116,14 @@
 
 @media (min-width: 1024px) {
   .header .header_action .wishlist,
-  .cart,
-  .user {
+  .header .header_action .cart,
+  .header .header_action .user {
     padding: 10px 15px;
     scale: 1.2;
   }
   .header .header_action .wishlist:hover,
-  .cart:hover,
-  .user:hover {
+  .header .header_action .cart:hover,
+  .header .header_action .user:hover {
     scale: 1.4;
   }
   .navlink p {
