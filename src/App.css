@@ -1,8 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
 
 :root {
-  --header-color: #fecaca;
-  --secondary-color: #f87171;
+  --primary-color: #a855f7;
+  --secondary-color: #c4b5fd;
+  --original-price-color: red;
+  --discounted-price-color: green;
+  --book-card-background-color: rgb(245, 243, 243);
+  --star-color: yellow;
 }
 
 ::-webkit-scrollbar {
@@ -12,17 +16,17 @@
 ::-webkit-scrollbar-track {
   border-radius: 100vw;
   margin-block: 0.25em;
-  background: var(--header-color);
+  background: var(--secondary-color);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--secondary-color);
+  background: var(--primary-color);
   border-radius: 100vw;
 }
 
 @supports (scrollbar-color: red blue) {
   * {
-    scrollbar-color: var(--secondary-color) var(--header-color);
+    scrollbar-color: var(--primary-color) var(--secondary-color);
     scrollbar-width: thin;
   }
 }
@@ -41,6 +45,7 @@ h2 {
   font-size: 0.75rem;
 }
 
+h3,
 p,
 button {
   font-size: 0.65rem;
@@ -53,6 +58,7 @@ button {
   h2 {
     font-size: 1rem;
   }
+  h3,
   p,
   button {
     font-size: 0.9rem;
@@ -66,8 +72,9 @@ button {
   h2 {
     font-size: 1.25rem;
   }
+  h3,
   p,
   button {
-    font-size: 1.15rem;
+    font-size: 1rem;
   }
 }

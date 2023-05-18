@@ -4,8 +4,11 @@ import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import FavoriteOutlinedIcon from "@mui/icons-material/FavoriteOutlined";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import PersonIcon from "@mui/icons-material/Person";
+import { useBooks } from "../../index.js";
 
 export const Header = () => {
+  const { wishlistCount } = useBooks();
+
   return (
     <div className="header">
       <NavLink className="navlink header_heading" to="/">
@@ -14,7 +17,7 @@ export const Header = () => {
       <div className="header_action">
         <NavLink className="navlink wishlist" to="/wishlist">
           <FavoriteOutlinedIcon />
-          <p>0</p>
+          <p>{wishlistCount}</p>
         </NavLink>
         <NavLink className="navlink cart" to="/cart">
           <ShoppingCartIcon />

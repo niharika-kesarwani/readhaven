@@ -1,0 +1,95 @@
+.book_card {
+  background: var(--book-card-background-color);
+}
+
+.book_card img {
+  height: 60%;
+}
+
+.book_card .wishlist_icon {
+  padding: 0.25rem 0.25rem 0 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: var(--original-price-color);
+}
+
+.book_card .wishlist_icon:hover {
+  scale: 1.2;
+  color: var(--original-price-color);
+}
+
+.book_card .books_card_ratings {
+  display: flex;
+  position: absolute;
+  left: 0;
+  padding: 0.25rem;
+  bottom: 45%;
+  width: 60%;
+  height: 1.5rem;
+  justify-content: space-around;
+  align-items: center;
+  background: var(--secondary-color);
+}
+
+.book_card .books_card_ratings p {
+  font-size: small;
+}
+
+.book_card .books_card_ratings .star_icon {
+  color: var(--star-color);
+}
+
+.book_card .books_card_content {
+  display: flex;
+  flex-direction: column;
+  height: 40%;
+  width: 100%;
+  justify-content: space-around;
+  padding: 10px;
+  row-gap: 5%;
+}
+
+.book_card .books_card_content .books_card_content_title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.book_card .books_card_content .books_card_content_author {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.book_card .books_card_content .books_card_content_price {
+  display: flex;
+  justify-content: space-around;
+  color: var(--discounted-price-color);
+}
+
+.book_card .books_card_content .books_card_content_price span {
+  text-decoration: line-through;
+  color: var(--original-price-color);
+}
+
+.book_card .books_card_content button {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: var(--secondary-color);
+  border: none;
+  padding: 0.25rem 1rem;
+  text-transform: uppercase;
+}
+
+.book_card .books_card_content button:hover {
+  cursor: pointer;
+  background-color: white;
+  color: black;
+  border: 1.5px solid var(--secondary-color);
+}

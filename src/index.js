@@ -5,8 +5,12 @@ import App from "./App";
 import { makeServer } from "./server";
 import { BrowserRouter as Router } from "react-router-dom";
 import { BooksProvider, useBooks } from "./contexts/books-context";
+import {
+  CategoriesProvider,
+  useCategories,
+} from "./contexts/categories-context";
 
-export { useBooks };
+export { useBooks, useCategories };
 
 // Call make Server
 makeServer();
@@ -15,7 +19,9 @@ ReactDOM.render(
   <React.StrictMode>
     <Router>
       <BooksProvider>
-        <App />
+        <CategoriesProvider>
+          <App />
+        </CategoriesProvider>
       </BooksProvider>
     </Router>
   </React.StrictMode>,

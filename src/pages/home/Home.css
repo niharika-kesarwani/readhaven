@@ -1,4 +1,4 @@
-.home .home-hero {
+.home .home_hero {
   background: url("../../assets/hero-image.webp");
   background-size: cover;
   background-position: center;
@@ -8,16 +8,16 @@
   min-height: 350px;
 }
 
-.home .home-hero .shop-btn {
+.home .home_hero .shop_btn {
   margin: 20px;
   min-height: 40px;
   padding: 0 10px;
   border-radius: 5px;
   border: none;
-  background-color: var(--header-color);
+  background-color: var(--secondary-color);
 }
 
-.home .home-hero .shop-btn:hover {
+.home .home_hero .shop_btn:hover {
   scale: 1.15;
   cursor: pointer;
 }
@@ -26,7 +26,7 @@
   margin: 20px;
 }
 
-.home .home-wrapper {
+.home .home_wrapper {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
@@ -35,7 +35,7 @@
   margin: 20px 0;
 }
 
-.home .home-wrapper .home-wrapper-item {
+.home .home_wrapper .home_wrapper_item {
   text-align: center;
   margin: 10px 0;
   padding: 0 10px;
@@ -44,13 +44,13 @@
   color: #000;
 }
 
-.home .home-wrapper .home-wrapper-item:hover {
+.home .home_wrapper .home_wrapper_item:hover {
   cursor: pointer;
   color: var(--secondary-color);
 }
 
 @media (min-width: 768px) {
-  .home-hero {
+  .home_hero {
     min-height: 400px;
   }
 }
