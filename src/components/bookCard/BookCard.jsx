@@ -30,13 +30,13 @@ export const BookCard = ({ book }) => {
   return (
     <li key={_id} className="book_card">
       <img src={coverImg} alt={title} />
-      <button onClick={() => handleWishlist(book)}>
+      <div onClick={() => handleWishlist(book)}>
         {wishlist ? (
           <FavoriteIcon className="wishlist_icon" />
         ) : (
           <FavoriteBorderIcon className="wishlist_icon" />
         )}
-      </button>
+      </div>
       <div className="books_card_ratings">
         <p>{totalStars}</p>
         <StarIcon className="star_icon" /> |{" "}
