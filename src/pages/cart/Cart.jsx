@@ -1,3 +1,9 @@
+import "./Cart.css";
+
 export const Cart = () => {
-  return <h1>Cart</h1>;
+  return (
+    <div className="cart">
+      <h1>Cart</h1>
+    </div>
+  );
 };

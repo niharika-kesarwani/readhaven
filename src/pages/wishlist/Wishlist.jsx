@@ -1,3 +1,9 @@
+import "./Wishlist.css";
+
 export const Wishlist = () => {
-  return <h1>Wishlist</h1>;
+  return (
+    <div className="wishlist">
+      <h1>Wishlist</h1>
+    </div>
+  );
 };
