@@ -28,7 +28,7 @@ export const Books = () => {
           <h2>Filters</h2>
           <div>
             <button>
-              <h3>Clear Filters</h3>
+              <h4>Clear Filters</h4>
             </button>
             <div onClick={() => toggleFilters()}>
               <CancelIcon className="cancel-btn" />
@@ -72,7 +72,7 @@ export const Books = () => {
             Showing All Books <p>(Showing {displayProducts.length} books)</p>
           </h2>
           <div onClick={() => toggleFilters()}>
-            <TuneIcon />
+            <TuneIcon className="tune-icon" />
           </div>
         </div>
         <ul>

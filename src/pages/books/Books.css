@@ -19,7 +19,7 @@
   z-index: 1;
   background: var(--book-card-background-color);
   width: 100%;
-  padding: 1rem;
+  padding: 0 1rem;
   display: block;
   overflow-y: auto;
   height: 80%;
@@ -115,6 +115,10 @@
 .books .books_list .books_list_heading h2 p {
   font-size: small;
   display: inline;
+}
+
+.books .books_list .books_list_heading .tune-icon {
+  color: var(--primary-color);
 }
 
 .books .books_list ul {
