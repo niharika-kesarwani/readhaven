@@ -1,0 +1,152 @@
+.bookDetail_wrapper {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.bookDetail {
+  background: var(--book-card-background-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  margin: 2rem;
+  padding: 1rem;
+}
+
+.bookDetail img {
+  max-width: 60%;
+}
+
+.bookDetail .bookDetail_content {
+  display: flex;
+  flex-direction: column;
+  max-width: 340px;
+  padding-top: 1rem;
+  row-gap: 1rem;
+}
+
+.bookDetail .bookDetail_content .heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+  column-gap: 1rem;
+}
+
+.bookDetail .bookDetail_content .heading .heading_name {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  row-gap: 0.5rem;
+}
+
+.bookDetail .bookDetail_content .heading .wishlist_icon {
+  color: var(--original-price-color);
+}
+
+.bookDetail .bookDetail_content .heading .wishlist_icon:hover {
+  cursor: pointer;
+  scale: 1.2;
+  color: var(--original-price-color);
+}
+
+.bookDetail .bookDetail_content .price_rating {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 0.5rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bookDetail .bookDetail_content .price_rating .price {
+  display: flex;
+  align-items: center;
+  column-gap: 0.75rem;
+  justify-content: center;
+}
+
+.bookDetail .bookDetail_content .price_rating .price .price_original_amount {
+  color: var(--original-price-color);
+  text-decoration: line-through;
+}
+
+.bookDetail .bookDetail_content .price_rating .price .price_original_discount {
+  color: var(--discounted-price-color);
+}
+
+.bookDetail .bookDetail_content .price_rating .price p {
+  font-weight: bold;
+  color: var(--discounted-price-color);
+}
+.bookDetail .bookDetail_content .price_rating .rating {
+  display: flex;
+  justify-content: space-evenly;
+  column-gap: 1rem;
+  align-items: center;
+}
+
+.bookDetail .bookDetail_content .price_rating .rating .rating_star {
+  display: flex;
+  column-gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.bookDetail .bookDetail_content .price_rating .rating .rating_star .star_icon {
+  color: var(--discounted-price-color);
+}
+
+.bookDetail .bookDetail_content .description {
+  text-align: left;
+}
+
+.bookDetail .bookDetail_content .genres {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.bookDetail .bookDetail_content .genres button {
+  padding: 0.25rem 0.5rem;
+  background: white;
+  color: black;
+  border: none;
+  font-style: italic;
+}
+
+.bookDetail .bookDetail_content .button {
+  display: flex;
+  width: fit-content;
+  align-items: center;
+  padding: 0.25rem 0.5rem;
+  column-gap: 0.5rem;
+  background: var(--primary-color);
+  border: none;
+  color: white;
+  margin: 0 auto;
+}
+
+.bookDetail .bookDetail_content .button:hover {
+  scale: 1.1;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .bookDetail {
+    flex-direction: row;
+    column-gap: 2rem;
+  }
+
+  .bookDetail .bookDetail_content {
+    max-width: 100vh;
+    padding: 0;
+  }
+
+  .bookDetail .bookDetail_content .button {
+    margin: 0;
+    padding: 0.75rem 1rem;
+  }
+}

@@ -48,10 +48,17 @@
   background: white;
   outline: 1px solid var(--secondary-color);
   cursor: pointer;
+  scale: 1.2;
 }
 
 .books .books_filters .books_filters_heading div div {
   color: var(--primary-color);
+}
+
+.books .books_filters .books_filters_heading div div:hover {
+  color: var(--primary-color);
+  cursor: pointer;
+  scale: 1.2;
 }
 
 .books .books_filters .books_filters_heading,
@@ -121,6 +128,11 @@
 
 .books .books_list .books_list_heading .tune-icon {
   color: var(--primary-color);
+}
+
+.books .books_list .books_list_heading .tune-icon:hover {
+  cursor: pointer;
+  scale: 1.2;
 }
 
 .books .books_list ul {

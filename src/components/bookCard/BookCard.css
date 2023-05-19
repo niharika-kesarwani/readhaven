@@ -1,3 +1,8 @@
+.book_card_navlink {
+  text-decoration: none;
+  color: black;
+}
+
 .book_card {
   background: var(--book-card-background-color);
 }
@@ -26,11 +31,18 @@
   left: 0;
   padding: 0.25rem;
   bottom: 45%;
-  width: fit-content;
+  width: 60%;
   height: 1.5rem;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
   background: var(--secondary-color);
+  column-gap: 0.5rem;
+}
+
+.book_card .books_card_ratings div:nth-child(1) {
+  display: flex;
+  align-items: center;
+  column-gap: 0.25rem;
 }
 
 .book_card .books_card_ratings p {
