@@ -60,7 +60,8 @@ export const BookCard = ({ book }) => {
           <h3 className="books_card_content_title">{title}</h3>
           <p className="books_card_content_author">{author}</p>
           <h3 className="books_card_content_price">
-            <span>₹ {originalPrice}</span>₹ {originalPrice - discountPrice}
+            <p>₹ {originalPrice}</p>
+            <p>₹ {originalPrice - discountPrice}</p>
           </h3>
           <button onClick={(e) => cartBtnHandler(e)}>
             <p>Add to Cart</p>

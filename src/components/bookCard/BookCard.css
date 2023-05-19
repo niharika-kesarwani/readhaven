@@ -31,12 +31,11 @@
   left: 0;
   padding: 0.25rem;
   bottom: 45%;
-  width: 60%;
   height: 1.5rem;
   justify-content: space-evenly;
   align-items: center;
   background: var(--secondary-color);
-  column-gap: 0.5rem;
+  column-gap: 0.4rem;
 }
 
 .book_card .books_card_ratings div:nth-child(1) {
@@ -85,7 +84,7 @@
   color: var(--discounted-price-color);
 }
 
-.book_card .books_card_content .books_card_content_price span {
+.book_card .books_card_content .books_card_content_price p:nth-child(1) {
   text-decoration: line-through;
   color: var(--original-price-color);
 }
