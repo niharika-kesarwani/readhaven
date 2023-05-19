@@ -40,7 +40,7 @@ export const BookCard = ({ book }) => {
   return (
     <NavLink to={`/bookDetails/${_id}`} className="book_card_navlink">
       <li key={_id} className="book_card">
-        <img src={coverImg} alt={title} />z
+        <img src={coverImg} alt={title} />
         <div onClick={(e) => wishlistBtnHandler(e, book)}>
           {wishlist ? (
             <FavoriteIcon className="wishlist_icon" />
