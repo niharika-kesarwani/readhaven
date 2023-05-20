@@ -8,6 +8,8 @@ import { BookDetail } from "./components/bookDetail/BookDetail";
 import { Cart } from "./pages/cart/Cart";
 import { Wishlist } from "./pages/wishlist/Wishlist";
 import { User } from "./pages/user/User";
+import { Login } from "./pages/login/Login";
+import { Logout } from "./pages/logout/Logout";
 import { Error } from "./components/error/Error";
 import { Footer } from "./components/footer/Footer";
 import { GoToTop } from "./components/goToTop/GoToTop";
@@ -24,6 +26,8 @@ function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/wishlist" element={<Wishlist />} />
         <Route path="/user" element={<User />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/logout" element={<Logout />} />
         <Route path="/mockman" element={<Mockman />} />
         <Route path="/*" element={<Error />} />
       </Routes>
