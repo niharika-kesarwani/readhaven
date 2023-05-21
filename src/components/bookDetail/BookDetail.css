@@ -140,6 +140,10 @@
     column-gap: 2rem;
   }
 
+  .bookDetail img {
+    max-width: 50%;
+  }
+
   .bookDetail .bookDetail_content {
     max-width: 100vh;
     padding: 0;

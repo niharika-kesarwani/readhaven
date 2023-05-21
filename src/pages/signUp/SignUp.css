@@ -1,4 +1,4 @@
-.login_page {
+.signUp_page {
   max-width: 1440px;
   margin: 20px auto;
   padding: 1.5rem 2rem;
@@ -10,17 +10,17 @@
   row-gap: 1rem;
 }
 
-.login_page .login_heading {
+.signUp_page .signUp_heading {
   text-transform: uppercase;
 }
 
-.login_page label {
+.signUp_page label {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
 
-.login_page .login_input {
+.signUp_page .signUp_input {
   margin: 0.5rem 0;
   padding: 0 0.5rem;
   width: 100%;
@@ -29,7 +29,7 @@
   border-radius: 5px;
 }
 
-.login_page .login_btn_pwd {
+.signUp_page .signUp_btn_pwd {
   margin-top: -2.35rem;
   padding-right: 0.25rem;
   flex-direction: row;
@@ -39,46 +39,33 @@
   background: none;
 }
 
-.login_page .login_label_remember {
+.signUp_page .signUp_label_accept {
   display: flex;
   flex-direction: row;
   align-items: center;
   column-gap: 0.5rem;
 }
 
-.login_page .login_btn {
+.signUp_page .signUp_btn {
   padding: 0.5rem 2rem;
   border: 1.5px solid var(--primary-color);
-}
-
-.login_page .login_btn_login {
   background: var(--secondary-color);
   color: white;
 }
 
-.login_page .login_btn_login:hover {
+.signUp_page .signUp_btn:hover {
   cursor: pointer;
   background: var(--primary-color);
 }
 
-.login_page .login_btn_test {
-  cursor: pointer;
-  color: var(--primary-color);
-}
-
-.login_page .login_btn_test:hover {
-  background: var(--primary-color);
-  color: white;
-}
-
-.login_page .navlink {
+.signUp_page .navlink {
   text-decoration: none;
   display: flex;
   justify-content: center;
   padding-top: 0.5rem;
 }
 
-.login_page .login_btn_new_acc {
+.signUp_page .signUp_btn_login {
   border: none;
   background: none;
   display: flex;
@@ -87,7 +74,7 @@
   column-gap: 1rem;
 }
 
-.login_page .login_btn_new_acc:hover {
+.signUp_page .signUp_btn_login:hover {
   cursor: pointer;
   color: var(--primary-color);
 }
