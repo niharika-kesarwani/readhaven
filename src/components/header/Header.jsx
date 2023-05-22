@@ -25,7 +25,7 @@ export const Header = () => {
           <ShoppingCartIcon />
           <p>0</p>
         </NavLink>
-        <NavLink className="navlink user" to="/login">
+        <NavLink className="navlink user" to="/profile">
           <PersonIcon />
         </NavLink>
         <NavLink className="navlink login" to="/login">
