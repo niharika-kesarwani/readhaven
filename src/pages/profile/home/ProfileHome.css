@@ -1,4 +1,14 @@
 .profileHome_page {
   max-width: 1440px;
   margin: 0 auto;
+  padding: 1.5rem 2rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+}
+
+.profileHome_page div {
+  display: flex;
+  column-gap: 0.5rem;
+  align-items: center;
 }

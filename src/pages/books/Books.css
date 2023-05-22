@@ -21,7 +21,7 @@
   z-index: 1;
   background: var(--book-card-background-color);
   width: 100%;
-  padding: 0 1rem;
+  padding: 2rem 4rem;
   display: block;
   overflow-y: auto;
   height: 80%;
@@ -170,11 +170,18 @@
     row-gap: 1rem;
   }
 
+  .books .books_filters .books_filters_heading div button:hover {
+    scale: 1.1;
+  }
+
   .books .books_filters .books_filters_heading div div {
     display: none;
   }
 
-  .books .books_filters .books_filters_heading,
+  .books .books_filters .books_filters_heading {
+    padding-top: 0.5rem;
+  }
+
   .books .books_filters .books_filters_price,
   .books .books_filters .books_filters_rating,
   .books .books_filters .books_filters_category {

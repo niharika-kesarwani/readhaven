@@ -1,4 +1,63 @@
 .profileAddress_page {
   max-width: 1440px;
   margin: 0 auto;
+  padding: 1rem 2rem;
+}
+
+.profileAddress_page .profileAddress_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1rem;
+}
+
+.profileAddress_page .profileAddress_header button {
+  background: var(--primary-color);
+  padding: 0.5rem;
+  border: none;
+  color: white;
+}
+
+.profileAddress_page .profileAddress_header button:hover,
+.profileAddress_page .profileAddress_list li div .profileAddress_edit_btn:hover,
+.profileAddress_page
+  .profileAddress_list
+  li
+  div
+  .profileAddress_delete_btn:hover {
+  cursor: pointer;
+  scale: 1.1;
+}
+
+.profileAddress_page .profileAddress_list {
+  list-style: none;
+}
+
+.profileAddress_page .profileAddress_list li {
+  text-align: left;
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.5rem;
+}
+
+.profileAddress_page .profileAddress_list li div {
+  display: flex;
+  column-gap: 1rem;
+  padding: 0.5rem 0;
+}
+
+.profileAddress_page .profileAddress_list li div .profileAddress_edit_btn {
+  background: var(--primary-color);
+  border: none;
+  padding: 0.5rem 1rem;
+  color: white;
+  border-radius: 5px;
+}
+
+.profileAddress_page .profileAddress_list li div .profileAddress_delete_btn {
+  border: 1.5px solid var(--primary-color);
+  padding: 0.5rem 1rem;
+  color: var(--primary-color);
+  border-radius: 5px;
 }

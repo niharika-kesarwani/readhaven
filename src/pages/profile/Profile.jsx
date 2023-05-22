@@ -12,14 +12,16 @@ export const Profile = () => {
           <li className="profile_list_item">
             <NavLink
               to={`/profile/${routes[index]}`}
-              className="navlink"
-              style={({ isActive }) => ({ color: isActive ? "red" : "blue" })}
+              className={({ isActive }) =>
+                isActive ? "navlink active_navlink" : "navlink"
+              }
             >
               <h2>{heading}</h2>
             </NavLink>
           </li>
         ))}
       </ul>
+      <hr />
       <Outlet />
     </div>
   );

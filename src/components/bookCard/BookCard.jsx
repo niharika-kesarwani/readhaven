@@ -48,7 +48,7 @@ export const BookCard = ({ book }) => {
             <FavoriteBorderIcon className="wishlist_icon" />
           )}
         </div>
-        <div className="books_card_ratings">
+        <div className="book_card_ratings">
           <div>
             <p>{totalStars}</p>
             <StarIcon className="star_icon" />
@@ -56,14 +56,17 @@ export const BookCard = ({ book }) => {
           <div>|</div>
           <p>{totalRatings.toLocaleString("en-US")}</p>
         </div>
-        <div className="books_card_content">
-          <h3 className="books_card_content_title">{title}</h3>
-          <p className="books_card_content_author">{author}</p>
-          <h3 className="books_card_content_price">
+        <div className="book_card_content">
+          <h3 className="book_card_content_title">{title}</h3>
+          <p className="book_card_content_author">{author}</p>
+          <h3 className="book_card_content_price">
             <p>₹ {originalPrice}</p>
             <p>₹ {originalPrice - discountPrice}</p>
           </h3>
-          <button onClick={(e) => cartBtnHandler(e)}>
+          <button
+            className="book_card_button"
+            onClick={(e) => cartBtnHandler(e)}
+          >
             <p>Add to Cart</p>
           </button>
         </div>

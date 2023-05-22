@@ -1,9 +1,9 @@
 .profile_page {
-  width: 100%;
   max-width: 1440px;
   border: 1px solid rgb(198, 197, 197);
   box-shadow: var(--card-box-shadow);
   padding: 1rem;
+  margin: 1rem;
 }
 
 .profile_page .profile_list {
@@ -13,19 +13,31 @@
   align-items: center;
   justify-content: center;
   row-gap: 1rem;
+  padding: 1rem;
 }
 
 .profile_page .profile_list_item .navlink {
   text-decoration: none;
 }
 
+.profile_page .profile_list_item .active_navlink {
+  color: var(--primary-color);
+  text-decoration: underline;
+}
+
 .profile_page .profile_list_item h2 {
   text-transform: uppercase;
+  letter-spacing: 0.15rem;
+}
+
+.profile_page hr {
+  border: 1px solid var(--secondary-color);
 }
 
 @media (min-width: 768px) {
   .profile_page {
-    margin: 0 auto;
+    width: 90%;
+    margin: 2rem auto;
   }
 
   .profile_page .profile_list {
