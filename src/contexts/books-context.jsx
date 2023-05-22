@@ -1,4 +1,10 @@
-import { createContext, useContext, useEffect, useReducer } from "react";
+import {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  useReducer,
+} from "react";
 import { products } from "../backend/db/products";
 import { booksReducer, initialBooksState } from "../reducers/BookReducer";
 import { BooksService } from "../services/books-service/BooksService";
@@ -7,6 +13,7 @@ import { filterTypes } from "../constants/FilterTypes";
 export const BooksContext = createContext();
 
 export const BooksProvider = ({ children }) => {
+  const [displayFilters, setDisplayFilters] = useState(false);
   const [booksState, booksDispatch] = useReducer(
     booksReducer,
     initialBooksState
@@ -76,8 +83,8 @@ export const BooksProvider = ({ children }) => {
   //   ({ wishlist }) => wishlist
   // ).length;
 
-  // const toggleFilters = () =>
-  //   setDisplayFilters((displayFilters) => !displayFilters);
+  const toggleFilters = () =>
+    setDisplayFilters((displayFilters) => !displayFilters);
 
   return (
     <BooksContext.Provider
@@ -89,8 +96,8 @@ export const BooksProvider = ({ children }) => {
         // displayProducts,
         // handleWishlist,
         // wishlistCount,
-        // displayFilters,
-        // toggleFilters,
+        displayFilters,
+        toggleFilters,
       }}
     >
       {children}
