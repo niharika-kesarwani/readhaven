@@ -1,11 +1,41 @@
 import { filterTypes } from "../constants/FilterTypes";
 
-const { DISPLAY_BOOKS } = filterTypes;
+const {
+  DISPLAY_BOOKS,
+  SEARCH_FILTER,
+  SORT_FILTER,
+  RATING_FILTER,
+  CATEGORY_FILTER,
+  CLEAR_FILTER,
+} = filterTypes;
 
 export const booksReducer = (state, { type, payload }) => {
   switch (type) {
     case DISPLAY_BOOKS:
       return { ...state, books: payload };
+    case SEARCH_FILTER:
+      return { ...state, searchInput: payload };
+    case SORT_FILTER:
+      return { ...state, sortInput: payload };
+    case RATING_FILTER:
+      return { ...state, ratingInput: payload };
+    case CATEGORY_FILTER:
+      return state.categoryInput.includes(payload)
+        ? {
+            ...state,
+            categoryInput: state.categoryInput.filter(
+              (category) => category !== payload
+            ),
+          }
+        : {
+            ...state,
+            categoryInput: [...state.categoryInput, payload],
+          };
+    case CLEAR_FILTER:
+      return {
+        ...initialBooksState,
+        books: payload,
+      };
     default:
       return state;
   }
@@ -13,7 +43,6 @@ export const booksReducer = (state, { type, payload }) => {
 
 export const initialBooksState = {
   books: [],
-  filteredBooks: [],
   searchInput: "",
   sortInput: "",
   ratingInput: 1.0,

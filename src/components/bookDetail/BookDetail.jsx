@@ -8,9 +8,12 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 export const BookDetail = () => {
   const { bookId } = useParams();
-  const { displayProducts, handleWishlist } = useBooks();
+  const {
+    booksState: { books },
+    handleWishlist,
+  } = useBooks();
 
-  const selectedBook = displayProducts?.find(({ _id }) => _id === bookId);
+  const selectedBook = books?.find(({ _id }) => _id === bookId);
 
   const {
     _id,

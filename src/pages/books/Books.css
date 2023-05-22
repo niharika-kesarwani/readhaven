@@ -3,6 +3,7 @@
   grid-template-areas: "list";
   text-align: left;
   padding: 2rem 0;
+  width: 100%;
   max-width: 1440px;
   margin: 0 auto;
 }
@@ -113,6 +114,8 @@
   display: flex;
   flex-wrap: wrap;
   padding: 0 1rem;
+  align-content: flex-start;
+  row-gap: 1rem;
 }
 
 .books .books_list .books_list_heading {
@@ -135,7 +138,12 @@
   scale: 1.2;
 }
 
-.books .books_list ul {
+.books .books_list .books_list_block {
+  display: flex;
+  align-items: flex-start;
+}
+
+.books .books_list .books_list_block ul {
   list-style: none;
   display: flex;
   justify-content: space-evenly;
@@ -160,6 +168,7 @@
 @media (min-width: 768px) {
   .books {
     grid-template-areas: "filters list list";
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .books .books_filters {
@@ -207,5 +216,6 @@
 @media (min-width: 1024px) {
   .books {
     grid-template-areas: "filters list list list";
+    grid-template-columns: repeat(4, 1fr);
   }
 }
