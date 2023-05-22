@@ -8,7 +8,12 @@ import CancelIcon from "@mui/icons-material/Cancel";
 
 export const Books = () => {
   const { category } = useParams();
-  const { displayProducts, displayFilters, toggleFilters } = useBooks();
+  const {
+    displayProducts,
+    booksState: { books },
+    displayFilters,
+    toggleFilters,
+  } = useBooks();
   const { categories } = useCategories();
 
   useEffect(() => {
@@ -58,9 +63,9 @@ export const Books = () => {
         <div className="books_filters_category">
           <h3>Sort By Category</h3>
           <ul>
-            {categories?.map(({ categoryName }) => (
-              <p>
-                <input type="checkbox" /> {categoryName}
+            {categories?.map((category) => (
+              <p key={category._id}>
+                <input type="checkbox" /> {category.categoryName}
               </p>
             ))}
           </ul>
@@ -76,8 +81,8 @@ export const Books = () => {
           </div>
         </div>
         <ul>
-          {displayProducts?.map((book) => (
-            <BookCard book={book} />
+          {books?.map((book) => (
+            <BookCard book={book} key={book._id} />
           ))}
         </ul>
       </div>

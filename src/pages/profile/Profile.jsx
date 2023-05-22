@@ -9,7 +9,7 @@ export const Profile = () => {
     <div className="profile_page">
       <ul className="profile_list">
         {headings?.map((heading, index) => (
-          <li className="profile_list_item">
+          <li className="profile_list_item" key={index}>
             <NavLink
               to={`/profile/${routes[index]}`}
               className={({ isActive }) =>

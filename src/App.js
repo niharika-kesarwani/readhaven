@@ -1,6 +1,7 @@
 import "./App.css";
 import Mockman from "mockman-js";
 import { Routes, Route } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
 import { Header } from "./components/header/Header";
 import { Home } from "./pages/home/Home";
 import { Books } from "./pages/books/Books";
@@ -22,6 +23,11 @@ function App() {
   return (
     <>
       <Header />
+      <Toaster
+        position="top-center"
+        reverseOrder={false}
+        containerStyle={{ top: "10%" }}
+      />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/books" element={<Books />} />

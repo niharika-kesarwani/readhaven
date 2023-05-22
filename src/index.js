@@ -4,7 +4,7 @@ import "./index.css";
 import App from "./App";
 import { makeServer } from "./server";
 import { BrowserRouter as Router } from "react-router-dom";
-import { LoginProvider, useLogin } from "./contexts/login-context";
+import { AuthProvider, useAuth } from "./contexts/auth-context";
 import { AddressProvider, useAddress } from "./contexts/address-context";
 import { BooksProvider, useBooks } from "./contexts/books-context";
 import {
@@ -12,7 +12,7 @@ import {
   useCategories,
 } from "./contexts/categories-context";
 
-export { useLogin, useAddress, useBooks, useCategories };
+export { useAuth, useAddress, useBooks, useCategories };
 
 // Call make Server
 makeServer();
@@ -20,7 +20,7 @@ makeServer();
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-      <LoginProvider>
+      <AuthProvider>
         <AddressProvider>
           <BooksProvider>
             <CategoriesProvider>
@@ -28,7 +28,7 @@ ReactDOM.render(
             </CategoriesProvider>
           </BooksProvider>
         </AddressProvider>
-      </LoginProvider>
+      </AuthProvider>
     </Router>
   </React.StrictMode>,
   document.getElementById("root")
