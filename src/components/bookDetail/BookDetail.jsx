@@ -1,6 +1,6 @@
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import "./BookDetail.css";
-import { useBooks, useWishlist } from "../../index";
+import { useBooks, useWishlist, useCart } from "../../index";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import StarIcon from "@mui/icons-material/Star";
@@ -13,6 +13,8 @@ export const BookDetail = () => {
   } = useBooks();
   const { addToWishlist, isPresentInWishlist, deleteFromWishlist } =
     useWishlist();
+  const { isPresentInCart, addToCart } = useCart();
+  const navigate = useNavigate();
 
   const selectedBook = books?.find(({ _id }) => _id === bookId);
 
@@ -36,6 +38,11 @@ export const BookDetail = () => {
     createdAt,
     updatedAt,
   } = selectedBook;
+
+  const addToCartBtnHandler = (e, book) => {
+    e.preventDefault();
+    isPresentInCart(book) === -1 ? addToCart(book) : navigate("/cart");
+  };
 
   return (
     <div className="bookDetail_wrapper">
@@ -86,8 +93,15 @@ export const BookDetail = () => {
               <button key={index}># {genre}</button>
             ))}
           </p>
-          <button className="button">
-            <p>Add To Cart</p>
+          <button
+            className="button"
+            onClick={(e) => addToCartBtnHandler(e, selectedBook)}
+          >
+            <p>
+              {isPresentInCart(selectedBook) === -1
+                ? "Add to Cart"
+                : "Go to Cart"}
+            </p>
             <ShoppingCartIcon />
           </button>
         </div>

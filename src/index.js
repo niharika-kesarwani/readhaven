@@ -12,8 +12,9 @@ import {
   useCategories,
 } from "./contexts/categories-context";
 import { WishlistProvider, useWishlist } from "./contexts/wishlist-context";
+import { CartProvider, useCart } from "./contexts/cart-context";
 
-export { useAuth, useAddress, useBooks, useCategories, useWishlist };
+export { useAuth, useAddress, useBooks, useCategories, useWishlist, useCart };
 
 // Call make Server
 makeServer();
@@ -26,7 +27,9 @@ ReactDOM.render(
           <BooksProvider>
             <CategoriesProvider>
               <WishlistProvider>
-                <App />
+                <CartProvider>
+                  <App />
+                </CartProvider>
               </WishlistProvider>
             </CategoriesProvider>
           </BooksProvider>

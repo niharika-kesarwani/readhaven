@@ -1,13 +1,16 @@
 import "./BookCard.css";
-import { useWishlist } from "../../index.js";
-import { NavLink } from "react-router-dom";
+import { useCart, useWishlist } from "../../index.js";
+import { NavLink, useNavigate } from "react-router-dom";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import StarIcon from "@mui/icons-material/Star";
 
-export const BookCard = ({ book }) => {
+export const BookCard = ({ book, cartPage }) => {
   const { addToWishlist, isPresentInWishlist, deleteFromWishlist } =
     useWishlist();
+  const { addToCart, isPresentInCart, removeFromCart, updateQuantityInCart } =
+    useCart();
+  const navigate = useNavigate();
 
   const {
     _id,
@@ -21,6 +24,7 @@ export const BookCard = ({ book }) => {
     coverImg,
     offers,
     originalPrice,
+    qty,
     discountPercent,
     discountPrice,
     totalRatings,
@@ -30,6 +34,21 @@ export const BookCard = ({ book }) => {
     updatedAt,
     wishlist,
   } = book;
+
+  const addToCartBtnHandler = (e, book) => {
+    e.preventDefault();
+    isPresentInCart(book) === -1 ? addToCart(book) : navigate("/cart");
+  };
+
+  const removeFromCartBtnHandler = (e, book) => {
+    e.preventDefault();
+    removeFromCart(book);
+  };
+
+  const updateQuantityBtnHandler = (e, book, actionType) => {
+    e.preventDefault();
+    updateQuantityInCart(book, actionType);
+  };
 
   return (
     <NavLink to={`/bookDetails/${_id}`} className="book_card_navlink">
@@ -63,9 +82,44 @@ export const BookCard = ({ book }) => {
             <p>₹ {originalPrice}</p>
             <p>₹ {originalPrice - discountPrice}</p>
           </h3>
-          <button className="book_card_button">
-            <p>Add to Cart</p>
-          </button>
+          {!cartPage && (
+            <button
+              className="book_card_button"
+              onClick={(e) => addToCartBtnHandler(e, book)}
+            >
+              <p>
+                {isPresentInCart(book) === -1 ? "Add to Cart" : "Go to Cart"}
+              </p>
+            </button>
+          )}
+          {cartPage && (
+            <div className="book_card_qty_remove">
+              <div className="book_card_qty">
+                <button
+                  disabled={qty === 1}
+                  onClick={(e) =>
+                    updateQuantityBtnHandler(e, book, "decrement")
+                  }
+                >
+                  -
+                </button>
+                <p>{qty}</p>
+                <button
+                  onClick={(e) =>
+                    updateQuantityBtnHandler(e, book, "increment")
+                  }
+                >
+                  +
+                </button>
+              </div>
+              <button
+                className="book_card_button"
+                onClick={(e) => removeFromCartBtnHandler(e, book)}
+              >
+                <p>Remove from Cart</p>
+              </button>
+            </div>
+          )}
         </div>
       </li>{" "}
     </NavLink>

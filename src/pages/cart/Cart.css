@@ -1,4 +1,30 @@
 .cart_page {
   max-width: 1440px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.cart_page .cart_block ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.cart_page .cart_block ul li {
+  box-shadow: var(--card-box-shadow);
+  margin: 1.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
+  max-width: 220px;
+  width: 220px;
+  height: 450px;
+  justify-content: space-between;
+}
+
+.cart_page .cart_block ul li:hover {
+  scale: 1.05;
 }

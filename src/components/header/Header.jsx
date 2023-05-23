@@ -6,7 +6,7 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import PersonIcon from "@mui/icons-material/Person";
 import LoginIcon from "@mui/icons-material/Login";
 import LogoutIcon from "@mui/icons-material/Logout";
-import { useAuth, useBooks, useWishlist } from "../../index.js";
+import { useAuth, useBooks, useCart, useWishlist } from "../../index.js";
 import { filterTypes } from "../../constants/FilterTypes";
 
 export const Header = () => {
@@ -18,6 +18,9 @@ export const Header = () => {
   const {
     wishlistState: { wishlist },
   } = useWishlist();
+  const {
+    cartState: { cart },
+  } = useCart();
   const { SEARCH_FILTER } = filterTypes;
   const navigate = useNavigate();
 
@@ -33,7 +36,7 @@ export const Header = () => {
         </NavLink>
         <NavLink className="navlink cart" to="/cart">
           <ShoppingCartIcon />
-          <p>0</p>
+          <p>{cart.length}</p>
         </NavLink>
         <NavLink className="navlink user" to={token ? "/profile" : "/login"}>
           <PersonIcon />
