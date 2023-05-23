@@ -11,8 +11,9 @@ import {
   CategoriesProvider,
   useCategories,
 } from "./contexts/categories-context";
+import { WishlistProvider, useWishlist } from "./contexts/wishlist-context";
 
-export { useAuth, useAddress, useBooks, useCategories };
+export { useAuth, useAddress, useBooks, useCategories, useWishlist };
 
 // Call make Server
 makeServer();
@@ -24,7 +25,9 @@ ReactDOM.render(
         <AddressProvider>
           <BooksProvider>
             <CategoriesProvider>
-              <App />
+              <WishlistProvider>
+                <App />
+              </WishlistProvider>
             </CategoriesProvider>
           </BooksProvider>
         </AddressProvider>

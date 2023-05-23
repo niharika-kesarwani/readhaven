@@ -6,7 +6,7 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import PersonIcon from "@mui/icons-material/Person";
 import LoginIcon from "@mui/icons-material/Login";
 import LogoutIcon from "@mui/icons-material/Logout";
-import { useBooks } from "../../index.js";
+import { useAuth, useBooks, useWishlist } from "../../index.js";
 import { filterTypes } from "../../constants/FilterTypes";
 
 export const Header = () => {
@@ -14,6 +14,10 @@ export const Header = () => {
     booksState: { searchInput },
     booksDispatch,
   } = useBooks();
+  const { token, logoutHandler } = useAuth();
+  const {
+    wishlistState: { wishlist },
+  } = useWishlist();
   const { SEARCH_FILTER } = filterTypes;
   const navigate = useNavigate();
 
@@ -25,20 +29,21 @@ export const Header = () => {
       <div className="header_action">
         <NavLink className="navlink wishlist" to="/wishlist">
           <FavoriteOutlinedIcon />
-          <p>0</p>
+          <p>{wishlist.length}</p>
         </NavLink>
         <NavLink className="navlink cart" to="/cart">
           <ShoppingCartIcon />
           <p>0</p>
         </NavLink>
-        <NavLink className="navlink user" to="/profile">
+        <NavLink className="navlink user" to={token ? "/profile" : "/login"}>
           <PersonIcon />
         </NavLink>
-        <NavLink className="navlink login" to="/login">
-          <LoginIcon />
-        </NavLink>
-        <NavLink className="navlink logout" to="/logout">
-          <LogoutIcon />
+        <NavLink
+          className="navlink login"
+          to={token ? "/" : "/login"}
+          onClick={token && logoutHandler}
+        >
+          {token ? <LogoutIcon /> : <LoginIcon />}
         </NavLink>
       </div>
       <div className="header_search">

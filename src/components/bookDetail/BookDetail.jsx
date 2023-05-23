@@ -1,6 +1,6 @@
 import { useParams } from "react-router";
 import "./BookDetail.css";
-import { useBooks } from "../../index";
+import { useBooks, useWishlist } from "../../index";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import StarIcon from "@mui/icons-material/Star";
@@ -10,8 +10,9 @@ export const BookDetail = () => {
   const { bookId } = useParams();
   const {
     booksState: { books },
-    handleWishlist,
   } = useBooks();
+  const { addToWishlist, isPresentInWishlist, deleteFromWishlist } =
+    useWishlist();
 
   const selectedBook = books?.find(({ _id }) => _id === bookId);
 
@@ -34,10 +35,7 @@ export const BookDetail = () => {
     __v,
     createdAt,
     updatedAt,
-    wishlist,
   } = selectedBook;
-
-  console.log(selectedBook, selectedBook.wishlist);
 
   return (
     <div className="bookDetail_wrapper">
@@ -49,11 +47,17 @@ export const BookDetail = () => {
               <h2>{title}</h2>
               <h3>{author}</h3>
             </div>
-            <div onClick={() => handleWishlist(selectedBook)}>
-              {wishlist ? (
-                <FavoriteIcon className="wishlist_icon" />
+            <div onClick={(e) => e.preventDefault()}>
+              {isPresentInWishlist(selectedBook) !== -1 ? (
+                <FavoriteIcon
+                  className="wishlist_icon"
+                  onClick={() => deleteFromWishlist(selectedBook)}
+                />
               ) : (
-                <FavoriteBorderIcon className="wishlist_icon" />
+                <FavoriteBorderIcon
+                  className="wishlist_icon"
+                  onClick={() => addToWishlist(selectedBook)}
+                />
               )}
             </div>
           </div>
@@ -78,8 +82,8 @@ export const BookDetail = () => {
           </div>
           <p className="description">{description}</p>
           <p className="genres">
-            {genres?.map((genre) => (
-              <button># {genre}</button>
+            {genres?.map((genre, index) => (
+              <button key={index}># {genre}</button>
             ))}
           </p>
           <button className="button">

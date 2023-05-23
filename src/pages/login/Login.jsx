@@ -18,6 +18,11 @@ export const Login = () => {
     password: "",
   });
 
+  const guestUserDetails = {
+    email: "adarshbalika@gmail.com",
+    password: "adarshbalika",
+  };
+
   const handleInput = (e) =>
     setUserLoginDetails({
       ...userLoginDetails,
@@ -56,14 +61,14 @@ export const Login = () => {
             {login ? <VisibilityOffIcon /> : <VisibilityIcon />}
           </div>
         </label>
-        <label className="login_label_remember">
-          <input type="checkbox" />
-          <h3>Remember Me</h3>
-        </label>
         <button type="submit" className="login_btn login_btn_login">
           <h3>Login</h3>
         </button>
-        <button type="submit" className="login_btn login_btn_test">
+        <button
+          type="submit"
+          className="login_btn login_btn_test"
+          onClick={() => setUserLoginDetails(guestUserDetails)}
+        >
           <h3>Login with Test Credentials</h3>
         </button>
         <NavLink className="navlink" to="/signup">

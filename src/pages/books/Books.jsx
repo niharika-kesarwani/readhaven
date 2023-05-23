@@ -16,7 +16,9 @@ export const Books = () => {
     displayFilters,
     toggleFilters,
   } = useBooks();
-  const { categories } = useCategories();
+  const {
+    categoriesState: { categories },
+  } = useCategories();
 
   const {
     DISPLAY_BOOKS,

@@ -5,12 +5,17 @@ import { filterTypes } from "../../constants/FilterTypes";
 import { useEffect } from "react";
 
 export const Home = () => {
-  const { categories } = useCategories();
+  const {
+    categoriesState: { categories },
+  } = useCategories();
+
   const {
     booksState: { books },
     booksDispatch,
   } = useBooks();
+
   const navigate = useNavigate();
+
   const { CATEGORY_FILTER, CLEAR_FILTER } = filterTypes;
 
   useEffect(() => {

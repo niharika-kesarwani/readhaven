@@ -1,8 +1,9 @@
 import "./ProfileHome.css";
-import { users } from "../../../backend/db/users";
+import { useAuth } from "../../../index";
 
 export const ProfileHome = () => {
-  const { firstName, lastName, email } = users[0];
+  const { currentUser } = useAuth();
+  const { firstName, lastName, email } = currentUser;
 
   return (
     <div className="profileHome_page">

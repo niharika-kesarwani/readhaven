@@ -1,12 +1,13 @@
 import "./BookCard.css";
-import { useBooks } from "../../index.js";
+import { useWishlist } from "../../index.js";
 import { NavLink } from "react-router-dom";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import StarIcon from "@mui/icons-material/Star";
 
 export const BookCard = ({ book }) => {
-  const { handleWishlist } = useBooks();
+  const { addToWishlist, isPresentInWishlist, deleteFromWishlist } =
+    useWishlist();
 
   const {
     _id,
@@ -30,22 +31,21 @@ export const BookCard = ({ book }) => {
     wishlist,
   } = book;
 
-  const wishlistBtnHandler = (e, book) => {
-    e.preventDefault();
-    handleWishlist(book);
-  };
-
-  const cartBtnHandler = (e) => e.preventDefault();
-
   return (
     <NavLink to={`/bookDetails/${_id}`} className="book_card_navlink">
       <li key={_id} className="book_card">
         <img src={coverImg} alt={title} />
-        <div onClick={(e) => wishlistBtnHandler(e, book)}>
-          {wishlist ? (
-            <FavoriteIcon className="wishlist_icon" />
+        <div onClick={(e) => e.preventDefault()}>
+          {isPresentInWishlist(book) !== -1 ? (
+            <FavoriteIcon
+              className="wishlist_icon"
+              onClick={() => deleteFromWishlist(book)}
+            />
           ) : (
-            <FavoriteBorderIcon className="wishlist_icon" />
+            <FavoriteBorderIcon
+              className="wishlist_icon"
+              onClick={() => addToWishlist(book)}
+            />
           )}
         </div>
         <div className="book_card_ratings">
@@ -63,10 +63,7 @@ export const BookCard = ({ book }) => {
             <p>₹ {originalPrice}</p>
             <p>₹ {originalPrice - discountPrice}</p>
           </h3>
-          <button
-            className="book_card_button"
-            onClick={(e) => cartBtnHandler(e)}
-          >
+          <button className="book_card_button">
             <p>Add to Cart</p>
           </button>
         </div>
