@@ -34,7 +34,7 @@ export const CartProvider = ({ children }) => {
 
   useEffect(() => {
     getCart();
-  }, [token]);
+  }, []);
 
   const isPresentInCart = (product) =>
     cartState?.cart?.findIndex(({ _id }) => _id === product?._id);

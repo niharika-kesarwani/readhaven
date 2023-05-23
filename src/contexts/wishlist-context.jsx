@@ -38,7 +38,7 @@ export const WishlistProvider = ({ children }) => {
 
   useEffect(() => {
     getWishlist();
-  }, [token]);
+  }, []);
 
   const addToWishlist = async (product) => {
     try {
