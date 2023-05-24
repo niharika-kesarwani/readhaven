@@ -5,7 +5,7 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import StarIcon from "@mui/icons-material/Star";
 
-export const BookCard = ({ book, cartPage }) => {
+export const BookCard = ({ book, wishlistPage, cartPage }) => {
   const { addToWishlist, isPresentInWishlist, deleteFromWishlist } =
     useWishlist();
   const { addToCart, isPresentInCart, removeFromCart, updateQuantityInCart } =
@@ -82,13 +82,34 @@ export const BookCard = ({ book, cartPage }) => {
             <p>₹ {originalPrice}</p>
             <p>₹ {originalPrice - discountPrice}</p>
           </h3>
-          {!cartPage && (
+          {!cartPage && !wishlistPage && (
             <button
               className="book_card_button"
               onClick={(e) => addToCartBtnHandler(e, book)}
             >
               <p>
                 {isPresentInCart(book) === -1 ? "Add to Cart" : "Go to Cart"}
+              </p>
+            </button>
+          )}
+          {wishlistPage && (
+            <button
+              className="book_card_button"
+              onClick={(e) =>
+                isPresentInCart(book) === -1
+                  ? addToCartBtnHandler(e, book)
+                  : updateQuantityBtnHandler(e, book, "increment")
+              }
+            >
+              <p className="book_card_button_text">
+                {isPresentInCart(book) === -1 ? (
+                  "Add to Cart"
+                ) : (
+                  <div className="book_card_wishlist_qty">
+                    <p>Added to Cart</p>
+                    <p>+</p>
+                  </div>
+                )}
               </p>
             </button>
           )}

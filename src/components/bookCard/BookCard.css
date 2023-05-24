@@ -107,8 +107,21 @@
   border: 1.5px solid var(--secondary-color);
 }
 
-.book_card .book_card_button {
+.book_card .book_card_content .book_card_button {
   border-radius: 5px;
+}
+
+.book_card .book_card_content .book_card_button .book_card_button_text {
+  width: 100%;
+}
+
+.book_card
+  .book_card_content
+  .book_card_button
+  .book_card_button_text
+  .book_card_wishlist_qty {
+  display: flex;
+  justify-content: space-between;
 }
 
 .book_card .book_card_content .book_card_qty_remove {

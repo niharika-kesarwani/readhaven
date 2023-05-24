@@ -27,3 +27,9 @@
 .wishlist_page .wishlist_block ul li:hover {
   scale: 1.05;
 }
+
+@media (min-width: 768px) {
+  .wishlist_page .wishlist_block ul li {
+    width: 220px;
+  }
+}

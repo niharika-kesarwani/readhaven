@@ -20,11 +20,17 @@
   position: relative;
   align-items: center;
   max-width: 220px;
-  width: 220px;
+  width: 190px;
   height: 450px;
   justify-content: space-between;
 }
 
 .cart_page .cart_block ul li:hover {
   scale: 1.05;
+}
+
+@media (min-width: 768px) {
+  .cart_page .cart_block ul li {
+    width: 220px;
+  }
 }

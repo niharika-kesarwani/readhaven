@@ -13,7 +13,7 @@ export const Wishlist = () => {
       <div className="wishlist_block">
         <ul>
           {wishlist?.map((item) => (
-            <BookCard book={item} key={item._id} />
+            <BookCard book={item} key={item._id} wishlistPage />
           ))}
         </ul>
       </div>

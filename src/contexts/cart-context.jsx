@@ -88,7 +88,7 @@ export const CartProvider = ({ children }) => {
         cartDispatch({ type: UPDATE_QUANTITY_IN_CART, payload: cart });
         toast.success(
           `${
-            actionType === "increment" ? "Added" : "Reduced"
+            actionType === "increment" ? "Increased" : "Reduced"
           } quantity in cart successfully!`
         );
       }
