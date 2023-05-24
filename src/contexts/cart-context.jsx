@@ -102,6 +102,16 @@ export const CartProvider = ({ children }) => {
     }
   };
 
+  const totalPrice = cartState?.cart?.reduce(
+    (total, { originalPrice }) => total + originalPrice,
+    0
+  );
+
+  const totalDiscount = cartState?.cart?.reduce(
+    (total, { discountPrice }) => total + discountPrice,
+    0
+  );
+
   return (
     <CartContext.Provider
       value={{
@@ -111,6 +121,8 @@ export const CartProvider = ({ children }) => {
         isPresentInCart,
         removeFromCart,
         updateQuantityInCart,
+        totalPrice,
+        totalDiscount,
       }}
     >
       {children}

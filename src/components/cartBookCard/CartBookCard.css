@@ -1,0 +1,143 @@
+.cart_book_card_navlink {
+  text-decoration: none;
+  color: black;
+  display: flex;
+  justify-content: center;
+}
+
+.cart_book_card {
+  background: var(--book-card-background-color);
+  border-radius: 5px;
+  display: flex;
+  max-height: 250px;
+  width: 90%;
+  margin: 0.5rem 0;
+  padding: 0.5rem 0;
+  position: relative;
+}
+
+.cart_book_card img {
+  height: 100%;
+  width: 50%;
+  object-fit: contain;
+}
+
+.cart_book_card .wishlist_icon {
+  margin: 0.5rem 0.5rem 0 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: var(--original-price-color);
+}
+
+.cart_book_card .wishlist_icon:hover {
+  scale: 1.2;
+  color: var(--original-price-color);
+}
+
+.cart_book_card .cart_book_card_content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: space-between;
+  padding: 1rem;
+  row-gap: 0.5rem;
+  text-align: left;
+}
+
+.cart_book_card .cart_book_card_content .cart_book_card_content_price_wrapper {
+  display: flex;
+}
+
+.cart_book_card .cart_book_card_content .cart_book_card_content_price {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 1rem;
+  color: var(--discounted-price-color);
+}
+
+.cart_book_card
+  .cart_book_card_content
+  .cart_book_card_content_price
+  p:nth-child(1) {
+  text-decoration: line-through;
+  color: var(--original-price-color);
+}
+
+.cart_book_card .cart_book_card_content button {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: var(--secondary-color);
+  border: none;
+  padding: 0.25rem 1rem;
+  text-transform: uppercase;
+}
+
+.cart_book_card .cart_book_card_content button:hover {
+  cursor: pointer;
+  background-color: white;
+  color: black;
+  border: 1.5px solid var(--secondary-color);
+}
+
+.cart_book_card .cart_book_card_content .cart_book_card_button {
+  border-radius: 5px;
+  padding: 0.25rem 0;
+}
+
+.cart_book_card
+  .cart_book_card_content
+  .cart_book_card_button
+  .cart_book_card_button_text
+  .cart_book_card_wishlist_qty {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cart_book_card .cart_book_card_content .cart_book_card_qty_remove {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+}
+
+.cart_book_card
+  .cart_book_card_content
+  .cart_book_card_qty_remove
+  .cart_book_card_qty_wrapper
+  .cart_book_card_qty {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* width: 50%; */
+}
+
+@media (min-width: 375px) {
+  .cart_book_card {
+    padding: 1rem 0;
+  }
+
+  .cart_book_card .cart_book_card_content .cart_book_card_content_price {
+    width: 50%;
+  }
+
+  .cart_book_card
+    .cart_book_card_content
+    .cart_book_card_qty_remove
+    .cart_book_card_qty_wrapper
+    .cart_book_card_qty {
+    width: 50%;
+    column-gap: 1rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .cart_book_card img {
+    width: 70%;
+  }
+
+  .cart_book_card .cart_book_card_content {
+    row-gap: 5%;
+  }
+}
