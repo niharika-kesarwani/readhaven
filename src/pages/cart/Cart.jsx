@@ -27,7 +27,9 @@ export const Cart = () => {
           <div className="cart_block_price_details">
             <div className="cart_block_price_details_heading">
               <h2>Price Details</h2>
-              <h2>({cart?.length} item)</h2>
+              <h2>
+                ({cart?.length} item{cart?.length > 1 && "s"})
+              </h2>
             </div>
             <hr />
             <div className="cart_block_price_details_prices">

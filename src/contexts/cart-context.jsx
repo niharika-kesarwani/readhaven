@@ -103,12 +103,12 @@ export const CartProvider = ({ children }) => {
   };
 
   const totalPrice = cartState?.cart?.reduce(
-    (total, { originalPrice }) => total + originalPrice,
+    (total, { originalPrice, qty }) => total + originalPrice * qty,
     0
   );
 
   const totalDiscount = cartState?.cart?.reduce(
-    (total, { discountPrice }) => total + discountPrice,
+    (total, { discountPrice, qty }) => total + discountPrice * qty,
     0
   );
 

@@ -54,6 +54,7 @@ export const WishlistProvider = ({ children }) => {
       }
     } catch (err) {
       console.error(err);
+      toast.error("Unable to add to wishlist!");
     }
   };
 
@@ -70,6 +71,7 @@ export const WishlistProvider = ({ children }) => {
       }
     } catch (err) {
       console.error(err);
+      toast.error("Unable to delete from wishlist!");
     }
   };
 
