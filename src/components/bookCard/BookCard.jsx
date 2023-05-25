@@ -1,11 +1,12 @@
 import "./BookCard.css";
-import { useCart, useWishlist } from "../../index.js";
+import { useBooks, useCart, useWishlist } from "../../index.js";
 import { NavLink, useNavigate } from "react-router-dom";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import StarIcon from "@mui/icons-material/Star";
 
 export const BookCard = ({ book, wishlistPage, cartPage }) => {
+  const { getBookById } = useBooks();
   const { addToWishlist, isPresentInWishlist, deleteFromWishlist } =
     useWishlist();
   const { addToCart, isPresentInCart, removeFromCart, updateQuantityInCart } =
@@ -51,7 +52,11 @@ export const BookCard = ({ book, wishlistPage, cartPage }) => {
   };
 
   return (
-    <NavLink to={`/bookDetails/${_id}`} className="book_card_navlink">
+    <NavLink
+      onClick={() => getBookById(_id)}
+      to={`/bookDetails/${_id}`}
+      className="book_card_navlink"
+    >
       <li key={_id} className="book_card">
         <img src={coverImg} alt={title} />
         <div onClick={(e) => e.preventDefault()}>

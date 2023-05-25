@@ -7,6 +7,7 @@ const {
   RATING_FILTER,
   CATEGORY_FILTER,
   CLEAR_FILTER,
+  GET_PRODUCT_DETAILS,
 } = filterTypes;
 
 export const booksReducer = (state, { type, payload }) => {
@@ -36,6 +37,8 @@ export const booksReducer = (state, { type, payload }) => {
         ...initialBooksState,
         books: payload,
       };
+    case GET_PRODUCT_DETAILS:
+      return { ...state, bookDetail: payload };
     default:
       return state;
   }
@@ -47,4 +50,5 @@ export const initialBooksState = {
   sortInput: "",
   ratingInput: 1.0,
   categoryInput: [],
+  bookDetail: {},
 };

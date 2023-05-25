@@ -9,6 +9,7 @@ import { products } from "../backend/db/products";
 import { booksReducer, initialBooksState } from "../reducers/BookReducer";
 import { BooksService } from "../services/books-service/BooksService";
 import { filterTypes } from "../constants/FilterTypes";
+import { BooksIdService } from "../services/books-service/BooksIdService";
 
 export const BooksContext = createContext();
 
@@ -18,7 +19,7 @@ export const BooksProvider = ({ children }) => {
     booksReducer,
     initialBooksState
   );
-  const { DISPLAY_BOOKS } = filterTypes;
+  const { DISPLAY_BOOKS, GET_PRODUCT_DETAILS } = filterTypes;
 
   const getBooks = async () => {
     try {
@@ -38,6 +39,21 @@ export const BooksProvider = ({ children }) => {
   useEffect(() => {
     getBooks();
   }, []);
+
+  const getBookById = async (productId) => {
+    try {
+      const response = await BooksIdService(productId);
+      const {
+        status,
+        data: { product },
+      } = response;
+      if (status === 200) {
+        booksDispatch({ type: GET_PRODUCT_DETAILS, payload: product });
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   const searchFilteredBooks =
     booksState?.searchInput.length > 0
@@ -72,17 +88,6 @@ export const BooksProvider = ({ children }) => {
         )
       : ratingFilteredBooks;
 
-  // const handleWishlist = (handleBook) =>
-  //   setDisplayProducts(
-  //     displayProducts?.map((book) =>
-  //       book.id === handleBook.id ? { ...book, wishlist: !book.wishlist } : book
-  //     )
-  //   );
-
-  // const wishlistCount = displayProducts?.filter(
-  //   ({ wishlist }) => wishlist
-  // ).length;
-
   const toggleFilters = () =>
     setDisplayFilters((displayFilters) => !displayFilters);
 
@@ -93,11 +98,9 @@ export const BooksProvider = ({ children }) => {
         booksState,
         categoryFilteredBooks,
         booksDispatch,
-        // displayProducts,
-        // handleWishlist,
-        // wishlistCount,
         displayFilters,
         toggleFilters,
+        getBookById,
       }}
     >
       {children}
