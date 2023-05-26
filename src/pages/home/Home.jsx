@@ -7,6 +7,7 @@ import { useEffect } from "react";
 export const Home = () => {
   const {
     categoriesState: { categories },
+    getCategoryById,
   } = useCategories();
 
   const {
@@ -16,7 +17,7 @@ export const Home = () => {
 
   const navigate = useNavigate();
 
-  const { CATEGORY_FILTER, CLEAR_FILTER } = filterTypes;
+  const { CLEAR_FILTER } = filterTypes;
 
   useEffect(() => {
     booksDispatch({ type: CLEAR_FILTER, payload: books });
@@ -36,10 +37,7 @@ export const Home = () => {
             key={_id}
             className="home_wrapper_item"
             onClick={() => {
-              booksDispatch({
-                type: CATEGORY_FILTER,
-                payload: categoryName,
-              });
+              getCategoryById(_id);
               navigate("/books");
             }}
           >

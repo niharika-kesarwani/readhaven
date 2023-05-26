@@ -1,11 +1,13 @@
 import { categoryTypes } from "../constants/CategoryTypes";
 
-const { DISPLAY_CATEGORIES } = categoryTypes;
+const { DISPLAY_CATEGORIES, GET_CATEGORY_DETAILS } = categoryTypes;
 
 export const categoriesReducer = (state, { type, payload }) => {
   switch (type) {
     case DISPLAY_CATEGORIES:
       return { ...state, categories: payload };
+    case GET_CATEGORY_DETAILS:
+      return { ...state, categoryDetail: payload };
     default:
       return state;
   }
@@ -13,4 +15,5 @@ export const categoriesReducer = (state, { type, payload }) => {
 
 export const initialCategoriesState = {
   categories: [],
+  categoryDetail: {},
 };

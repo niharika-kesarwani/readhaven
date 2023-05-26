@@ -4,7 +4,10 @@ import {
   categoriesReducer,
   initialCategoriesState,
 } from "../reducers/CategoryReducer";
+import { filterTypes } from "../constants/FilterTypes";
 import { categoryTypes } from "../constants/CategoryTypes";
+import { CategoriesIdService } from "../services/books-service/CategoriesIdService";
+import { useBooks } from "./books-context";
 
 export const CategoriesContext = createContext();
 
@@ -13,7 +16,11 @@ export const CategoriesProvider = ({ children }) => {
     categoriesReducer,
     initialCategoriesState
   );
-  const { DISPLAY_CATEGORIES } = categoryTypes;
+
+  const { booksDispatch } = useBooks();
+
+  const { CATEGORY_FILTER } = filterTypes;
+  const { DISPLAY_CATEGORIES, GET_CATEGORY_DETAILS } = categoryTypes;
 
   const getCategories = async () => {
     try {
@@ -34,8 +41,30 @@ export const CategoriesProvider = ({ children }) => {
     getCategories();
   }, []);
 
+  const getCategoryById = async (categoryId) => {
+    try {
+      const response = await CategoriesIdService(categoryId);
+      const {
+        status,
+        data: { category },
+      } = response;
+      if (status === 200) {
+        console.log(category);
+        categoriesDispatch({ type: GET_CATEGORY_DETAILS, payload: category });
+        booksDispatch({
+          type: CATEGORY_FILTER,
+          payload: category.categoryName,
+        });
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   return (
-    <CategoriesContext.Provider value={{ categoriesState, categoriesDispatch }}>
+    <CategoriesContext.Provider
+      value={{ categoriesState, categoriesDispatch, getCategoryById }}
+    >
       {children}
     </CategoriesContext.Provider>
   );

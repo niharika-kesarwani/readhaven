@@ -1,6 +1,5 @@
 import "./Books.css";
 import { useEffect } from "react";
-import { useParams } from "react-router";
 import { useBooks, useCategories } from "../../index.js";
 import { BookCard } from "../../components/bookCard/BookCard";
 import { filterTypes } from "../../constants/FilterTypes";
@@ -8,7 +7,6 @@ import TuneIcon from "@mui/icons-material/Tune";
 import CancelIcon from "@mui/icons-material/Cancel";
 
 export const Books = () => {
-  const { category } = useParams();
   const {
     booksState: { books, ratingInput, categoryInput },
     categoryFilteredBooks,
@@ -16,18 +14,13 @@ export const Books = () => {
     displayFilters,
     toggleFilters,
   } = useBooks();
-  const {
-    categoriesState: { categories },
-  } = useCategories();
 
   const {
-    DISPLAY_BOOKS,
-    SEARCH_FILTER,
-    SORT_FILTER,
-    RATING_FILTER,
-    CATEGORY_FILTER,
-    CLEAR_FILTER,
-  } = filterTypes;
+    categoriesState: { categories },
+    getCategoryById,
+  } = useCategories();
+
+  const { SORT_FILTER, RATING_FILTER, CLEAR_FILTER } = filterTypes;
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -102,19 +95,14 @@ export const Books = () => {
         <div className="books_filters_category">
           <h3>Sort By Category</h3>
           <ul>
-            {categories?.map((category) => (
-              <p key={category._id}>
+            {categories?.map(({ _id, categoryName }) => (
+              <p key={_id}>
                 <input
                   type="checkbox"
-                  checked={categoryInput.includes(category.categoryName)}
-                  onChange={(e) =>
-                    booksDispatch({
-                      type: CATEGORY_FILTER,
-                      payload: category.categoryName,
-                    })
-                  }
+                  checked={categoryInput.includes(categoryName)}
+                  onChange={() => getCategoryById(_id)}
                 />{" "}
-                {category.categoryName}
+                {categoryName}
               </p>
             ))}
           </ul>
