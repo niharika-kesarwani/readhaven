@@ -2,7 +2,9 @@ import "./ProfileAddress.css";
 import { useAddress } from "../../../index";
 
 export const ProfileAddress = () => {
-  const { address } = useAddress();
+  const {
+    addressState: { address },
+  } = useAddress();
 
   return (
     <div className="profileAddress_page">
@@ -14,7 +16,7 @@ export const ProfileAddress = () => {
       </div>
       <hr />
       <ul className="profileAddress_list">
-        {address.map((add) => {
+        {address?.map((add) => {
           const { id, name, area, city, state, pincode, phoneNumber } = add;
           return (
             <li key={id}>

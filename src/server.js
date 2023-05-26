@@ -1,5 +1,11 @@
 import { Server, Model, RestSerializer } from "miragejs";
 import {
+  getAllAddressesHandler,
+  addNewAddressHandler,
+  editAddressHandler,
+  removeAddressHandler,
+} from "./backend/controllers/AddressController";
+import {
   loginHandler,
   signupHandler,
 } from "./backend/controllers/AuthController";
@@ -84,6 +90,15 @@ export function makeServer({ environment = "development" } = {}) {
       this.delete(
         "/user/wishlist/:productId",
         removeItemFromWishlistHandler.bind(this)
+      );
+
+      //address routes (private)
+      this.get("/user/addresses", getAllAddressesHandler.bind(this));
+      this.post("/user/address/add", addNewAddressHandler.bind(this));
+      this.post("/user/address/edit/:addressId", editAddressHandler.bind(this));
+      this.delete(
+        "/user/address/remove/:addressId",
+        removeAddressHandler.bind(this)
       );
     },
   });

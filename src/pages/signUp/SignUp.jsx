@@ -95,7 +95,7 @@ export const SignUp = () => {
           </div>
         </label>
         <label className="signUp_label_accept">
-          <input type="checkbox" />
+          <input type="checkbox" required />
           <h3>I accept terms and conditions</h3>
         </label>
         <button type="submit" className="signUp_btn">

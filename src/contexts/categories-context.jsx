@@ -49,7 +49,6 @@ export const CategoriesProvider = ({ children }) => {
         data: { category },
       } = response;
       if (status === 200) {
-        console.log(category);
         categoriesDispatch({ type: GET_CATEGORY_DETAILS, payload: category });
         booksDispatch({
           type: CATEGORY_FILTER,

@@ -49,12 +49,13 @@
   margin: 0;
 }
 
+.header .header_action .store,
 .header .header_action .wishlist,
 .header .header_action .cart,
 .header .header_action .user,
 .header .header_action .login,
 .header .header_action .logout {
-  padding: 10px 5px;
+  padding: 10px 3px;
   scale: 0.8;
 }
 
@@ -62,6 +63,7 @@
   display: none;
 }
 
+.header .header_action .store:hover,
 .header .header_action .wishlist:hover,
 .header .header_action .cart:hover,
 .header .header_action .user:hover,
@@ -104,15 +106,17 @@
     margin: 0;
   }
 
+  .header .header_action .store,
   .header .header_action .wishlist,
   .header .header_action .cart,
   .header .header_action .user,
   .header .header_action .login,
   .header .header_action .logout {
-    padding: 10px 15px;
+    padding: 10px;
     scale: 1;
   }
 
+  .header .header_action .store:hover,
   .header .header_action .wishlist:hover,
   .header .header_action .cart:hover,
   .header .header_action .user:hover,
@@ -128,6 +132,7 @@
 }
 
 @media (min-width: 1024px) {
+  .header .header_action .store,
   .header .header_action .wishlist,
   .header .header_action .cart,
   .header .header_action .user,
@@ -137,6 +142,7 @@
     scale: 1.2;
   }
 
+  .header .header_action .store:hover,
   .header .header_action .wishlist:hover,
   .header .header_action .cart:hover,
   .header .header_action .user:hover,

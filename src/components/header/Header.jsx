@@ -1,6 +1,7 @@
 import "./Header.css";
 import { NavLink, useNavigate } from "react-router-dom";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
+import LocalOfferIcon from "@mui/icons-material/LocalOffer";
 import FavoriteOutlinedIcon from "@mui/icons-material/FavoriteOutlined";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import PersonIcon from "@mui/icons-material/Person";
@@ -30,6 +31,9 @@ export const Header = () => {
         <h1 className="header_heading">READHAVEN</h1>
       </NavLink>
       <div className="header_action">
+        <NavLink className="navlink store" to="/books">
+          <LocalOfferIcon />
+        </NavLink>
         <NavLink className="navlink wishlist" to="/wishlist">
           <FavoriteOutlinedIcon />
           <p>{wishlist.length}</p>
