@@ -8,7 +8,7 @@ import CancelIcon from "@mui/icons-material/Cancel";
 
 export const Books = () => {
   const {
-    booksState: { books, ratingInput, categoryInput },
+    booksState: { books, ratingInput, categoryInput, sortInput },
     categoryFilteredBooks,
     booksDispatch,
     displayFilters,
@@ -57,6 +57,7 @@ export const Books = () => {
             <input
               type="radio"
               name="sort"
+              checked={sortInput?.includes("HTL")}
               onChange={() =>
                 booksDispatch({ type: SORT_FILTER, payload: "HTL" })
               }
@@ -67,6 +68,7 @@ export const Books = () => {
             <input
               type="radio"
               name="sort"
+              checked={sortInput?.includes("LTH")}
               onChange={() =>
                 booksDispatch({ type: SORT_FILTER, payload: "LTH" })
               }
