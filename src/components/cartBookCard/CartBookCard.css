@@ -111,12 +111,12 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* width: 50%; */
 }
 
 @media (min-width: 375px) {
   .cart_book_card {
     padding: 1rem 0;
+    min-width: 350px;
   }
 
   .cart_book_card .cart_book_card_content .cart_book_card_content_price {
@@ -134,6 +134,10 @@
 }
 
 @media (min-width: 768px) {
+  .cart_book_card {
+    min-width: 500px;
+  }
+
   .cart_book_card img {
     width: 70%;
   }

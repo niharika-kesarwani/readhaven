@@ -1,4 +1,10 @@
-import { createContext, useContext, useEffect, useReducer } from "react";
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useReducer,
+  useState,
+} from "react";
 import { AddressService } from "../services/address-service/AddressService";
 import { AddAddressService } from "../services/address-service/AddAddressService";
 import { EditAddressService } from "../services/address-service/EditAddressService";
@@ -21,21 +27,26 @@ export const AddressProvider = ({ children }) => {
     addressReducer,
     initialAddressState
   );
+  const [isLoadingAddress, setIsLoadingAddress] = useState(false);
+  const [isErrorAddress, setIsErrorAddress] = useState(false);
 
   const getAllAddress = async () => {
     try {
+      setIsLoadingAddress(true);
       const response = await AddressService(token);
       const {
         status,
         data: { address },
       } = response;
       if (status === 200) {
+        setIsLoadingAddress(false);
         addressDispatch({
           type: DISPLAY_ADDRESSES,
           payload: address,
         });
       }
     } catch (err) {
+      setIsErrorAddress(true);
       console.error(err);
     }
   };
@@ -98,6 +109,8 @@ export const AddressProvider = ({ children }) => {
   return (
     <AddressContext.Provider
       value={{
+        isLoadingAddress,
+        isErrorAddress,
         addressState,
         addressDispatch,
         addToAddress,

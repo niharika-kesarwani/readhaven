@@ -1,4 +1,10 @@
-import { createContext, useContext, useEffect, useReducer } from "react";
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useReducer,
+  useState,
+} from "react";
 import { CategoriesService } from "../services/books-service/CategoriesService";
 import {
   categoriesReducer,
@@ -16,6 +22,8 @@ export const CategoriesProvider = ({ children }) => {
     categoriesReducer,
     initialCategoriesState
   );
+  const [isLoadingCategories, setIsLoadingCategories] = useState(false);
+  const [isErrorCategories, setIsErrorCategories] = useState(false);
 
   const { booksDispatch } = useBooks();
 
@@ -24,15 +32,18 @@ export const CategoriesProvider = ({ children }) => {
 
   const getCategories = async () => {
     try {
+      setIsLoadingCategories(true);
       const response = await CategoriesService();
       const {
         status,
         data: { categories },
       } = response;
       if (status === 200) {
+        setIsLoadingCategories(false);
         categoriesDispatch({ type: DISPLAY_CATEGORIES, payload: categories });
       }
     } catch (err) {
+      setIsErrorCategories(true);
       console.error(err);
     }
   };
@@ -43,12 +54,14 @@ export const CategoriesProvider = ({ children }) => {
 
   const getCategoryById = async (categoryId) => {
     try {
+      setIsLoadingCategories(true);
       const response = await CategoriesIdService(categoryId);
       const {
         status,
         data: { category },
       } = response;
       if (status === 200) {
+        setIsLoadingCategories(false);
         categoriesDispatch({ type: GET_CATEGORY_DETAILS, payload: category });
         booksDispatch({
           type: CATEGORY_FILTER,
@@ -56,13 +69,20 @@ export const CategoriesProvider = ({ children }) => {
         });
       }
     } catch (err) {
+      setIsErrorCategories(true);
       console.error(err);
     }
   };
 
   return (
     <CategoriesContext.Provider
-      value={{ categoriesState, categoriesDispatch, getCategoryById }}
+      value={{
+        isLoadingCategories,
+        isErrorCategories,
+        categoriesState,
+        categoriesDispatch,
+        getCategoryById,
+      }}
     >
       {children}
     </CategoriesContext.Provider>

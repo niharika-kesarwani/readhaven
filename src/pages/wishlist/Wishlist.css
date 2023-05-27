@@ -6,6 +6,27 @@
   row-gap: 1rem;
 }
 
+.wishlist_page .wishlist_block .wishlist_empty {
+  color: var(--primary-color);
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+  margin: 1rem;
+}
+
+.wishlist_page .wishlist_block .wishlist_empty button {
+  width: 100%;
+  background: var(--secondary-color);
+  padding: 0.25rem 0.5rem;
+  border-radius: 5px;
+  border: 1px solid var(--primary-color);
+}
+
+.wishlist_page .wishlist_block .wishlist_empty button:hover {
+  scale: 1.1;
+  cursor: pointer;
+}
+
 .wishlist_page .wishlist_block ul {
   list-style: none;
   display: flex;

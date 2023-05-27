@@ -14,24 +14,30 @@ import { BooksIdService } from "../services/books-service/BooksIdService";
 export const BooksContext = createContext();
 
 export const BooksProvider = ({ children }) => {
+  const { DISPLAY_BOOKS, GET_PRODUCT_DETAILS } = filterTypes;
+
   const [displayFilters, setDisplayFilters] = useState(false);
   const [booksState, booksDispatch] = useReducer(
     booksReducer,
     initialBooksState
   );
-  const { DISPLAY_BOOKS, GET_PRODUCT_DETAILS } = filterTypes;
+  const [isLoadingBooks, setIsLoadingBooks] = useState(false);
+  const [isErrorBooks, setIsErrorBooks] = useState(false);
 
   const getBooks = async () => {
     try {
+      setIsLoadingBooks(true);
       const response = await BooksService();
       const {
         status,
         data: { products },
       } = response;
       if (status === 200) {
+        setIsLoadingBooks(false);
         booksDispatch({ type: DISPLAY_BOOKS, payload: products });
       }
     } catch (err) {
+      setIsErrorBooks(true);
       console.error(err);
     }
   };
@@ -94,6 +100,8 @@ export const BooksProvider = ({ children }) => {
   return (
     <BooksContext.Provider
       value={{
+        isLoadingBooks,
+        isErrorBooks,
         products,
         booksState,
         categoryFilteredBooks,

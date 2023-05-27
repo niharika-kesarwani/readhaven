@@ -1,4 +1,10 @@
-import { createContext, useContext, useEffect, useReducer } from "react";
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useReducer,
+  useState,
+} from "react";
 import { cartReducer, initialCartState } from "../reducers/CartReducer";
 import { GetCartService } from "../services/cart-service/GetCartService";
 import { AddToCartService } from "../services/cart-service/AddToCartService";
@@ -16,18 +22,23 @@ export const CartContext = createContext();
 export const CartProvider = ({ children }) => {
   const { token } = useAuth();
   const [cartState, cartDispatch] = useReducer(cartReducer, initialCartState);
+  const [isLoadingCart, setIsLoadingCart] = useState(false);
+  const [isErrorCart, setIsErrorCart] = useState(false);
 
   const getCart = async () => {
     try {
+      setIsLoadingCart(true);
       const response = await GetCartService(token);
       const {
         status,
         data: { cart },
       } = response;
       if (status === 200) {
+        setIsLoadingCart(false);
         cartDispatch({ type: DISPLAY_CART, payload: cart });
       }
     } catch (err) {
+      setIsErrorCart(true);
       console.error(err);
     }
   };
@@ -115,6 +126,8 @@ export const CartProvider = ({ children }) => {
   return (
     <CartContext.Provider
       value={{
+        isLoadingCart,
+        isErrorCart,
         cartState,
         cartDispatch,
         addToCart,

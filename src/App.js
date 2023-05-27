@@ -24,7 +24,7 @@ function App() {
     <>
       <Header />
       <Toaster
-        position="top-center"
+        position="top-right"
         reverseOrder={false}
         containerStyle={{ top: "10%" }}
       />

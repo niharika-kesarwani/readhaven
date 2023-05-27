@@ -3,9 +3,13 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { useBooks, useCategories } from "../../index";
 import { filterTypes } from "../../constants/FilterTypes";
 import { useEffect } from "react";
+import { Loader } from "../../components/loader/Loader";
+import { Error } from "../../components/error/Error";
 
 export const Home = () => {
   const {
+    isLoadingCategories,
+    isErrorCategories,
     categoriesState: { categories },
     getCategoryById,
   } = useCategories();
@@ -31,21 +35,27 @@ export const Home = () => {
         </NavLink>
       </div>
       <h1>Browse by Category</h1>
-      <ul className="home_wrapper">
-        {categories?.map(({ _id, categoryName }) => (
-          <button
-            key={_id}
-            className="home_wrapper_item"
-            onClick={() => {
-              getCategoryById(_id);
-              navigate("/books");
-            }}
-          >
-            <p>{categoryName}</p>
-            <p>|</p>
-          </button>
-        ))}
-      </ul>
+      {isLoadingCategories ? (
+        <Loader />
+      ) : isErrorCategories ? (
+        <Error />
+      ) : (
+        <ul className="home_wrapper">
+          {categories?.map(({ _id, categoryName }) => (
+            <button
+              key={_id}
+              className="home_wrapper_item"
+              onClick={() => {
+                getCategoryById(_id);
+                navigate("/books");
+              }}
+            >
+              <p>{categoryName}</p>
+              <p>|</p>
+            </button>
+          ))}
+        </ul>
+      )}
     </div>
   );
 };

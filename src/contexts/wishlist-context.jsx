@@ -1,4 +1,10 @@
-import { createContext, useContext, useEffect, useReducer } from "react";
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useReducer,
+  useState,
+} from "react";
 import { WishlistService } from "../services/wishlist-service/WishlistService";
 import { useAuth } from "../index";
 import {
@@ -14,24 +20,30 @@ export const WishlistContext = createContext();
 
 export const WishlistProvider = ({ children }) => {
   const { token } = useAuth();
+  const { DISPLAY_WISHLIST, ADD_TO_WISHLIST, DELETE_FROM_WISHLIST } =
+    wishlistTypes;
+
   const [wishlistState, wishlistDispatch] = useReducer(
     wishlistReducer,
     initialWishlistState
   );
-  const { DISPLAY_WISHLIST, ADD_TO_WISHLIST, DELETE_FROM_WISHLIST } =
-    wishlistTypes;
+  const [isLoadingWishlist, setIsLoadingWishlist] = useState(false);
+  const [isErroWishlist, setIsErrorWishlist] = useState(false);
 
   const getWishlist = async () => {
     try {
+      setIsLoadingWishlist(true);
       const response = await WishlistService(token);
       const {
         status,
         data: { wishlist },
       } = response;
       if (status === 200) {
+        setIsLoadingWishlist(false);
         wishlistDispatch({ type: DISPLAY_WISHLIST, payload: wishlist });
       }
     } catch (err) {
+      setIsErrorWishlist(true);
       console.error(err);
     }
   };
@@ -81,6 +93,8 @@ export const WishlistProvider = ({ children }) => {
   return (
     <WishlistContext.Provider
       value={{
+        isLoadingWishlist,
+        isErroWishlist,
         wishlistState,
         wishlistDispatch,
         addToWishlist,

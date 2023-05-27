@@ -5,6 +5,7 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import StarIcon from "@mui/icons-material/Star";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { Loader } from "../loader/Loader";
 
 export const BookDetail = () => {
   const { bookId } = useParams();
@@ -47,7 +48,9 @@ export const BookDetail = () => {
 
   return (
     <div className="bookDetail_wrapper">
-      {bookId === _id && (
+      {bookId !== _id ? (
+        <Loader />
+      ) : (
         <div className="bookDetail">
           <img src={coverImg} alt={title} />
           <div className="bookDetail_content">

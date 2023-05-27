@@ -5,9 +5,13 @@ import { BookCard } from "../../components/bookCard/BookCard";
 import { filterTypes } from "../../constants/FilterTypes";
 import TuneIcon from "@mui/icons-material/Tune";
 import CancelIcon from "@mui/icons-material/Cancel";
+import { Loader } from "../../components/loader/Loader";
+import { Error } from "../../components/error/Error";
 
 export const Books = () => {
   const {
+    isLoadingBooks,
+    isErrorBooks,
     booksState: { books, ratingInput, categoryInput, sortInput },
     categoryFilteredBooks,
     booksDispatch,
@@ -16,6 +20,8 @@ export const Books = () => {
   } = useBooks();
 
   const {
+    isLoadingCategories,
+    isErrorCategories,
     categoriesState: { categories },
     getCategoryById,
   } = useCategories();
@@ -96,18 +102,24 @@ export const Books = () => {
         <hr />
         <div className="books_filters_category">
           <h3>Sort By Category</h3>
-          <ul>
-            {categories?.map(({ _id, categoryName }) => (
-              <p key={_id}>
-                <input
-                  type="checkbox"
-                  checked={categoryInput.includes(categoryName)}
-                  onChange={() => getCategoryById(_id)}
-                />{" "}
-                {categoryName}
-              </p>
-            ))}
-          </ul>
+          {isLoadingCategories ? (
+            <Loader />
+          ) : isErrorCategories ? (
+            <Error />
+          ) : (
+            <ul>
+              {categories?.map(({ _id, categoryName }) => (
+                <p key={_id}>
+                  <input
+                    type="checkbox"
+                    checked={categoryInput.includes(categoryName)}
+                    onChange={() => getCategoryById(_id)}
+                  />{" "}
+                  {categoryName}
+                </p>
+              ))}
+            </ul>
+          )}
         </div>
       </div>
       <div className="books_list">
@@ -120,13 +132,19 @@ export const Books = () => {
             <TuneIcon className="tune-icon" />
           </div>
         </div>
-        <div className="books_list_block">
-          <ul>
-            {categoryFilteredBooks?.map((book) => (
-              <BookCard book={book} key={book._id} />
-            ))}
-          </ul>
-        </div>
+        {isLoadingBooks || isLoadingCategories ? (
+          <Loader />
+        ) : isErrorBooks || isLoadingCategories ? (
+          <Error />
+        ) : (
+          <div className="books_list_block">
+            <ul>
+              {categoryFilteredBooks?.map((book) => (
+                <BookCard book={book} key={book._id} />
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
     </div>
   );

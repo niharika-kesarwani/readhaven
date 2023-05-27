@@ -3,12 +3,35 @@
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+  row-gap: 1rem;
+}
+
+.cart_page .cart_empty {
+  color: var(--primary-color);
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+  margin: 1rem;
+}
+
+.cart_page .cart_empty button {
+  width: 100%;
+  background: var(--secondary-color);
+  padding: 0.25rem 0.5rem;
+  border-radius: 5px;
+  border: 1px solid var(--primary-color);
+}
+
+.cart_page .cart_empty button:hover {
+  scale: 1.1;
+  cursor: pointer;
 }
 
 .cart_page .cart_block {
   display: grid;
   grid-template-areas: "price_details", "items";
-  margin: 1rem;
+  margin: 0.5rem 0;
+  width: 100%;
 }
 
 .cart_page .cart_block .cart_block_items {
@@ -36,6 +59,15 @@
   margin: 0.5rem 0 1rem;
   row-gap: 1rem;
   border-radius: 5px;
+}
+
+.cart_page
+  .cart_block
+  .cart_block_price_details_wrapper
+  .cart_block_price_details
+  .cart_block_rupee:before {
+  content: "₹";
+  padding-right: 0.25rem;
 }
 
 .cart_page
@@ -117,5 +149,11 @@
     .cart_block_price_details_wrapper
     .cart_block_price_details {
     width: 100%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .cart_page .cart_block {
+    margin: 1rem;
   }
 }
