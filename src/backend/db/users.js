@@ -17,7 +17,7 @@ export const users = [
     updatedAt: formatDate(),
     address: [
       {
-        id: uuid(),
+        _id: uuid(),
         name: "Kim Seokjin",
         area: "Gangnam-gu",
         city: "Seoul",
@@ -26,7 +26,7 @@ export const users = [
         phoneNumber: "1234567890",
       },
       {
-        id: uuid(),
+        _id: uuid(),
         name: "Katrina Kaif",
         area: "0B-09 & G-10 Ground Floor, Mourya House, Next to VIP Plaza, New Link Road, Andheri West",
         city: "Mumbai",

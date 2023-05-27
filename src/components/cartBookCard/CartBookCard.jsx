@@ -63,10 +63,10 @@ export const CartBookCard = ({ book, wishlistPage, cartPage }) => {
           <h3 className="cart_book_card_content_title">{title}</h3>
           <p className="cart_book_card_content_author">{author}</p>
           <div className="cart_book_card_content_price_wrapper">
-            <h3 className="cart_book_card_content_price">
+            <div className="cart_book_card_content_price">
               <p>₹ {originalPrice}</p>
               <h2>₹ {originalPrice - discountPrice}</h2>
-            </h3>
+            </div>
           </div>
           <div className="cart_book_card_qty_remove">
             <div className="cart_book_card_qty_wrapper">

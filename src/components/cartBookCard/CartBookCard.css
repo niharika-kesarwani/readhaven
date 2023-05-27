@@ -55,6 +55,7 @@
   align-items: center;
   column-gap: 1rem;
   color: var(--discounted-price-color);
+  font-weight: bold;
 }
 
 .cart_book_card

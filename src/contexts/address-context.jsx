@@ -9,12 +9,13 @@ import {
   initialAddressState,
 } from "../reducers/AddressReducer";
 import { addressTypes } from "../constants/AddressTypes";
+import { toast } from "react-hot-toast";
 
 export const AddressContext = createContext();
 
 export const AddressProvider = ({ children }) => {
   const { token } = useAuth();
-  const { DISPLAY_ADDRESSES } = addressTypes;
+  const { DISPLAY_ADDRESSES, ADD_TO_ADDRESS, REMOVE_ADDRESS } = addressTypes;
 
   const [addressState, addressDispatch] = useReducer(
     addressReducer,
@@ -47,41 +48,46 @@ export const AddressProvider = ({ children }) => {
         data: { address },
       } = response;
       if (status === 201) {
+        addressDispatch({ type: ADD_TO_ADDRESS, payload: address });
+        toast.success("Added new address successfully!");
       }
     } catch (err) {
       console.error(err);
+      toast.error("Unable to add new address!");
     }
   };
 
-  const editAddress = async () => {
+  const editAddress = async (addressId, newAddress) => {
     try {
-      const response = await EditAddressService(
-        1,
-        addressState.address[0],
-        token
-      );
+      const response = await EditAddressService(addressId, newAddress, token);
       const {
         status,
         data: { address },
       } = response;
       if (status === 201) {
+        addressDispatch({ type: DISPLAY_ADDRESSES, payload: address });
+        toast.success("Updated address details successfully!");
       }
     } catch (err) {
       console.error(err);
+      toast.error("Unable to update address details!");
     }
   };
 
-  const removeAddress = async () => {
+  const removeAddress = async (addressId) => {
     try {
-      const response = await RemoveAddressService(1, token);
+      const response = await RemoveAddressService(addressId, token);
       const {
         status,
         data: { address },
       } = response;
       if (status === 200) {
+        addressDispatch({ type: REMOVE_ADDRESS, payload: address });
+        toast.success("Removed address successfully!");
       }
     } catch (err) {
       console.error(err);
+      toast.error("Unable to remove address!");
     }
   };
 
@@ -91,7 +97,13 @@ export const AddressProvider = ({ children }) => {
 
   return (
     <AddressContext.Provider
-      value={{ addressState, addToAddress, editAddress, removeAddress }}
+      value={{
+        addressState,
+        addressDispatch,
+        addToAddress,
+        editAddress,
+        removeAddress,
+      }}
     >
       {children}
     </AddressContext.Provider>

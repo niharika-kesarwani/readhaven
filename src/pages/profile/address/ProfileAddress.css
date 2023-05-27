@@ -61,3 +61,13 @@
   color: var(--primary-color);
   border-radius: 5px;
 }
+
+.profileAddress_page .profileAddress_modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  background-color: var(--modal-background-color);
+}
