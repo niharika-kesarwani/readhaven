@@ -18,6 +18,7 @@ import { Logout } from "./pages/logout/Logout";
 import { Error } from "./components/error/Error";
 import { Footer } from "./components/footer/Footer";
 import { GoToTop } from "./components/goToTop/GoToTop";
+import { RequiresAuth } from "./components/RequiresAuth";
 
 function App() {
   return (
@@ -32,11 +33,32 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/books" element={<Books />} />
         <Route path="/bookDetails/:bookId" element={<BookDetail />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/wishlist" element={<Wishlist />} />
+        <Route
+          path="/cart"
+          element={
+            <RequiresAuth>
+              <Cart />
+            </RequiresAuth>
+          }
+        />
+        <Route
+          path="/wishlist"
+          element={
+            <RequiresAuth>
+              <Wishlist />
+            </RequiresAuth>
+          }
+        />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/profile" element={<Profile />}>
+        <Route
+          path="/profile"
+          element={
+            <RequiresAuth>
+              <Profile />
+            </RequiresAuth>
+          }
+        >
           <Route path="" element={<ProfileHome />} />
           <Route path="address" element={<ProfileAddress />} />
           <Route path="orders" element={<ProfileOrders />} />

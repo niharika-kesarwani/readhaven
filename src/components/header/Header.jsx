@@ -42,12 +42,12 @@ export const Header = () => {
           <ShoppingCartIcon />
           <p>{cart.length}</p>
         </NavLink>
-        <NavLink className="navlink user" to={token ? "/profile" : "/login"}>
+        <NavLink className="navlink user" to="/profile">
           <PersonIcon />
         </NavLink>
         <NavLink
           className="navlink login"
-          to={token ? "/" : "/login"}
+          to={!token && "/login"}
           onClick={token && logoutHandler}
         >
           {token ? <LogoutIcon /> : <LoginIcon />}

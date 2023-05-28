@@ -1,9 +1,10 @@
 import "./BookCard.css";
-import { useBooks, useCart, useWishlist } from "../../index.js";
+import { useAuth, useBooks, useCart, useWishlist } from "../../index.js";
 import { NavLink, useNavigate } from "react-router-dom";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import StarIcon from "@mui/icons-material/Star";
+import { toast } from "react-hot-toast";
 
 export const BookCard = ({ book, wishlistPage, cartPage }) => {
   const { getBookById } = useBooks();
@@ -12,6 +13,7 @@ export const BookCard = ({ book, wishlistPage, cartPage }) => {
   const { addToCart, isPresentInCart, removeFromCart, updateQuantityInCart } =
     useCart();
   const navigate = useNavigate();
+  const { token } = useAuth();
 
   const {
     _id,
@@ -38,7 +40,12 @@ export const BookCard = ({ book, wishlistPage, cartPage }) => {
 
   const addToCartBtnHandler = (e, book) => {
     e.preventDefault();
-    isPresentInCart(book) === -1 ? addToCart(book) : navigate("/cart");
+    if (token) {
+      isPresentInCart(book) === -1 ? addToCart(book) : navigate("/cart");
+    } else {
+      navigate("/login");
+      toast.error("Please login to continue adding to cart!");
+    }
   };
 
   const removeFromCartBtnHandler = (e, book) => {
@@ -49,6 +56,15 @@ export const BookCard = ({ book, wishlistPage, cartPage }) => {
   const updateQuantityBtnHandler = (e, book, actionType) => {
     e.preventDefault();
     updateQuantityInCart(book, actionType);
+  };
+
+  const addToWishlistBtnHandler = (book) => {
+    if (token) {
+      addToWishlist(book);
+    } else {
+      navigate("/login");
+      toast.error("Please login to continue adding to wishlist!");
+    }
   };
 
   return (
@@ -68,7 +84,7 @@ export const BookCard = ({ book, wishlistPage, cartPage }) => {
           ) : (
             <FavoriteBorderIcon
               className="wishlist_icon"
-              onClick={() => addToWishlist(book)}
+              onClick={() => addToWishlistBtnHandler(book)}
             />
           )}
         </div>

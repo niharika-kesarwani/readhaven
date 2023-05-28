@@ -2,7 +2,7 @@ import { createContext, useContext, useState } from "react";
 import { LoginService } from "../services/auth-service/LoginService";
 import { SignUpService } from "../services/auth-service/SignUpService";
 import { toast } from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export const AuthContext = createContext();
 
@@ -18,6 +18,7 @@ export const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(localStorageToken?.token);
   const [currentUser, setCurrentUser] = useState(localStorageToken?.user);
   const navigate = useNavigate();
+  const location = useLocation();
 
   const toggleLoginPassword = () =>
     setShowPassword({ ...showPassword, login: !showPassword.login });
@@ -39,7 +40,7 @@ export const AuthProvider = ({ children }) => {
         setCurrentUser(foundUser);
         setToken(encodedToken);
         toast.success("Successfully signed in!");
-        navigate("/");
+        navigate(location?.state?.from?.pathname ?? "/");
       }
     } catch (err) {
       console.error(err);
@@ -78,7 +79,7 @@ export const AuthProvider = ({ children }) => {
         setToken(encodedToken);
         setCurrentUser(createdUser);
         toast.success("Successfully signed up!");
-        navigate("/");
+        navigate(location?.state?.from?.pathname ?? "/");
       }
     } catch (err) {
       console.error(err);
@@ -91,7 +92,7 @@ export const AuthProvider = ({ children }) => {
     setCurrentUser(null);
     localStorage.removeItem("loginDetails");
     toast.success("Logged out successfully!");
-    navigate("/");
+    navigate(location?.state?.from?.pathname ?? "/");
   };
 
   return (

@@ -1,11 +1,12 @@
 import { useNavigate, useParams } from "react-router";
 import "./BookDetail.css";
-import { useBooks, useWishlist, useCart } from "../../index";
+import { useAuth, useBooks, useWishlist, useCart } from "../../index";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import StarIcon from "@mui/icons-material/Star";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { Loader } from "../loader/Loader";
+import { toast } from "react-hot-toast";
 
 export const BookDetail = () => {
   const { bookId } = useParams();
@@ -17,6 +18,7 @@ export const BookDetail = () => {
     useWishlist();
   const { isPresentInCart, addToCart } = useCart();
   const navigate = useNavigate();
+  const { token } = useAuth();
 
   getBookById(bookId);
 
@@ -43,7 +45,21 @@ export const BookDetail = () => {
 
   const addToCartBtnHandler = (e, book) => {
     e.preventDefault();
-    isPresentInCart(book) === -1 ? addToCart(book) : navigate("/cart");
+    if (token) {
+      isPresentInCart(book) === -1 ? addToCart(book) : navigate("/cart");
+    } else {
+      navigate("/login");
+      toast.error("Please login to continue adding to cart!");
+    }
+  };
+
+  const addToWishlistBtnHandler = (bookDetail) => {
+    if (token) {
+      addToWishlist(bookDetail);
+    } else {
+      navigate("/login");
+      toast.error("Please login to continue adding to wishlist!");
+    }
   };
 
   return (
@@ -68,7 +84,7 @@ export const BookDetail = () => {
                 ) : (
                   <FavoriteBorderIcon
                     className="wishlist_icon"
-                    onClick={() => addToWishlist(bookDetail)}
+                    onClick={() => addToWishlistBtnHandler(bookDetail)}
                   />
                 )}
               </div>
