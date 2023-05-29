@@ -13,7 +13,7 @@ import {
 import { filterTypes } from "../constants/FilterTypes";
 import { categoryTypes } from "../constants/CategoryTypes";
 import { CategoriesIdService } from "../services/books-service/CategoriesIdService";
-import { useBooks } from "./books-context";
+import { useAuth, useBooks } from "./../index";
 
 export const CategoriesContext = createContext();
 
@@ -26,31 +26,34 @@ export const CategoriesProvider = ({ children }) => {
   const [isErrorCategories, setIsErrorCategories] = useState(false);
 
   const { booksDispatch } = useBooks();
+  const { token } = useAuth();
 
   const { CATEGORY_FILTER } = filterTypes;
   const { DISPLAY_CATEGORIES, GET_CATEGORY_DETAILS } = categoryTypes;
 
   const getCategories = async () => {
+    setIsLoadingCategories(true);
     try {
-      setIsLoadingCategories(true);
       const response = await CategoriesService();
       const {
         status,
         data: { categories },
       } = response;
       if (status === 200) {
-        setIsLoadingCategories(false);
         categoriesDispatch({ type: DISPLAY_CATEGORIES, payload: categories });
+        setIsLoadingCategories(false);
       }
     } catch (err) {
       setIsErrorCategories(true);
       console.error(err);
+    } finally {
+      setIsLoadingCategories(false);
     }
   };
 
   useEffect(() => {
-    getCategories();
-  }, []);
+    token && getCategories();
+  }, [token]);
 
   const getCategoryById = async (categoryId) => {
     try {

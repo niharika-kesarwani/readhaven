@@ -12,8 +12,8 @@ export const BookCard = ({ book, wishlistPage, cartPage }) => {
     useWishlist();
   const { addToCart, isPresentInCart, removeFromCart, updateQuantityInCart } =
     useCart();
-  const navigate = useNavigate();
   const { token } = useAuth();
+  const navigate = useNavigate();
 
   const {
     _id,
@@ -76,11 +76,18 @@ export const BookCard = ({ book, wishlistPage, cartPage }) => {
       <li key={_id} className="book_card">
         <img src={coverImg} alt={title} />
         <div onClick={(e) => e.preventDefault()}>
-          {isPresentInWishlist(book) !== -1 ? (
-            <FavoriteIcon
-              className="wishlist_icon"
-              onClick={() => deleteFromWishlist(book)}
-            />
+          {token ? (
+            isPresentInWishlist(book) !== -1 ? (
+              <FavoriteIcon
+                className="wishlist_icon"
+                onClick={() => deleteFromWishlist(book)}
+              />
+            ) : (
+              <FavoriteBorderIcon
+                className="wishlist_icon"
+                onClick={() => addToWishlistBtnHandler(book)}
+              />
+            )
           ) : (
             <FavoriteBorderIcon
               className="wishlist_icon"
@@ -109,7 +116,11 @@ export const BookCard = ({ book, wishlistPage, cartPage }) => {
               onClick={(e) => addToCartBtnHandler(e, book)}
             >
               <p>
-                {isPresentInCart(book) === -1 ? "Add to Cart" : "Go to Cart"}
+                {token
+                  ? isPresentInCart(book) === -1
+                    ? "Add to Cart"
+                    : "Go to Cart"
+                  : "Add to Cart"}
               </p>
             </button>
           )}

@@ -31,26 +31,28 @@ export const WishlistProvider = ({ children }) => {
   const [isErroWishlist, setIsErrorWishlist] = useState(false);
 
   const getWishlist = async () => {
+    setIsLoadingWishlist(true);
     try {
-      setIsLoadingWishlist(true);
       const response = await WishlistService(token);
       const {
         status,
         data: { wishlist },
       } = response;
       if (status === 200) {
-        setIsLoadingWishlist(false);
         wishlistDispatch({ type: DISPLAY_WISHLIST, payload: wishlist });
+        setIsLoadingWishlist(false);
       }
     } catch (err) {
       setIsErrorWishlist(true);
       console.error(err);
+    } finally {
+      setIsLoadingWishlist(false);
     }
   };
 
   useEffect(() => {
-    getWishlist();
-  }, []);
+    token && getWishlist();
+  }, [token]);
 
   const addToWishlist = async (product) => {
     try {

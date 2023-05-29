@@ -26,26 +26,28 @@ export const CartProvider = ({ children }) => {
   const [isErrorCart, setIsErrorCart] = useState(false);
 
   const getCart = async () => {
+    setIsLoadingCart(true);
     try {
-      setIsLoadingCart(true);
       const response = await GetCartService(token);
       const {
         status,
         data: { cart },
       } = response;
       if (status === 200) {
-        setIsLoadingCart(false);
         cartDispatch({ type: DISPLAY_CART, payload: cart });
+        setIsLoadingCart(false);
       }
     } catch (err) {
       setIsErrorCart(true);
       console.error(err);
+    } finally {
+      setIsLoadingCart(false);
     }
   };
 
   useEffect(() => {
-    getCart();
-  }, []);
+    token && getCart();
+  }, [token]);
 
   const isPresentInCart = (product) =>
     cartState?.cart?.findIndex(({ _id }) => _id === product?._id);

@@ -31,23 +31,25 @@ export const AddressProvider = ({ children }) => {
   const [isErrorAddress, setIsErrorAddress] = useState(false);
 
   const getAllAddress = async () => {
+    setIsLoadingAddress(true);
     try {
-      setIsLoadingAddress(true);
       const response = await AddressService(token);
       const {
         status,
         data: { address },
       } = response;
       if (status === 200) {
-        setIsLoadingAddress(false);
         addressDispatch({
           type: DISPLAY_ADDRESSES,
           payload: address,
         });
+        setIsLoadingAddress(false);
       }
     } catch (err) {
       setIsErrorAddress(true);
       console.error(err);
+    } finally {
+      setIsLoadingAddress(false);
     }
   };
 
@@ -103,8 +105,8 @@ export const AddressProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    getAllAddress();
-  }, []);
+    token && getAllAddress();
+  }, [token]);
 
   return (
     <AddressContext.Provider

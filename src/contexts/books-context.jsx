@@ -10,6 +10,7 @@ import { booksReducer, initialBooksState } from "../reducers/BookReducer";
 import { BooksService } from "../services/books-service/BooksService";
 import { filterTypes } from "../constants/FilterTypes";
 import { BooksIdService } from "../services/books-service/BooksIdService";
+import { useAuth } from "./../index";
 
 export const BooksContext = createContext();
 
@@ -23,28 +24,31 @@ export const BooksProvider = ({ children }) => {
   );
   const [isLoadingBooks, setIsLoadingBooks] = useState(false);
   const [isErrorBooks, setIsErrorBooks] = useState(false);
+  const { token } = useAuth();
 
   const getBooks = async () => {
+    setIsLoadingBooks(true);
     try {
-      setIsLoadingBooks(true);
       const response = await BooksService();
       const {
         status,
         data: { products },
       } = response;
       if (status === 200) {
-        setIsLoadingBooks(false);
         booksDispatch({ type: DISPLAY_BOOKS, payload: products });
+        setIsLoadingBooks(false);
       }
     } catch (err) {
       setIsErrorBooks(true);
       console.error(err);
+    } finally {
+      setIsLoadingBooks(false);
     }
   };
 
   useEffect(() => {
-    getBooks();
-  }, []);
+    token && getBooks();
+  }, [token]);
 
   const getBookById = async (productId) => {
     try {

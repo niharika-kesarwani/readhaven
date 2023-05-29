@@ -36,11 +36,11 @@ export const Header = () => {
         </NavLink>
         <NavLink className="navlink wishlist" to="/wishlist">
           <FavoriteOutlinedIcon />
-          <p>{wishlist.length}</p>
+          {token && wishlist?.length > 0 && <p>{wishlist?.length}</p>}
         </NavLink>
         <NavLink className="navlink cart" to="/cart">
           <ShoppingCartIcon />
-          <p>{cart.length}</p>
+          {token && cart?.length > 0 && <p>{cart?.length}</p>}
         </NavLink>
         <NavLink className="navlink user" to="/profile">
           <PersonIcon />

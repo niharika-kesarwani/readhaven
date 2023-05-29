@@ -76,11 +76,18 @@ export const BookDetail = () => {
                 <h3>{author}</h3>
               </div>
               <div onClick={(e) => e.preventDefault()}>
-                {isPresentInWishlist(bookDetail) !== -1 ? (
-                  <FavoriteIcon
-                    className="wishlist_icon"
-                    onClick={() => deleteFromWishlist(bookDetail)}
-                  />
+                {token ? (
+                  isPresentInWishlist(bookDetail) !== -1 ? (
+                    <FavoriteIcon
+                      className="wishlist_icon"
+                      onClick={() => deleteFromWishlist(bookDetail)}
+                    />
+                  ) : (
+                    <FavoriteBorderIcon
+                      className="wishlist_icon"
+                      onClick={() => addToWishlistBtnHandler(bookDetail)}
+                    />
+                  )
                 ) : (
                   <FavoriteBorderIcon
                     className="wishlist_icon"
@@ -119,9 +126,11 @@ export const BookDetail = () => {
               onClick={(e) => addToCartBtnHandler(e, bookDetail)}
             >
               <p>
-                {isPresentInCart(bookDetail) === -1
-                  ? "Add to Cart"
-                  : "Go to Cart"}
+                {token
+                  ? isPresentInCart(bookDetail) === -1
+                    ? "Add to Cart"
+                    : "Go to Cart"
+                  : "Add to Cart"}
               </p>
               <ShoppingCartIcon />
             </button>
