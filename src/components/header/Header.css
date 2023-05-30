@@ -10,6 +10,7 @@
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
+  box-shadow: var(--card-box-shadow);
 }
 
 .header .header_heading {

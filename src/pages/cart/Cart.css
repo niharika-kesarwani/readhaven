@@ -1,6 +1,6 @@
 .cart_page {
   max-width: 1440px;
-  margin: 0 auto;
+  margin: 1rem auto;
   display: flex;
   flex-direction: column;
   row-gap: 1rem;
@@ -141,7 +141,7 @@
 
   .cart_page .cart_block .cart_block_price_details_wrapper {
     order: 2;
-    max-width: 100%;
+    max-width: 95%;
   }
 
   .cart_page
@@ -154,6 +154,11 @@
 
 @media (min-width: 1024px) {
   .cart_page .cart_block {
-    margin: 1rem;
+    margin: 1rem 0;
+    grid-template-columns: 1.5fr 1fr;
+  }
+
+  .cart_page .cart_block .cart_block_price_details_wrapper {
+    max-width: 80%;
   }
 }

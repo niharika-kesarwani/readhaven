@@ -25,9 +25,10 @@
 .cart_book_card .wishlist_icon {
   margin: 0.5rem 0.5rem 0 0;
   position: absolute;
-  top: 0;
-  right: 0;
+  top: -5px;
+  right: -5px;
   color: var(--original-price-color);
+  scale: 0.8;
 }
 
 .cart_book_card .wishlist_icon:hover {
@@ -43,6 +44,14 @@
   padding: 1rem;
   row-gap: 0.5rem;
   text-align: left;
+}
+
+.cart_book_card .cart_book_card_content .cart_book_card_content_title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 }
 
 .cart_book_card .cart_book_card_content .cart_book_card_content_price_wrapper {
@@ -86,6 +95,7 @@
 .cart_book_card .cart_book_card_content .cart_book_card_button {
   border-radius: 5px;
   padding: 0.25rem 0;
+  margin: 0.25rem 0 0;
 }
 
 .cart_book_card
@@ -117,6 +127,13 @@
   .cart_book_card {
     padding: 1rem 0;
     min-width: 350px;
+    width: 75%;
+  }
+
+  .cart_book_card .wishlist_icon {
+    top: 0;
+    right: 0;
+    scale: 1;
   }
 
   .cart_book_card .cart_book_card_content .cart_book_card_content_price {

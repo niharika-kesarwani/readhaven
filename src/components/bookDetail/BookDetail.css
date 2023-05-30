@@ -15,6 +15,7 @@
 
 .bookDetail img {
   max-width: 60%;
+  max-height: 300px;
 }
 
 .bookDetail .bookDetail_content {
@@ -142,6 +143,7 @@
 
   .bookDetail img {
     max-width: 50%;
+    max-height: 300px;
   }
 
   .bookDetail .bookDetail_content {
