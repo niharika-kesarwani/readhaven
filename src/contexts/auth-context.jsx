@@ -57,33 +57,45 @@ export const AuthProvider = ({ children }) => {
       signUpConfirm: !showPassword.signUpConfirm,
     });
 
-  const signUpHandler = async ({ email, password, firstName, lastName }) => {
-    try {
-      const response = await SignUpService(
-        email,
-        password,
-        firstName,
-        lastName
-      );
-
-      const {
-        status,
-        data: { createdUser, encodedToken },
-      } = response;
-
-      if (status === 201) {
-        localStorage.setItem(
-          "loginDetails",
-          JSON.stringify({ user: createdUser, token: encodedToken })
+  const signUpHandler = async ({
+    email,
+    password,
+    confirmPassword,
+    firstName,
+    lastName,
+  }) => {
+    console.log(password, confirmPassword);
+    if (password !== confirmPassword) {
+      toast.error("Password fields are not matching!");
+      navigate("/signup");
+    } else {
+      try {
+        const response = await SignUpService(
+          email,
+          password,
+          firstName,
+          lastName
         );
-        setToken(encodedToken);
-        setCurrentUser(createdUser);
-        toast.success("Successfully signed up!");
-        navigate(location?.state?.from?.pathname ?? "/");
+
+        const {
+          status,
+          data: { createdUser, encodedToken },
+        } = response;
+
+        if (status === 201) {
+          localStorage.setItem(
+            "loginDetails",
+            JSON.stringify({ user: createdUser, token: encodedToken })
+          );
+          setToken(encodedToken);
+          setCurrentUser(createdUser);
+          toast.success("Successfully signed up!");
+          navigate(location?.state?.from?.pathname ?? "/");
+        }
+      } catch (err) {
+        console.error(err);
+        toast.error("Unable to sign up!");
       }
-    } catch (err) {
-      console.error(err);
-      toast.error("Unable to sign up!");
     }
   };
 

@@ -1,6 +1,13 @@
-.header {
-  display: grid;
+.header_wrapper {
+  display: flex;
   min-height: 75px;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--card-box-shadow);
+}
+
+.header_wrapper .header {
+  display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(2, 1fr);
   grid-template-areas:
@@ -10,10 +17,9 @@
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
-  box-shadow: var(--card-box-shadow);
 }
 
-.header .header_heading {
+.header_wrapper .header .header_heading {
   grid-area: heading;
   text-align: start;
   margin: 0;
@@ -22,7 +28,7 @@
   color: var(--primary-color);
 }
 
-.header .header_search {
+.header_wrapper .header .header_search {
   grid-area: search;
   padding: 5px 10px;
   margin: 0 20px 10px;
@@ -32,55 +38,55 @@
   background-color: white;
 }
 
-.header .header_search input {
+.header_wrapper .header .header_search input {
   border: none;
   outline: none;
   flex-grow: 1;
   padding: 0 5px;
 }
 
-.header .header_action {
+.header_wrapper .header .header_action {
   grid-area: action;
   display: flex;
   justify-content: end;
   margin-right: 1rem;
 }
 
-.header .header_action p {
+.header_wrapper .header .header_action p {
   margin: 0;
 }
 
-.header .header_action .store,
-.header .header_action .wishlist,
-.header .header_action .cart,
-.header .header_action .user,
-.header .header_action .login,
-.header .header_action .logout {
+.header_wrapper .header .header_action .store,
+.header_wrapper .header .header_action .wishlist,
+.header_wrapper .header .header_action .cart,
+.header_wrapper .header .header_action .user,
+.header_wrapper .header .header_action .login,
+.header_wrapper .header .header_action .logout {
   padding: 10px 3px;
   scale: 0.8;
 }
 
-.header .header_action .logout {
+.header_wrapper .header .header_action .logout {
   display: none;
 }
 
-.header .header_action .store:hover,
-.header .header_action .wishlist:hover,
-.header .header_action .cart:hover,
-.header .header_action .user:hover,
-.header .header_action .login:hover,
-.header .header_action .logout:hover {
+.header_wrapper .header .header_action .store:hover,
+.header_wrapper .header .header_action .wishlist:hover,
+.header_wrapper .header .header_action .cart:hover,
+.header_wrapper .header .header_action .user:hover,
+.header_wrapper .header .header_action .login:hover,
+.header_wrapper .header .header_action .logout:hover {
   scale: 1;
   cursor: pointer;
   color: var(--secondary-color);
 }
 
-.header .navlink {
+.header_wrapper .header .navlink {
   text-decoration: none;
   color: black;
 }
 
-.header .navlink p {
+.header_wrapper .header .navlink p {
   position: absolute;
   height: 15%;
   width: 15%;
@@ -97,62 +103,62 @@
 }
 
 @media (min-width: 768px) {
-  .header {
+  .header_wrapper .header {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(1, 1fr);
     grid-template-areas: "heading search action";
   }
 
-  .header .header_search {
+  .header_wrapper .header .header_search {
     margin: 0;
   }
 
-  .header .header_action .store,
-  .header .header_action .wishlist,
-  .header .header_action .cart,
-  .header .header_action .user,
-  .header .header_action .login,
-  .header .header_action .logout {
+  .header_wrapper .header .header_action .store,
+  .header_wrapper .header .header_action .wishlist,
+  .header_wrapper .header .header_action .cart,
+  .header_wrapper .header .header_action .user,
+  .header_wrapper .header .header_action .login,
+  .header_wrapper .header .header_action .logout {
     padding: 10px;
     scale: 1;
   }
 
-  .header .header_action .store:hover,
-  .header .header_action .wishlist:hover,
-  .header .header_action .cart:hover,
-  .header .header_action .user:hover,
-  .header .header_action .login:hover,
-  .header .header_action .logout:hover {
+  .header_wrapper .header .header_action .store:hover,
+  .header_wrapper .header .header_action .wishlist:hover,
+  .header_wrapper .header .header_action .cart:hover,
+  .header_wrapper .header .header_action .user:hover,
+  .header_wrapper .header .header_action .login:hover,
+  .header_wrapper .header .header_action .logout:hover {
     scale: 1.2;
   }
 
-  .header .navlink p {
+  .header_wrapper .header .navlink p {
     height: 20%;
     width: 20%;
   }
 }
 
 @media (min-width: 1024px) {
-  .header .header_action .store,
-  .header .header_action .wishlist,
-  .header .header_action .cart,
-  .header .header_action .user,
-  .header .header_action .login,
-  .header .header_action .logout {
+  .header_wrapper .header .header_action .store,
+  .header_wrapper .header .header_action .wishlist,
+  .header_wrapper .header .header_action .cart,
+  .header_wrapper .header .header_action .user,
+  .header_wrapper .header .header_action .login,
+  .header_wrapper .header .header_action .logout {
     padding: 10px 15px;
     scale: 1.2;
   }
 
-  .header .header_action .store:hover,
-  .header .header_action .wishlist:hover,
-  .header .header_action .cart:hover,
-  .header .header_action .user:hover,
-  .header .header_action .login:hover,
-  .header .header_action .logout:hover {
+  .header_wrapper .header .header_action .store:hover,
+  .header_wrapper .header .header_action .wishlist:hover,
+  .header_wrapper .header .header_action .cart:hover,
+  .header_wrapper .header .header_action .user:hover,
+  .header_wrapper .header .header_action .login:hover,
+  .header_wrapper .header .header_action .logout:hover {
     scale: 1.4;
   }
 
-  .header .navlink p {
+  .header_wrapper .header .navlink p {
     height: 25%;
     width: 25%;
   }

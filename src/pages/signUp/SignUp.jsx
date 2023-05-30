@@ -17,6 +17,7 @@ export const SignUp = () => {
   const [userSignUpDetails, setUserSignUpDetails] = useState({
     email: "",
     password: "",
+    confirmPassword: "",
     firstName: "",
     lastName: "",
   });
@@ -86,6 +87,8 @@ export const SignUp = () => {
             type={signUpConfirm ? "text" : "password"}
             className="signUp_input"
             placeholder="*********"
+            name="confirmPassword"
+            onChange={handleInput}
           />
           <div
             className="signUp_btn_pwd"

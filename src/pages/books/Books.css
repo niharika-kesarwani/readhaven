@@ -151,8 +151,7 @@
 }
 
 .books .books_list li {
-  box-shadow: rgba(22, 13, 13, 0.16) 0px 3px 6px,
-    rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  box-shadow: var(--product-card-box-shadow);
   margin: 0.75rem 0.5rem;
   display: flex;
   position: relative;
