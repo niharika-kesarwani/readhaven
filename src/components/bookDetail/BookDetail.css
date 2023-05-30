@@ -118,6 +118,12 @@
   font-style: italic;
 }
 
+.bookDetail .bookDetail_content .genres button:hover {
+  cursor: pointer;
+  background: var(--secondary-color);
+  scale: 1.05;
+}
+
 .bookDetail .bookDetail_content .button {
   display: flex;
   width: fit-content;

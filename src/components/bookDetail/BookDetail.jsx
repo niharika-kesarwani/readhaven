@@ -1,24 +1,41 @@
+import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router";
 import "./BookDetail.css";
-import { useAuth, useBooks, useWishlist, useCart } from "../../index";
+import {
+  useAuth,
+  useBooks,
+  useCategories,
+  useWishlist,
+  useCart,
+} from "../../index";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import StarIcon from "@mui/icons-material/Star";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { Loader } from "../loader/Loader";
 import { toast } from "react-hot-toast";
+import { filterTypes } from "../../constants/FilterTypes";
 
 export const BookDetail = () => {
   const { bookId } = useParams();
+
   const {
-    booksState: { bookDetail },
+    booksState: { books, bookDetail },
+    booksDispatch,
     getBookById,
   } = useBooks();
   const { addToWishlist, isPresentInWishlist, deleteFromWishlist } =
     useWishlist();
+  const {
+    categoriesState: { categories },
+    getCategoryById,
+  } = useCategories();
   const { isPresentInCart, addToCart } = useCart();
+
   const navigate = useNavigate();
   const { token } = useAuth();
+
+  const { CLEAR_FILTER } = filterTypes;
 
   getBookById(bookId);
 
@@ -61,6 +78,16 @@ export const BookDetail = () => {
       toast.error("Please login to continue adding to wishlist!");
     }
   };
+
+  const genreBtnHandler = (genre) => {
+    const getCategoryByName = categories?.find(
+      ({ categoryName }) => categoryName?.toLowerCase() === genre?.toLowerCase()
+    );
+    getCategoryById(getCategoryByName?._id);
+    navigate("/books");
+  };
+
+  useEffect(() => booksDispatch({ type: CLEAR_FILTER, payload: books }), []);
 
   return (
     <div className="bookDetail_wrapper">
@@ -118,7 +145,9 @@ export const BookDetail = () => {
             <p className="description">{description}</p>
             <p className="genres">
               {genres?.map((genre, index) => (
-                <button key={index}># {genre}</button>
+                <button key={index} onClick={() => genreBtnHandler(genre)}>
+                  # {genre}
+                </button>
               ))}
             </p>
             <button
