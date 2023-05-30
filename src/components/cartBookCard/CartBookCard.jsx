@@ -3,6 +3,7 @@ import { useCart, useWishlist } from "../../index.js";
 import { NavLink } from "react-router-dom";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 export const CartBookCard = ({ book, wishlistPage, cartPage }) => {
   const { addToWishlist, isPresentInWishlist, deleteFromWishlist } =
@@ -89,13 +90,13 @@ export const CartBookCard = ({ book, wishlistPage, cartPage }) => {
                   +
                 </button>
               </div>
+              <div
+                className="cart_book_card_qty_remove_btn"
+                onClick={(e) => removeFromCartBtnHandler(e, book)}
+              >
+                <DeleteIcon />
+              </div>
             </div>
-            <button
-              className="cart_book_card_button"
-              onClick={(e) => removeFromCartBtnHandler(e, book)}
-            >
-              <p>Remove from Cart</p>
-            </button>
           </div>
         </div>
       </li>{" "}
