@@ -42,6 +42,7 @@ export const Login = () => {
           <h3>Email</h3>{" "}
           <input
             type="email"
+            autoComplete="on"
             className="login_input"
             placeholder="bts@loveyourself.com"
             name="email"

@@ -58,6 +58,7 @@ export const Header = () => {
         <SearchOutlinedIcon />
         <input
           placeholder="Search books..."
+          name="search"
           value={searchInput}
           onChange={(e) =>
             booksDispatch({ type: SEARCH_FILTER, payload: e.target.value })
