@@ -52,8 +52,8 @@ export const CategoriesProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    token && getCategories();
-  }, [token]);
+    getCategories();
+  }, []);
 
   const getCategoryById = async (categoryId) => {
     try {

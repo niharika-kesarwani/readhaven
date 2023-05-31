@@ -47,8 +47,8 @@ export const BooksProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    token && getBooks();
-  }, [token]);
+    getBooks();
+  }, []);
 
   const getBookById = async (productId) => {
     try {
