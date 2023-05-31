@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import { useAddress, useCart } from "../../index";
-import { AddressCard } from "../../components/addressCard";
+import { AddressCard } from "../../components/addressCard/AddressCard";
 import { Loader } from "../../components/loader/Loader";
 import { Error } from "../../components/error/Error";
 import { addressTypes } from "../../constants/addressTypes";

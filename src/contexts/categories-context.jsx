@@ -13,7 +13,7 @@ import {
 import { filterTypes } from "../constants/filterTypes";
 import { categoryTypes } from "../constants/categoryTypes";
 import { categoriesIdService } from "../services/books-service/categoriesIdService";
-import { useAuth, useBooks } from "./../index";
+import { useBooks } from "./../index";
 
 export const CategoriesContext = createContext();
 

@@ -10,7 +10,6 @@ import { booksReducer, initialBooksState } from "../reducers/bookReducer";
 import { booksService } from "../services/books-service/booksService";
 import { filterTypes } from "../constants/filterTypes";
 import { booksIdService } from "../services/books-service/booksIdService";
-import { useAuth } from "./../index";
 
 export const BooksContext = createContext();
 
