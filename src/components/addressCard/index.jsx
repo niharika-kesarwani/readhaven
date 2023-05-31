@@ -6,13 +6,22 @@ export const AddressCard = ({ address }) => {
   const { _id, area, city, name, phoneNumber, pincode, state } = address;
   const { SELECT_ADDRESS_CHECKOUT } = addressTypes;
 
-  const { addressDispatch } = useAddress();
+  const {
+    addressState: { selectedAddressId },
+    addressDispatch,
+  } = useAddress();
 
   return (
-    <div className="addressCard_page">
+    <div
+      className="addressCard_page"
+      onClick={() =>
+        addressDispatch({ type: SELECT_ADDRESS_CHECKOUT, payload: _id })
+      }
+    >
       <input
         type="radio"
         name="addressCard_radio"
+        checked={selectedAddressId === _id}
         onChange={() =>
           addressDispatch({ type: SELECT_ADDRESS_CHECKOUT, payload: _id })
         }

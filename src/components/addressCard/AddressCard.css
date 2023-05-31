@@ -9,6 +9,6 @@
   border-radius: 5px;
 }
 
-.addressCard_page input:hover {
+.addressCard_page:hover {
   cursor: pointer;
 }
