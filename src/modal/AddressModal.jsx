@@ -1,6 +1,6 @@
 import "./AddressModal.css";
 import { useAddress } from "../index";
-import { addressTypes } from "../constants/AddressTypes";
+import { addressTypes } from "../constants/addressTypes";
 import { v4 as uuid } from "uuid";
 
 export const AddressModal = () => {

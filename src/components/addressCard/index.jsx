@@ -1,6 +1,6 @@
 import { useAddress } from "../../index";
 import "./AddressCard.css";
-import { addressTypes } from "../../constants/AddressTypes";
+import { addressTypes } from "../../constants/addressTypes";
 
 export const AddressCard = ({ address }) => {
   const { _id, area, city, name, phoneNumber, pincode, state } = address;

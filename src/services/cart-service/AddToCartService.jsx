@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const AddToCartService = async (product, encodedToken) =>
+export const addToCartService = async (product, encodedToken) =>
   await axios.post(
     "/api/user/cart",
     { product },

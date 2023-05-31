@@ -6,10 +6,10 @@ import {
   useReducer,
 } from "react";
 import { products } from "../backend/db/products";
-import { booksReducer, initialBooksState } from "../reducers/BookReducer";
-import { BooksService } from "../services/books-service/BooksService";
-import { filterTypes } from "../constants/FilterTypes";
-import { BooksIdService } from "../services/books-service/BooksIdService";
+import { booksReducer, initialBooksState } from "../reducers/bookReducer";
+import { booksService } from "../services/books-service/booksService";
+import { filterTypes } from "../constants/filterTypes";
+import { booksIdService } from "../services/books-service/booksIdService";
 import { useAuth } from "./../index";
 
 export const BooksContext = createContext();
@@ -29,7 +29,7 @@ export const BooksProvider = ({ children }) => {
   const getBooks = async () => {
     setIsLoadingBooks(true);
     try {
-      const response = await BooksService();
+      const response = await booksService();
       const {
         status,
         data: { products },
@@ -52,7 +52,7 @@ export const BooksProvider = ({ children }) => {
 
   const getBookById = async (productId) => {
     try {
-      const response = await BooksIdService(productId);
+      const response = await booksIdService(productId);
       const {
         status,
         data: { product },

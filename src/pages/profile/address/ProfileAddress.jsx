@@ -1,8 +1,8 @@
 import "./ProfileAddress.css";
 import { useAddress } from "../../../index";
 import { AddressModal } from "../../../modal/AddressModal";
-import { addressTypes } from "../../../constants/AddressTypes";
-import { initialAddressFormData } from "../../../reducers/AddressReducer";
+import { addressTypes } from "../../../constants/addressTypes";
+import { initialAddressFormData } from "../../../reducers/addressReducer";
 import { Loader } from "../../../components/loader/Loader";
 import { Error } from "../../../components/error/Error";
 

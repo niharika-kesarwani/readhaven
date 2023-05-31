@@ -5,14 +5,14 @@ import {
   useReducer,
   useState,
 } from "react";
-import { CategoriesService } from "../services/books-service/CategoriesService";
+import { categoriesService } from "../services/books-service/categoriesService";
 import {
   categoriesReducer,
   initialCategoriesState,
-} from "../reducers/CategoryReducer";
-import { filterTypes } from "../constants/FilterTypes";
-import { categoryTypes } from "../constants/CategoryTypes";
-import { CategoriesIdService } from "../services/books-service/CategoriesIdService";
+} from "../reducers/categoryReducer";
+import { filterTypes } from "../constants/filterTypes";
+import { categoryTypes } from "../constants/categoryTypes";
+import { categoriesIdService } from "../services/books-service/categoriesIdService";
 import { useAuth, useBooks } from "./../index";
 
 export const CategoriesContext = createContext();
@@ -34,7 +34,7 @@ export const CategoriesProvider = ({ children }) => {
   const getCategories = async () => {
     setIsLoadingCategories(true);
     try {
-      const response = await CategoriesService();
+      const response = await categoriesService();
       const {
         status,
         data: { categories },
@@ -58,7 +58,7 @@ export const CategoriesProvider = ({ children }) => {
   const getCategoryById = async (categoryId) => {
     try {
       setIsLoadingCategories(true);
-      const response = await CategoriesIdService(categoryId);
+      const response = await categoriesIdService(categoryId);
       const {
         status,
         data: { category },

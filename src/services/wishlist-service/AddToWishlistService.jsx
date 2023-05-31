@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const AddToWishlistService = async (product, encodedToken) =>
+export const addToWishlistService = async (product, encodedToken) =>
   await axios.post(
     "/api/user/wishlist",
     { product },

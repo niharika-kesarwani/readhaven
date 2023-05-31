@@ -1,4 +1,4 @@
-import { categoryTypes } from "../constants/CategoryTypes";
+import { categoryTypes } from "../constants/categoryTypes";
 
 const { DISPLAY_CATEGORIES, GET_CATEGORY_DETAILS } = categoryTypes;
 

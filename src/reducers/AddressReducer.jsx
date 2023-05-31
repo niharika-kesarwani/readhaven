@@ -1,4 +1,4 @@
-import { addressTypes } from "../constants/AddressTypes";
+import { addressTypes } from "../constants/addressTypes";
 
 const {
   DISPLAY_ADDRESSES,

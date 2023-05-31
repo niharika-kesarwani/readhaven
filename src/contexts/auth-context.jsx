@@ -1,6 +1,6 @@
 import { createContext, useContext, useState } from "react";
-import { LoginService } from "../services/auth-service/LoginService";
-import { SignUpService } from "../services/auth-service/SignUpService";
+import { loginService } from "../services/auth-service/loginService";
+import { signUpService } from "../services/auth-service/signUpService";
 import { toast } from "react-hot-toast";
 import { useLocation, useNavigate } from "react-router-dom";
 
@@ -25,7 +25,7 @@ export const AuthProvider = ({ children }) => {
 
   const loginHandler = async ({ email, password }) => {
     try {
-      const response = await LoginService(email, password);
+      const response = await loginService(email, password);
 
       const {
         status,
@@ -70,7 +70,7 @@ export const AuthProvider = ({ children }) => {
       navigate("/signup");
     } else {
       try {
-        const response = await SignUpService(
+        const response = await signUpService(
           email,
           password,
           firstName,

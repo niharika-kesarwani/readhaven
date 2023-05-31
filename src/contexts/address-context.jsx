@@ -5,16 +5,16 @@ import {
   useReducer,
   useState,
 } from "react";
-import { AddressService } from "../services/address-service/AddressService";
-import { AddAddressService } from "../services/address-service/AddAddressService";
-import { EditAddressService } from "../services/address-service/EditAddressService";
-import { RemoveAddressService } from "../services/address-service/RemoveAddressService";
+import { addressService } from "../services/address-service/addressService";
+import { addAddressService } from "../services/address-service/addAddressService";
+import { editAddressService } from "../services/address-service/editAddressService";
+import { removeAddressService } from "../services/address-service/removeAddressService";
 import { useAuth } from "../index";
 import {
   addressReducer,
   initialAddressState,
-} from "../reducers/AddressReducer";
-import { addressTypes } from "../constants/AddressTypes";
+} from "../reducers/addressReducer";
+import { addressTypes } from "../constants/addressTypes";
 import { toast } from "react-hot-toast";
 
 export const AddressContext = createContext();
@@ -33,7 +33,7 @@ export const AddressProvider = ({ children }) => {
   const getAllAddress = async () => {
     setIsLoadingAddress(true);
     try {
-      const response = await AddressService(token);
+      const response = await addressService(token);
       const {
         status,
         data: { address },
@@ -55,7 +55,7 @@ export const AddressProvider = ({ children }) => {
 
   const addToAddress = async (newAddress) => {
     try {
-      const response = await AddAddressService(newAddress, token);
+      const response = await addAddressService(newAddress, token);
       const {
         status,
         data: { address },
@@ -72,7 +72,7 @@ export const AddressProvider = ({ children }) => {
 
   const editAddress = async (addressId, newAddress) => {
     try {
-      const response = await EditAddressService(addressId, newAddress, token);
+      const response = await editAddressService(addressId, newAddress, token);
       const {
         status,
         data: { address },
@@ -89,7 +89,7 @@ export const AddressProvider = ({ children }) => {
 
   const removeAddress = async (addressId) => {
     try {
-      const response = await RemoveAddressService(addressId, token);
+      const response = await removeAddressService(addressId, token);
       const {
         status,
         data: { address },

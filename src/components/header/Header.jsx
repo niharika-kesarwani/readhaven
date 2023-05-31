@@ -8,7 +8,7 @@ import PersonIcon from "@mui/icons-material/Person";
 import LoginIcon from "@mui/icons-material/Login";
 import LogoutIcon from "@mui/icons-material/Logout";
 import { useAuth, useBooks, useCart, useWishlist } from "../../index.js";
-import { filterTypes } from "../../constants/FilterTypes";
+import { filterTypes } from "../../constants/filterTypes";
 
 export const Header = () => {
   const {

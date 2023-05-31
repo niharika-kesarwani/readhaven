@@ -1,4 +1,4 @@
 import axios from "axios";
 
-export const BooksIdService = async (productId) =>
+export const booksIdService = async (productId) =>
   await axios.get(`/api/products/${productId}`);

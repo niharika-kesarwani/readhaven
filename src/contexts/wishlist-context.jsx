@@ -5,15 +5,15 @@ import {
   useReducer,
   useState,
 } from "react";
-import { WishlistService } from "../services/wishlist-service/WishlistService";
+import { wishlistService } from "../services/wishlist-service/wishlistService";
 import { useAuth } from "../index";
 import {
   initialWishlistState,
   wishlistReducer,
-} from "../reducers/WishlistReducer";
-import { wishlistTypes } from "../constants/WishlistTypes";
-import { AddToWishlistService } from "../services/wishlist-service/AddToWishlistService";
-import { DeleteWishlistService } from "../services/wishlist-service/DeleteWishlistService";
+} from "../reducers/wishlistReducer";
+import { wishlistTypes } from "../constants/wishlistTypes";
+import { addToWishlistService } from "../services/wishlist-service/addToWishlistService";
+import { deleteWishlistService } from "../services/wishlist-service/deleteWishlistService";
 import { toast } from "react-hot-toast";
 
 export const WishlistContext = createContext();
@@ -33,7 +33,7 @@ export const WishlistProvider = ({ children }) => {
   const getWishlist = async () => {
     setIsLoadingWishlist(true);
     try {
-      const response = await WishlistService(token);
+      const response = await wishlistService(token);
       const {
         status,
         data: { wishlist },
@@ -56,7 +56,7 @@ export const WishlistProvider = ({ children }) => {
 
   const addToWishlist = async (product) => {
     try {
-      const response = await AddToWishlistService(product, token);
+      const response = await addToWishlistService(product, token);
       const {
         status,
         data: { wishlist },
@@ -74,7 +74,7 @@ export const WishlistProvider = ({ children }) => {
 
   const deleteFromWishlist = async ({ _id: productId }) => {
     try {
-      const response = await DeleteWishlistService(productId, token);
+      const response = await deleteWishlistService(productId, token);
       const {
         status,
         data: { wishlist },

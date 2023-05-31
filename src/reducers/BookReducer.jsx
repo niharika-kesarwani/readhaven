@@ -1,4 +1,4 @@
-import { filterTypes } from "../constants/FilterTypes";
+import { filterTypes } from "../constants/filterTypes";
 
 const {
   DISPLAY_BOOKS,

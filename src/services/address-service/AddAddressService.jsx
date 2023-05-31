@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const AddAddressService = async (newAddress, encodedToken) =>
+export const addAddressService = async (newAddress, encodedToken) =>
   await axios.post(
     "/api/user/address/add",
     { address: newAddress },

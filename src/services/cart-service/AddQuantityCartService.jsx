@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const AddQuantityCartService = async (
+export const addQuantityCartService = async (
   productId,
   encodedToken,
   actionType

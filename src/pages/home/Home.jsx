@@ -1,7 +1,7 @@
 import "./Home.css";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useBooks, useCategories } from "../../index";
-import { filterTypes } from "../../constants/FilterTypes";
+import { filterTypes } from "../../constants/filterTypes";
 import { useEffect } from "react";
 import { Loader } from "../../components/loader/Loader";
 import { Error } from "../../components/error/Error";

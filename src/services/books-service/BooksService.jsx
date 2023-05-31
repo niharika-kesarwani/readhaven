@@ -1,3 +1,3 @@
 import axios from "axios";
 
-export const BooksService = async () => await axios.get("/api/products");
+export const booksService = async () => await axios.get("/api/products");

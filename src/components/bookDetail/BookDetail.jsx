@@ -14,7 +14,7 @@ import StarIcon from "@mui/icons-material/Star";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { Loader } from "../loader/Loader";
 import { toast } from "react-hot-toast";
-import { filterTypes } from "../../constants/FilterTypes";
+import { filterTypes } from "../../constants/filterTypes";
 
 export const BookDetail = () => {
   const { bookId } = useParams();

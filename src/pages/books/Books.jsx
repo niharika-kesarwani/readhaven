@@ -2,7 +2,7 @@ import "./Books.css";
 import { useEffect } from "react";
 import { useBooks, useCategories } from "../../index.js";
 import { BookCard } from "../../components/bookCard/BookCard";
-import { filterTypes } from "../../constants/FilterTypes";
+import { filterTypes } from "../../constants/filterTypes";
 import TuneIcon from "@mui/icons-material/Tune";
 import CancelIcon from "@mui/icons-material/Cancel";
 import { Loader } from "../../components/loader/Loader";

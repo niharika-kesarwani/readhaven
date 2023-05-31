@@ -5,13 +5,13 @@ import {
   useReducer,
   useState,
 } from "react";
-import { cartReducer, initialCartState } from "../reducers/CartReducer";
-import { GetCartService } from "../services/cart-service/GetCartService";
-import { AddToCartService } from "../services/cart-service/AddToCartService";
-import { DeleteCartService } from "../services/cart-service/DeleteCartService";
-import { AddQuantityCartService } from "../services/cart-service/AddQuantityCartService";
+import { cartReducer, initialCartState } from "../reducers/cartReducer";
+import { getCartService } from "../services/cart-service/getCartService";
+import { addToCartService } from "../services/cart-service/addToCartService";
+import { deleteCartService } from "../services/cart-service/deleteCartService";
+import { addQuantityCartService } from "../services/cart-service/addQuantityCartService";
 import { useAuth } from "../index";
-import { cartTypes } from "../constants/CartTypes";
+import { cartTypes } from "../constants/cartTypes";
 import { toast } from "react-hot-toast";
 
 const { DISPLAY_CART, ADD_TO_CART, REMOVE_FROM_CART, UPDATE_QUANTITY_IN_CART } =
@@ -28,7 +28,7 @@ export const CartProvider = ({ children }) => {
   const getCart = async () => {
     setIsLoadingCart(true);
     try {
-      const response = await GetCartService(token);
+      const response = await getCartService(token);
       const {
         status,
         data: { cart },
@@ -54,7 +54,7 @@ export const CartProvider = ({ children }) => {
 
   const addToCart = async (product) => {
     try {
-      const response = await AddToCartService(product, token);
+      const response = await addToCartService(product, token);
       const {
         status,
         data: { cart },
@@ -71,7 +71,7 @@ export const CartProvider = ({ children }) => {
 
   const removeFromCart = async (product, checkoutPageFlag) => {
     try {
-      const response = await DeleteCartService(product._id, token);
+      const response = await deleteCartService(product._id, token);
       const {
         status,
         data: { cart },
@@ -88,7 +88,7 @@ export const CartProvider = ({ children }) => {
 
   const updateQuantityInCart = async (product, actionType) => {
     try {
-      const response = await AddQuantityCartService(
+      const response = await addQuantityCartService(
         product._id,
         token,
         actionType

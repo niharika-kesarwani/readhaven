@@ -6,9 +6,9 @@ import { useAddress, useCart } from "../../index";
 import { AddressCard } from "../../components/addressCard";
 import { Loader } from "../../components/loader/Loader";
 import { Error } from "../../components/error/Error";
-import { addressTypes } from "../../constants/AddressTypes";
+import { addressTypes } from "../../constants/addressTypes";
 import { AddressModal } from "../../modal/AddressModal";
-import { initialAddressFormData } from "../../reducers/AddressReducer";
+import { initialAddressFormData } from "../../reducers/addressReducer";
 
 export const Checkout = () => {
   const {
