@@ -69,7 +69,7 @@ export const CartProvider = ({ children }) => {
     }
   };
 
-  const removeFromCart = async (product) => {
+  const removeFromCart = async (product, checkoutPageFlag) => {
     try {
       const response = await DeleteCartService(product._id, token);
       const {
@@ -78,11 +78,11 @@ export const CartProvider = ({ children }) => {
       } = response;
       if (status === 200) {
         cartDispatch({ type: REMOVE_FROM_CART, payload: cart });
-        toast.success("Removed from cart successfully!");
+        !checkoutPageFlag && toast.success("Removed from cart successfully!");
       }
     } catch (err) {
       console.error(err);
-      toast.error("Unable to remove from cart!");
+      !checkoutPageFlag && toast.error("Unable to remove from cart!");
     }
   };
 
@@ -116,8 +116,14 @@ export const CartProvider = ({ children }) => {
   };
 
   const emptyCart = () => {
-    for (let i = 0; i < cartState?.cart?.length; i++) {
-      removeFromCart(cartState?.cart[i]);
+    try {
+      for (let i = 0; i < cartState?.cart?.length; i++) {
+        removeFromCart(cartState?.cart[i], true);
+      }
+      toast.success("Emptied cart successfully!");
+    } catch (err) {
+      console.error(err);
+      toast.error("Unable to empty cart!");
     }
   };
 
