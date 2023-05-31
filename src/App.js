@@ -19,6 +19,7 @@ import { Error } from "./components/error/Error";
 import { Footer } from "./components/footer/Footer";
 import { GoToTop } from "./components/goToTop/GoToTop";
 import { RequiresAuth } from "./components/RequiresAuth";
+import { Checkout } from "./pages/checkout/Checkout";
 
 function App() {
   return (
@@ -63,6 +64,14 @@ function App() {
           <Route path="address" element={<ProfileAddress />} />
           <Route path="orders" element={<ProfileOrders />} />
         </Route>
+        <Route
+          path="/checkout"
+          element={
+            <RequiresAuth>
+              <Checkout />
+            </RequiresAuth>
+          }
+        />
         <Route path="/logout" element={<Logout />} />
         <Route path="/mockman" element={<Mockman />} />
         <Route path="/*" element={<Error />} />

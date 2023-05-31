@@ -1,0 +1,14 @@
+.addressCard_page {
+  text-align: start;
+  box-shadow: var(--card-box-shadow);
+  padding: 1rem 0.5rem;
+  margin: 1rem 0;
+  display: flex;
+  align-items: flex-start;
+  column-gap: 1rem;
+  border-radius: 5px;
+}
+
+.addressCard_page input:hover {
+  cursor: pointer;
+}

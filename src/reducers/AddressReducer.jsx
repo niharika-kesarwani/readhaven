@@ -9,6 +9,7 @@ const {
   ADD_TO_ADDRESS,
   EDIT_ADDRESS,
   REMOVE_ADDRESS,
+  SELECT_ADDRESS_CHECKOUT,
 } = addressTypes;
 
 export const addressReducer = (state, { type, payload }) => {
@@ -38,13 +39,15 @@ export const addressReducer = (state, { type, payload }) => {
       return { ...state, addressFormData: payload };
     case REMOVE_ADDRESS:
       return { ...state, address: payload };
+    case SELECT_ADDRESS_CHECKOUT:
+      return { ...state, selectedAddressId: payload };
     default:
       return state;
   }
 };
 
 export const initialAddressFormData = {
-  id: "",
+  _id: "",
   name: "",
   area: "",
   city: "",
@@ -57,4 +60,5 @@ export const initialAddressState = {
   address: [],
   addressFormData: initialAddressFormData,
   showAddressModal: false,
+  selectedAddressId: null,
 };

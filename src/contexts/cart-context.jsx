@@ -115,6 +115,12 @@ export const CartProvider = ({ children }) => {
     }
   };
 
+  const emptyCart = () => {
+    for (let i = 0; i < cartState?.cart?.length; i++) {
+      removeFromCart(cartState?.cart[i]);
+    }
+  };
+
   const totalPrice = cartState?.cart?.reduce(
     (total, { originalPrice, qty }) => total + originalPrice * qty,
     0
@@ -136,6 +142,7 @@ export const CartProvider = ({ children }) => {
         isPresentInCart,
         removeFromCart,
         updateQuantityInCart,
+        emptyCart,
         totalPrice,
         totalDiscount,
       }}
