@@ -15,7 +15,7 @@ export const Header = () => {
     booksState: { searchInput },
     booksDispatch,
   } = useBooks();
-  const { token, logoutHandler } = useAuth();
+  const { currentUser, logoutHandler } = useAuth();
   const {
     wishlistState: { wishlist },
   } = useWishlist();
@@ -37,22 +37,22 @@ export const Header = () => {
           </NavLink>
           <NavLink title="Wishlist" className="navlink wishlist" to="/wishlist">
             <FavoriteOutlinedIcon />
-            {token && wishlist?.length > 0 && <p>{wishlist?.length}</p>}
+            {currentUser && wishlist?.length > 0 && <p>{wishlist?.length}</p>}
           </NavLink>
           <NavLink title="Cart" className="navlink cart" to="/cart">
             <ShoppingCartIcon />
-            {token && cart?.length > 0 && <p>{cart?.length}</p>}
+            {currentUser && cart?.length > 0 && <p>{cart?.length}</p>}
           </NavLink>
           <NavLink title="Profile" className="navlink user" to="/profile">
             <PersonIcon />
           </NavLink>
           <NavLink
-            title={token ? "Log out" : "Log in"}
+            title={currentUser ? "Log out" : "Log in"}
             className="navlink login"
-            to={!token && "/login"}
-            onClick={token && logoutHandler}
+            to={!currentUser && "/login"}
+            onClick={currentUser && logoutHandler}
           >
-            {token ? <LogoutIcon /> : <LoginIcon />}
+            {currentUser ? <LogoutIcon /> : <LoginIcon />}
           </NavLink>
         </div>
         <div className="header_search">

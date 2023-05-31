@@ -64,7 +64,6 @@ export const AuthProvider = ({ children }) => {
     firstName,
     lastName,
   }) => {
-    console.log(password, confirmPassword);
     if (password !== confirmPassword) {
       toast.error("Password fields are not matching!");
       navigate("/signup");
@@ -79,18 +78,19 @@ export const AuthProvider = ({ children }) => {
 
         const {
           status,
-          data: { createdUser, encodedToken },
+          data: { encodedToken },
         } = response;
 
         if (status === 201) {
           localStorage.setItem(
             "loginDetails",
-            JSON.stringify({ user: createdUser, token: encodedToken })
+            JSON.stringify({
+              token: encodedToken,
+            })
           );
           setToken(encodedToken);
-          setCurrentUser(createdUser);
-          toast.success("Successfully signed up!");
-          navigate(location?.state?.from?.pathname ?? "/");
+          toast.success("Successfully signed up! Kindly login to continue!");
+          navigate("/login");
         }
       } catch (err) {
         console.error(err);

@@ -14,6 +14,7 @@ export const ProfileAddress = () => {
     addressDispatch,
     removeAddress,
   } = useAddress();
+
   const { SET_SHOW_ADDRESS_MODAL, EDIT_ADDRESS, RESET_ADDRESS_DETAILS } =
     addressTypes;
 

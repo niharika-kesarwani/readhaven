@@ -7,7 +7,7 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import { useAuth } from "../../index";
 
 export const Footer = () => {
-  const { token } = useAuth();
+  const { currentUser } = useAuth();
 
   return (
     <div className="footer">
@@ -54,12 +54,18 @@ export const Footer = () => {
           <h2>QUICK LINKS</h2>
           <div className="footer_links_list">
             <p>
-              <NavLink className="navlink" to={token ? "/profile" : "/signup"}>
+              <NavLink
+                className="navlink"
+                to={currentUser ? "/profile" : "/signup"}
+              >
                 Sign Up
               </NavLink>
             </p>
             <p>
-              <NavLink className="navlink" to={token ? "/profile" : "/login"}>
+              <NavLink
+                className="navlink"
+                to={currentUser ? "/profile" : "/login"}
+              >
                 Log In
               </NavLink>
             </p>

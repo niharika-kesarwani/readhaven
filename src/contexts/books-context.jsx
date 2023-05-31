@@ -24,7 +24,6 @@ export const BooksProvider = ({ children }) => {
   );
   const [isLoadingBooks, setIsLoadingBooks] = useState(false);
   const [isErrorBooks, setIsErrorBooks] = useState(false);
-  const { token } = useAuth();
 
   const getBooks = async () => {
     setIsLoadingBooks(true);

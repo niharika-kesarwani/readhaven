@@ -12,7 +12,7 @@ export const BookCard = ({ book, wishlistPage, cartPage }) => {
     useWishlist();
   const { addToCart, isPresentInCart, removeFromCart, updateQuantityInCart } =
     useCart();
-  const { token } = useAuth();
+  const { currentUser } = useAuth();
   const navigate = useNavigate();
 
   const {
@@ -40,7 +40,7 @@ export const BookCard = ({ book, wishlistPage, cartPage }) => {
 
   const addToCartBtnHandler = (e, book) => {
     e.preventDefault();
-    if (token) {
+    if (currentUser) {
       isPresentInCart(book) === -1 ? addToCart(book) : navigate("/cart");
     } else {
       navigate("/login");
@@ -59,7 +59,7 @@ export const BookCard = ({ book, wishlistPage, cartPage }) => {
   };
 
   const addToWishlistBtnHandler = (book) => {
-    if (token) {
+    if (currentUser) {
       addToWishlist(book);
     } else {
       navigate("/login");
@@ -76,7 +76,7 @@ export const BookCard = ({ book, wishlistPage, cartPage }) => {
       <li key={_id} className="book_card">
         <img src={coverImg} alt={title} />
         <div onClick={(e) => e.preventDefault()}>
-          {token ? (
+          {currentUser ? (
             isPresentInWishlist(book) !== -1 ? (
               <FavoriteIcon
                 className="wishlist_icon"
@@ -116,7 +116,7 @@ export const BookCard = ({ book, wishlistPage, cartPage }) => {
               onClick={(e) => addToCartBtnHandler(e, book)}
             >
               <p>
-                {token
+                {currentUser
                   ? isPresentInCart(book) === -1
                     ? "Add to Cart"
                     : "Go to Cart"
@@ -133,7 +133,7 @@ export const BookCard = ({ book, wishlistPage, cartPage }) => {
                   : updateQuantityBtnHandler(e, book, "increment")
               }
             >
-              <p className="book_card_button_text">
+              <div className="book_card_button_text">
                 {isPresentInCart(book) === -1 ? (
                   "Add to Cart"
                 ) : (
@@ -142,7 +142,7 @@ export const BookCard = ({ book, wishlistPage, cartPage }) => {
                     <p>+</p>
                   </div>
                 )}
-              </p>
+              </div>
             </button>
           )}
           {cartPage && (

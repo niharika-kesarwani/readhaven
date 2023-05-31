@@ -26,7 +26,6 @@ export const CategoriesProvider = ({ children }) => {
   const [isErrorCategories, setIsErrorCategories] = useState(false);
 
   const { booksDispatch } = useBooks();
-  const { token } = useAuth();
 
   const { CATEGORY_FILTER } = filterTypes;
   const { DISPLAY_CATEGORIES, GET_CATEGORY_DETAILS } = categoryTypes;

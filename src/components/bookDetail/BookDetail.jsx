@@ -33,7 +33,7 @@ export const BookDetail = () => {
   const { isPresentInCart, addToCart } = useCart();
 
   const navigate = useNavigate();
-  const { token } = useAuth();
+  const { currentUser } = useAuth();
 
   const { CLEAR_FILTER } = filterTypes;
 
@@ -62,7 +62,7 @@ export const BookDetail = () => {
 
   const addToCartBtnHandler = (e, book) => {
     e.preventDefault();
-    if (token) {
+    if (currentUser) {
       isPresentInCart(book) === -1 ? addToCart(book) : navigate("/cart");
     } else {
       navigate("/login");
@@ -71,7 +71,7 @@ export const BookDetail = () => {
   };
 
   const addToWishlistBtnHandler = (bookDetail) => {
-    if (token) {
+    if (currentUser) {
       addToWishlist(bookDetail);
     } else {
       navigate("/login");
@@ -103,7 +103,7 @@ export const BookDetail = () => {
                 <h3>{author}</h3>
               </div>
               <div onClick={(e) => e.preventDefault()}>
-                {token ? (
+                {currentUser ? (
                   isPresentInWishlist(bookDetail) !== -1 ? (
                     <FavoriteIcon
                       className="wishlist_icon"
@@ -155,7 +155,7 @@ export const BookDetail = () => {
               onClick={(e) => addToCartBtnHandler(e, bookDetail)}
             >
               <p>
-                {token
+                {currentUser
                   ? isPresentInCart(bookDetail) === -1
                     ? "Add to Cart"
                     : "Go to Cart"

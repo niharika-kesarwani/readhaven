@@ -18,7 +18,10 @@ import { Logout } from "./pages/logout/Logout";
 import { Error } from "./components/error/Error";
 import { Footer } from "./components/footer/Footer";
 import { GoToTop } from "./components/goToTop/GoToTop";
-import { RequiresAuth } from "./components/RequiresAuth";
+import {
+  TokenRequiresAuth,
+  CurrentUserRequiresAuth,
+} from "./components/RequiresAuth";
 import { Checkout } from "./pages/checkout/Checkout";
 
 function App() {
@@ -37,17 +40,21 @@ function App() {
         <Route
           path="/cart"
           element={
-            <RequiresAuth>
-              <Cart />
-            </RequiresAuth>
+            <TokenRequiresAuth>
+              <CurrentUserRequiresAuth>
+                <Cart />
+              </CurrentUserRequiresAuth>
+            </TokenRequiresAuth>
           }
         />
         <Route
           path="/wishlist"
           element={
-            <RequiresAuth>
-              <Wishlist />
-            </RequiresAuth>
+            <TokenRequiresAuth>
+              <CurrentUserRequiresAuth>
+                <Wishlist />
+              </CurrentUserRequiresAuth>
+            </TokenRequiresAuth>
           }
         />
         <Route path="/signup" element={<SignUp />} />
@@ -55,9 +62,9 @@ function App() {
         <Route
           path="/profile"
           element={
-            <RequiresAuth>
+            <CurrentUserRequiresAuth>
               <Profile />
-            </RequiresAuth>
+            </CurrentUserRequiresAuth>
           }
         >
           <Route path="" element={<ProfileHome />} />
@@ -67,9 +74,11 @@ function App() {
         <Route
           path="/checkout"
           element={
-            <RequiresAuth>
-              <Checkout />
-            </RequiresAuth>
+            <TokenRequiresAuth>
+              <CurrentUserRequiresAuth>
+                <Checkout />
+              </CurrentUserRequiresAuth>
+            </TokenRequiresAuth>
           }
         />
         <Route path="/logout" element={<Logout />} />
