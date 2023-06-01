@@ -6,6 +6,12 @@ A books e-commerce website for all book lovers!
 
 ---
 
+## DEMO VIDEO
+
+https://github.com/niharika-kesarwani/readhaven/assets/45658446/ebb2e7ba-6f5a-41b9-8901-4a5f6eb14e45
+
+---
+
 ## INSTALLATION
 
 ```
@@ -52,10 +58,6 @@ A books e-commerce website for all book lovers!
 ### BACKEND
 
 1. mockBee - https://mockbee.netlify.app/
-
----
-
-## DEMO VIDEO
 
 ---
 
