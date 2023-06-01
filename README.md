@@ -89,4 +89,4 @@ A books e-commerce website for all book lovers!
 
 ### 8. CHECKOUT PAGE
 
-![8](https://github.com/niharika-kesarwani/readhaven/assets/45658446/de361578-a696-42e2-9111-2c56fc1f3989)
+![6](https://github.com/niharika-kesarwani/readhaven/assets/45658446/09cf6fff-e751-42af-bbb7-36353bd2d4fb)
