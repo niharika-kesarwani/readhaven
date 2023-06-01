@@ -29,9 +29,10 @@ function App() {
     <>
       <Header />
       <Toaster
-        position="top-right"
+        position="top-center"
         reverseOrder={false}
         containerStyle={{ top: "10%" }}
+        toastOptions={{ style: { maxWidth: 500 } }}
       />
       <Routes>
         <Route path="/" element={<Home />} />

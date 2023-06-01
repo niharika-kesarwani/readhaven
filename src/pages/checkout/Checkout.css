@@ -33,7 +33,7 @@
 }
 
 .checkout_page .checkout_content .checkout_address .checkout_address_btn:hover {
-  background: var(--primary-color);
+  background: white;
   cursor: pointer;
   scale: 1.1;
 }
@@ -88,7 +88,7 @@
 
 .checkout_page .checkout_content .checkout_order_summary button:hover {
   cursor: pointer;
-  background: var(--primary-color);
+  background: white;
   scale: 1.05;
 }
 
