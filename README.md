@@ -61,32 +61,32 @@ A books e-commerce website for all book lovers!
 
 ### 1. HOME PAGE
 
-![](src\assets\readme\1.PNG)
+![1](https://github.com/niharika-kesarwani/readhaven/assets/45658446/83719d6f-715f-45dc-8a34-d9f3b903cccb)
 
 ### 2. SIGNUP PAGE
 
-![](src\assets\readme\8.PNG)
+![8](https://github.com/niharika-kesarwani/readhaven/assets/45658446/369650ea-81ce-420d-a363-08bef2893898)
 
 ### 3. PRODUCT LISTING PAGE
 
-![](src\assets\readme\2.PNG)
+![2](https://github.com/niharika-kesarwani/readhaven/assets/45658446/9532dd5f-91b7-4740-8eb0-1a5c21f7b780)
 
 ### 4. PRODUCT DETAIL PAGE
 
-![](src\assets\readme\3.PNG)
+![3](https://github.com/niharika-kesarwani/readhaven/assets/45658446/176784c1-f916-4964-a9fa-1ed287691926)
 
 ### 5. WISHLIST PAGE
 
-![](src\assets\readme\4.PNG)
+![4](https://github.com/niharika-kesarwani/readhaven/assets/45658446/7e120d5d-c0ed-4d1c-8ddb-e0ac4f041abb)
 
 ### 6. CART PAGE
 
-![](src\assets\readme\5.PNG)
+![5](https://github.com/niharika-kesarwani/readhaven/assets/45658446/7315f58e-a083-49ed-a5ea-214d9da33d97)
 
 ### 7. PROFILE ADDRESSES PAGE
 
-![](src\assets\readme\7.PNG)
+![7](https://github.com/niharika-kesarwani/readhaven/assets/45658446/ec40075f-2584-4c13-87be-989ce0fda332)
 
 ### 8. CHECKOUT PAGE
 
-![](src\assets\readme\6.PNG)
+![8](https://github.com/niharika-kesarwani/readhaven/assets/45658446/de361578-a696-42e2-9111-2c56fc1f3989)
