@@ -95,9 +95,11 @@ export const AddressModal = () => {
         </label>
         <label>
           <input
-            type="text"
+            type="number"
             placeholder="Pincode"
             name="pincode"
+            min="100000"
+            max="999999"
             value={pincode || ""}
             className="input"
             onChange={handleInput}
@@ -106,9 +108,11 @@ export const AddressModal = () => {
         </label>
         <label>
           <input
-            type="text"
+            type="number"
             placeholder="Phone No."
             name="phoneNumber"
+            min="1000000000"
+            max="9999999999"
             value={phoneNumber || ""}
             className="input"
             onChange={handleInput}

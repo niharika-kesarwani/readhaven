@@ -5,10 +5,15 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import DeleteIcon from "@mui/icons-material/Delete";
 
-export const CartBookCard = ({ book, wishlistPage, cartPage }) => {
+export const CartBookCard = ({ book }) => {
   const { addToWishlist, isPresentInWishlist, deleteFromWishlist } =
     useWishlist();
-  const { removeFromCart, updateQuantityInCart } = useCart();
+  const {
+    removeFromCart,
+    updateQuantityInCart,
+    updateQtyBtnClickTime,
+    setUpdateQtyBtnClickTime,
+  } = useCart();
 
   const {
     _id,
@@ -74,18 +79,23 @@ export const CartBookCard = ({ book, wishlistPage, cartPage }) => {
               <div className="cart_book_card_qty">
                 <button
                   style={{ cursor: qty === 1 && "not-allowed" }}
-                  disabled={qty === 1}
-                  onClick={(e) =>
-                    updateQuantityBtnHandler(e, book, "decrement")
+                  disabled={
+                    new Date().getTime() - updateQtyBtnClickTime < 300 ||
+                    qty === 1
                   }
+                  onClick={(e) => {
+                    setUpdateQtyBtnClickTime(new Date().getTime());
+                    updateQuantityBtnHandler(e, book, "decrement");
+                  }}
                 >
                   -
                 </button>
                 <p>{qty}</p>
                 <button
-                  onClick={(e) =>
-                    updateQuantityBtnHandler(e, book, "increment")
-                  }
+                  onClick={(e) => {
+                    setUpdateQtyBtnClickTime(new Date().getTime());
+                    updateQuantityBtnHandler(e, book, "increment");
+                  }}
                 >
                   +
                 </button>

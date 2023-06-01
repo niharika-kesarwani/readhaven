@@ -6,12 +6,11 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import StarIcon from "@mui/icons-material/Star";
 import { toast } from "react-hot-toast";
 
-export const BookCard = ({ book, wishlistPage, cartPage }) => {
+export const BookCard = ({ book, wishlistPage }) => {
   const { getBookById } = useBooks();
   const { addToWishlist, isPresentInWishlist, deleteFromWishlist } =
     useWishlist();
-  const { addToCart, isPresentInCart, removeFromCart, updateQuantityInCart } =
-    useCart();
+  const { addToCart, isPresentInCart, updateQuantityInCart } = useCart();
   const { currentUser } = useAuth();
   const navigate = useNavigate();
 
@@ -46,11 +45,6 @@ export const BookCard = ({ book, wishlistPage, cartPage }) => {
       navigate("/login");
       toast.error("Please login to continue adding to cart!");
     }
-  };
-
-  const removeFromCartBtnHandler = (e, book) => {
-    e.preventDefault();
-    removeFromCart(book);
   };
 
   const updateQuantityBtnHandler = (e, book, actionType) => {
@@ -110,7 +104,7 @@ export const BookCard = ({ book, wishlistPage, cartPage }) => {
             <p>₹ {originalPrice}</p>
             <p>₹ {originalPrice - discountPrice}</p>
           </h3>
-          {!cartPage && !wishlistPage && (
+          {!wishlistPage && (
             <button
               className="book_card_button"
               onClick={(e) => addToCartBtnHandler(e, book)}
@@ -144,34 +138,6 @@ export const BookCard = ({ book, wishlistPage, cartPage }) => {
                 )}
               </div>
             </button>
-          )}
-          {cartPage && (
-            <div className="book_card_qty_remove">
-              <div className="book_card_qty">
-                <button
-                  disabled={qty === 1}
-                  onClick={(e) =>
-                    updateQuantityBtnHandler(e, book, "decrement")
-                  }
-                >
-                  -
-                </button>
-                <p>{qty}</p>
-                <button
-                  onClick={(e) =>
-                    updateQuantityBtnHandler(e, book, "increment")
-                  }
-                >
-                  +
-                </button>
-              </div>
-              <button
-                className="book_card_button"
-                onClick={(e) => removeFromCartBtnHandler(e, book)}
-              >
-                <p>Remove from Cart</p>
-              </button>
-            </div>
           )}
         </div>
       </li>{" "}

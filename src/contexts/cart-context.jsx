@@ -24,6 +24,9 @@ export const CartProvider = ({ children }) => {
   const [cartState, cartDispatch] = useReducer(cartReducer, initialCartState);
   const [isLoadingCart, setIsLoadingCart] = useState(false);
   const [isErrorCart, setIsErrorCart] = useState(false);
+  const [updateQtyBtnClickTime, setUpdateQtyBtnClickTime] = useState(
+    new Date().getTime()
+  );
 
   const getCart = async () => {
     setIsLoadingCart(true);
@@ -151,6 +154,8 @@ export const CartProvider = ({ children }) => {
         emptyCart,
         totalPrice,
         totalDiscount,
+        updateQtyBtnClickTime,
+        setUpdateQtyBtnClickTime,
       }}
     >
       {children}
