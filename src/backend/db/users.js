@@ -22,7 +22,7 @@ export const users = [
         area: "Gangnam-gu",
         city: "Seoul",
         state: "Seoul",
-        pincode: "06040",
+        pincode: "106040",
         phoneNumber: "1234567890",
       },
       {
@@ -32,7 +32,7 @@ export const users = [
         city: "Mumbai",
         state: "Maharashtra",
         pincode: "400053",
-        phoneNumber: "0987654321",
+        phoneNumber: "1987654321",
       },
     ],
   },
