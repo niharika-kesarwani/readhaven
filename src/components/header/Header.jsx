@@ -35,17 +35,27 @@ export const Header = () => {
           <NavLink title="Explore" className="navlink store" to="/books">
             <ExploreIcon />
           </NavLink>
-          <NavLink title="Wishlist" className="navlink wishlist" to="/wishlist">
-            <FavoriteOutlinedIcon />
-            {currentUser && wishlist?.length > 0 && <p>{wishlist?.length}</p>}
-          </NavLink>
-          <NavLink title="Cart" className="navlink cart" to="/cart">
-            <ShoppingCartIcon />
-            {currentUser && cart?.length > 0 && <p>{cart?.length}</p>}
-          </NavLink>
-          <NavLink title="Profile" className="navlink user" to="/profile">
-            <PersonIcon />
-          </NavLink>
+          {currentUser && (
+            <NavLink
+              title="Wishlist"
+              className="navlink wishlist"
+              to="/wishlist"
+            >
+              <FavoriteOutlinedIcon />
+              {wishlist?.length > 0 && <p>{wishlist?.length}</p>}
+            </NavLink>
+          )}
+          {currentUser && (
+            <NavLink title="Cart" className="navlink cart" to="/cart">
+              <ShoppingCartIcon />
+              {cart?.length > 0 && <p>{cart?.length}</p>}
+            </NavLink>
+          )}
+          {currentUser && (
+            <NavLink title="Profile" className="navlink user" to="/profile">
+              <PersonIcon />
+            </NavLink>
+          )}
           <NavLink
             title={currentUser ? "Log out" : "Log in"}
             className="navlink login"

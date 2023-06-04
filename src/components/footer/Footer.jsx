@@ -53,22 +53,16 @@ export const Footer = () => {
         <div className="footer_links">
           <h2>QUICK LINKS</h2>
           <div className="footer_links_list">
-            <p>
-              <NavLink
-                className="navlink"
-                to={currentUser ? "/profile" : "/signup"}
-              >
-                Sign Up
-              </NavLink>
-            </p>
-            <p>
-              <NavLink
-                className="navlink"
-                to={currentUser ? "/profile" : "/login"}
-              >
-                Log In
-              </NavLink>
-            </p>
+            {!currentUser && (
+              <p>
+                <NavLink
+                  className="navlink"
+                  to={currentUser ? "/profile" : "/login"}
+                >
+                  Sign Up/Login
+                </NavLink>
+              </p>
+            )}
             <p>
               <NavLink className="navlink" to="/">
                 Home

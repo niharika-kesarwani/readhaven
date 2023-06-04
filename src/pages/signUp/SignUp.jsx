@@ -44,6 +44,7 @@ export const SignUp = () => {
             placeholder="Seokjin"
             name="firstName"
             onChange={handleInput}
+            required
           />
         </label>
         <label>
@@ -53,6 +54,7 @@ export const SignUp = () => {
             placeholder="Kim"
             name="lastName"
             onChange={handleInput}
+            required
           />
         </label>
         <label>
@@ -63,6 +65,7 @@ export const SignUp = () => {
             placeholder="bts@loveyourself.com"
             name="email"
             onChange={handleInput}
+            required
           />
         </label>
         <label>
@@ -73,6 +76,7 @@ export const SignUp = () => {
             placeholder="*********"
             name="password"
             onChange={handleInput}
+            required
           />
           <div
             className="signUp_btn_pwd"
@@ -89,6 +93,7 @@ export const SignUp = () => {
             placeholder="*********"
             name="confirmPassword"
             onChange={handleInput}
+            required
           />
           <div
             className="signUp_btn_pwd"

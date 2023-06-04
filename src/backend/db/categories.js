@@ -86,12 +86,6 @@ export const categories = [
   },
   {
     _id: uuid(),
-    categoryName: "Dystopian",
-    description:
-      "Dystopian literature is a form of speculative fiction that offers a vision of the future.",
-  },
-  {
-    _id: uuid(),
     categoryName: "Economics",
     description:
       "Economic books deal with the issues related to the production, consumption, and transfer of wealth in a country or the world.",

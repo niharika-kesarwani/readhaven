@@ -28,6 +28,16 @@
   height: 80%;
 }
 
+.books .books_filters p {
+  display: flex;
+  column-gap: 0.25rem;
+}
+
+.books .books_filters p:hover,
+.books .books_filters input:hover {
+  cursor: pointer;
+}
+
 .books .books_filters .books_filters_heading {
   display: flex;
   justify-content: space-between;
@@ -100,12 +110,6 @@
   row-gap: 0.5rem;
 }
 
-.books .books_filters .books_filters_price p,
-.books .books_filters .books_filters_category ul p {
-  display: flex;
-  column-gap: 0.25rem;
-}
-
 .books .books_list {
   grid-area: list;
   width: 100%;
@@ -141,6 +145,11 @@
 .books .books_list .books_list_block {
   display: flex;
   align-items: flex-start;
+}
+
+.books .books_list .books_list_block .book_list_empty {
+  color: var(--primary-color);
+  margin-top: 1rem;
 }
 
 .books .books_list .books_list_block ul {

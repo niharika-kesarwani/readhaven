@@ -59,7 +59,9 @@ export const Books = () => {
         <hr />
         <div className="books_filters_price">
           <h3>Sort By Price</h3>
-          <p>
+          <p
+            onClick={() => booksDispatch({ type: SORT_FILTER, payload: "HTL" })}
+          >
             <input
               type="radio"
               name="sort"
@@ -70,7 +72,9 @@ export const Books = () => {
             />{" "}
             High To Low
           </p>
-          <p>
+          <p
+            onClick={() => booksDispatch({ type: SORT_FILTER, payload: "LTH" })}
+          >
             <input
               type="radio"
               name="sort"
@@ -102,24 +106,18 @@ export const Books = () => {
         <hr />
         <div className="books_filters_category">
           <h3>Sort By Category</h3>
-          {isLoadingCategories ? (
-            <Loader />
-          ) : isErrorCategories ? (
-            <Error />
-          ) : (
-            <ul>
-              {categories?.map(({ _id, categoryName }) => (
-                <p key={_id}>
-                  <input
-                    type="checkbox"
-                    checked={categoryInput.includes(categoryName)}
-                    onChange={() => getCategoryById(_id)}
-                  />{" "}
-                  {categoryName}
-                </p>
-              ))}
-            </ul>
-          )}
+          <ul>
+            {categories?.map(({ _id, categoryName }) => (
+              <p key={_id} onClick={() => getCategoryById(_id)}>
+                <input
+                  type="checkbox"
+                  checked={categoryInput.includes(categoryName)}
+                  onChange={() => getCategoryById(_id)}
+                />{" "}
+                {categoryName}
+              </p>
+            ))}
+          </ul>
         </div>
       </div>
       <div className="books_list">
@@ -134,15 +132,21 @@ export const Books = () => {
         </div>
         {isLoadingBooks || isLoadingCategories ? (
           <Loader />
-        ) : isErrorBooks || isLoadingCategories ? (
+        ) : isErrorBooks || isErrorCategories ? (
           <Error />
         ) : (
           <div className="books_list_block">
-            <ul>
-              {categoryFilteredBooks?.map((book) => (
-                <BookCard book={book} key={book._id} />
-              ))}
-            </ul>
+            {categoryFilteredBooks.length === 0 ? (
+              <h2 className="book_list_empty">
+                Oops! No book matches your preference!{" "}
+              </h2>
+            ) : (
+              <ul>
+                {categoryFilteredBooks?.map((book) => (
+                  <BookCard book={book} key={book._id} />
+                ))}
+              </ul>
+            )}
           </div>
         )}
       </div>

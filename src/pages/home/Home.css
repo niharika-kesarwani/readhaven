@@ -48,9 +48,9 @@
   column-gap: 0.5rem;
 }
 
-.home .home_wrapper .home_wrapper_item:hover {
+.home .home_wrapper .home_wrapper_item p:first-child:hover {
   cursor: pointer;
-  color: var(--secondary-color);
+  color: var(--primary-color);
   scale: 1.1;
 }
 

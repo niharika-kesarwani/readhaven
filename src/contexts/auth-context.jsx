@@ -43,8 +43,17 @@ export const AuthProvider = ({ children }) => {
         navigate(location?.state?.from?.pathname ?? "/");
       }
     } catch (err) {
-      console.error(err);
-      toast.error("Unable to sign in!");
+      const {
+        response: { status },
+      } = err;
+      if (status === 401) {
+        toast.error("Invalid password! Please try again!");
+      } else if (status === 404) {
+        toast.error("Credentials not found! Please signup before logging in!");
+      } else {
+        console.error(err);
+        toast.error("Unable to sign in!");
+      }
     }
   };
 
@@ -93,8 +102,17 @@ export const AuthProvider = ({ children }) => {
           navigate("/login");
         }
       } catch (err) {
-        console.error(err);
-        toast.error("Unable to sign up!");
+        const {
+          response: { status },
+        } = err;
+        if (status === 422) {
+          toast.error(
+            "User email already exists! Please try signing up with another email!"
+          );
+        } else {
+          console.error(err);
+          toast.error("Unable to sign up!");
+        }
       }
     }
   };
