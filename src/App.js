@@ -13,7 +13,6 @@ import { Login } from "./pages/login/Login";
 import { Profile } from "./pages/profile/Profile";
 import { ProfileHome } from "./pages/profile/home/ProfileHome";
 import { ProfileAddress } from "./pages/profile/address/ProfileAddress";
-import { ProfileOrders } from "./pages/profile/orders/ProfileOrders";
 import { Logout } from "./pages/logout/Logout";
 import { Error } from "./components/error/Error";
 import { Footer } from "./components/footer/Footer";
@@ -70,7 +69,6 @@ function App() {
         >
           <Route path="" element={<ProfileHome />} />
           <Route path="address" element={<ProfileAddress />} />
-          <Route path="orders" element={<ProfileOrders />} />
         </Route>
         <Route
           path="/checkout"

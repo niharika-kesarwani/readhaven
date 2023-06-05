@@ -5,6 +5,7 @@
 
 .book_card {
   background: var(--book-card-background-color);
+  box-shadow: var(--card-box-shadow);
   border-radius: 5px;
 }
 
@@ -60,6 +61,7 @@
   height: 40%;
   width: 100%;
   justify-content: space-around;
+  align-items: flex-start;
   padding: 0.5rem 1rem;
 }
 
@@ -80,17 +82,20 @@
 }
 
 .book_card .book_card_content .book_card_content_price {
+  width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   color: var(--discounted-price-color);
 }
 
-.book_card .book_card_content .book_card_content_price p:nth-child(1) {
+.book_card .book_card_content .book_card_content_price p:nth-child(2) {
   text-decoration: line-through;
   color: var(--original-price-color);
+  margin-right: 2rem;
 }
 
 .book_card .book_card_content button {
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -139,5 +144,9 @@
 @media (min-width: 768px) {
   .book_card .book_card_content {
     row-gap: 10%;
+  }
+
+  .book_card .book_card_content .book_card_content_price p:nth-child(2) {
+    margin-right: 3rem;
   }
 }

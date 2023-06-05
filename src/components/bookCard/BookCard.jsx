@@ -101,8 +101,8 @@ export const BookCard = ({ book, wishlistPage }) => {
           <h3 className="book_card_content_title">{title}</h3>
           <p className="book_card_content_author">{author}</p>
           <h3 className="book_card_content_price">
-            <p>₹ {originalPrice}</p>
             <p>₹ {originalPrice - discountPrice}</p>
+            <p>₹ {originalPrice}</p>
           </h3>
           {!wishlistPage && (
             <button

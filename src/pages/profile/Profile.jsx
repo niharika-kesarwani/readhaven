@@ -2,8 +2,8 @@ import "./Profile.css";
 import { NavLink, Outlet } from "react-router-dom";
 
 export const Profile = () => {
-  const headings = ["Profile", "Address", "Orders"];
-  const routes = ["", "address", "orders"];
+  const headings = ["Profile", "Address"];
+  const routes = ["", "address"];
 
   return (
     <div className="profile_page">

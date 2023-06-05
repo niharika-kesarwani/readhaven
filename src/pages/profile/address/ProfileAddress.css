@@ -1,7 +1,7 @@
 .profileAddress_page {
   max-width: 1440px;
   margin: 0 auto;
-  padding: 1rem 2rem;
+  padding: 1rem;
 }
 
 .profileAddress_page .profileAddress_header {
@@ -70,4 +70,10 @@
   inset: 0;
   z-index: 999;
   background-color: var(--modal-background-color);
+}
+
+@media (min-width: 768px) {
+  .profileAddress_page {
+    padding: 1rem 2rem;
+  }
 }

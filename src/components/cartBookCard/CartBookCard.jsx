@@ -70,8 +70,8 @@ export const CartBookCard = ({ book }) => {
           <p className="cart_book_card_content_author">{author}</p>
           <div className="cart_book_card_content_price_wrapper">
             <div className="cart_book_card_content_price">
-              <p>₹ {originalPrice}</p>
               <h2>₹ {originalPrice - discountPrice}</h2>
+              <p>₹ {originalPrice}</p>
             </div>
           </div>
           <div className="cart_book_card_qty_remove">

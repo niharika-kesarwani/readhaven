@@ -7,6 +7,7 @@
 
 .cart_book_card {
   background: var(--book-card-background-color);
+  box-shadow: var(--card-box-shadow);
   border-radius: 5px;
   display: flex;
   max-height: 225px;
@@ -70,7 +71,7 @@
 .cart_book_card
   .cart_book_card_content
   .cart_book_card_content_price
-  p:nth-child(1) {
+  p:nth-child(2) {
   text-decoration: line-through;
   color: var(--original-price-color);
 }
@@ -89,7 +90,7 @@
   cursor: pointer;
   background-color: white;
   color: black;
-  border: 1.5px solid var(--secondary-color);
+  outline: 1.5px solid var(--secondary-color);
 }
 
 .cart_book_card .cart_book_card_content .cart_book_card_button {

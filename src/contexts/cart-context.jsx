@@ -123,10 +123,8 @@ export const CartProvider = ({ children }) => {
       for (let i = 0; i < cartState?.cart?.length; i++) {
         removeFromCart(cartState?.cart[i], true);
       }
-      toast.success("Emptied cart successfully!");
     } catch (err) {
       console.error(err);
-      toast.error("Unable to empty cart!");
     }
   };
 

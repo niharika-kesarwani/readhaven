@@ -49,7 +49,6 @@
   grid-area: action;
   display: flex;
   justify-content: end;
-  margin-right: 1rem;
 }
 
 .header_wrapper .header .header_action p {
@@ -111,6 +110,10 @@
 
   .header_wrapper .header .header_search {
     margin: 0;
+  }
+
+  .header_wrapper .header .header_action {
+    margin-right: 1rem;
   }
 
   .header_wrapper .header .header_action .store,
