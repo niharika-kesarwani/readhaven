@@ -31,7 +31,9 @@ export const Home = () => {
     <div className="home">
       <div className="home_hero">
         <NavLink to="/books">
-          <button className="shop_btn">SHOP NOW</button>
+          <button className="shop_btn">
+            <p>SHOP NOW</p>
+          </button>
         </NavLink>
       </div>
       <h1>Browse by Category</h1>
@@ -51,7 +53,6 @@ export const Home = () => {
               }}
             >
               <p>{categoryName}</p>
-              <p>|</p>
             </button>
           ))}
         </ul>

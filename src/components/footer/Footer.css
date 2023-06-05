@@ -50,6 +50,8 @@
   display: flex;
   justify-content: center;
   column-gap: 0.75rem;
+  row-gap: 0.75rem;
+  flex-wrap: wrap;
 }
 
 .footer .footer_wrapper .navlink {
@@ -64,20 +66,14 @@
 
 @media (min-width: 768px) {
   .footer .footer_wrapper {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-areas: "connect links" "app-info app-info";
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas: "connect app-info links";
+    padding: 1rem 0;
   }
 }
 
 @media (min-width: 1024px) {
   .footer .footer_wrapper {
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-areas: "connect app-info links";
-  }
-
-  .footer .footer_wrapper .footer_links .footer_links_list {
-    flex-direction: column;
-    align-items: center;
-    row-gap: 0.5rem;
+    padding: 1rem;
   }
 }

@@ -119,6 +119,7 @@
   border: none;
   padding: 0.25rem 1rem;
   text-transform: uppercase;
+  border: 1.5px solid transparent;
 }
 
 .book_card .book_card_content button:hover {
