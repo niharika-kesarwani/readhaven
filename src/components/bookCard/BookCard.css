@@ -9,16 +9,33 @@
   border-radius: 5px;
 }
 
-.book_card img {
+.book_card .book_image_card {
   height: 60%;
-  max-width: 100%;
-  padding: 0 0.5rem;
+  width: 100%;
+  overflow: hidden;
+}
+
+.book_card .book_image_card img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  transform: scale(1) rotate(0);
+  transition: transform 0.5s ease-in;
+}
+
+.book_card .book_image_card img:hover,
+.book_card:hover img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  transform: scale(1.1) rotate(2deg);
 }
 
 .book_card .wishlist_icon {
   padding: 5% 5% 10% 10%;
   position: absolute;
   top: 0;
+  margin-left: -50px;
   right: 0;
   height: 3rem;
   width: 3rem;
@@ -30,33 +47,6 @@
   color: var(--original-price-color);
 }
 
-.book_card .book_card_ratings {
-  display: flex;
-  position: absolute;
-  left: 0;
-  padding: 0.25rem;
-  bottom: 45%;
-  height: 1.5rem;
-  justify-content: space-evenly;
-  align-items: center;
-  background: var(--secondary-color);
-  column-gap: 0.4rem;
-}
-
-.book_card .book_card_ratings div:nth-child(1) {
-  display: flex;
-  align-items: center;
-  column-gap: 0.25rem;
-}
-
-.book_card .book_card_ratings p {
-  font-size: small;
-}
-
-.book_card .book_card_ratings .star_icon {
-  color: var(--star-color);
-}
-
 .book_card .book_card_content {
   display: flex;
   flex-direction: column;
@@ -64,7 +54,31 @@
   width: 100%;
   justify-content: space-around;
   align-items: flex-start;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem;
+}
+
+.book_card .book_card_content .book_card_ratings_row {
+  display: flex;
+  align-items: center;
+  column-gap: 1rem;
+}
+
+.book_card .book_card_content .book_card_ratings_row .book_card_ratings {
+  background: var(--secondary-color);
+  border-radius: 5px;
+  padding: 0.1rem 0.3rem;
+  display: flex;
+  align-items: center;
+  column-gap: 0.5rem;
+}
+
+.book_card
+  .book_card_content
+  .book_card_ratings_row
+  .book_card_ratings
+  .star_icon {
+  display: flex;
+  color: var(--star-color);
 }
 
 .book_card .book_card_content .book_card_content_title {
@@ -93,7 +107,7 @@
 .book_card .book_card_content .book_card_content_price p:nth-child(2) {
   text-decoration: line-through;
   color: var(--original-price-color);
-  margin-right: 2rem;
+  margin-right: 4rem;
 }
 
 .book_card .book_card_content button {
@@ -149,7 +163,7 @@
   }
 
   .book_card .book_card_content {
-    row-gap: 10%;
+    padding: 0.5rem 1rem;
   }
 
   .book_card .book_card_content .book_card_content_price p:nth-child(2) {

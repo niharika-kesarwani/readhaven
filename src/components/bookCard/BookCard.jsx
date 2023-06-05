@@ -68,7 +68,9 @@ export const BookCard = ({ book, wishlistPage }) => {
       className="book_card_navlink"
     >
       <li key={_id} className="book_card">
-        <img src={coverImg} alt={title} />
+        <div className="book_image_card">
+          <img src={coverImg} alt={title} />
+        </div>
         <div onClick={(e) => e.preventDefault()}>
           {currentUser ? (
             isPresentInWishlist(book) !== -1 ? (
@@ -89,15 +91,16 @@ export const BookCard = ({ book, wishlistPage }) => {
             />
           )}
         </div>
-        <div className="book_card_ratings">
-          <div>
-            <p>{totalStars}</p>
-            <StarIcon className="star_icon" />
-          </div>
-          <div>|</div>
-          <p>{totalRatings.toLocaleString("en-US")}</p>
-        </div>
         <div className="book_card_content">
+          <div className="book_card_ratings_row">
+            <div className="book_card_ratings">
+              <p>{totalStars}</p>
+              <div className="star_icon">
+                <StarIcon />
+              </div>
+            </div>
+            <p>({totalRatings.toLocaleString("en-US")})</p>
+          </div>
           <h3 className="book_card_content_title">{title}</h3>
           <p className="book_card_content_author">{author}</p>
           <h3 className="book_card_content_price">

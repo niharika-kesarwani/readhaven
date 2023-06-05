@@ -153,8 +153,9 @@
   position: relative;
   flex-direction: column;
   align-items: center;
-  width: 155px;
-  height: 350px;
+  width: 200px;
+  height: 450px;
+  overflow: hidden;
 }
 
 .books .books_list li:hover {
@@ -220,7 +221,8 @@
 
   .books .books_list li {
     margin: 1rem 0.75rem;
-    width: 220px;
+    width: 225px;
+    height: 475px;
   }
 }
 
@@ -228,5 +230,15 @@
   .books {
     grid-template-areas: "filters list list list";
     grid-template-columns: repeat(4, 1fr);
+  }
+
+  .books .books_list .books_list_block {
+    margin-right: 1rem;
+  }
+
+  .books .books_list li {
+    margin: 1.25rem 1rem;
+    width: 250px;
+    height: 500px;
   }
 }
