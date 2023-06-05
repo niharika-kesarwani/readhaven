@@ -16,10 +16,12 @@
 }
 
 .book_card .wishlist_icon {
-  padding: 0.25rem 0.25rem 0 0;
+  padding: 5% 5% 10% 10%;
   position: absolute;
   top: 0;
   right: 0;
+  height: 3rem;
+  width: 3rem;
   color: var(--original-price-color);
 }
 
@@ -142,6 +144,10 @@
 }
 
 @media (min-width: 768px) {
+  .book_card .wishlist_icon {
+    padding: 5%;
+  }
+
   .book_card .book_card_content {
     row-gap: 10%;
   }

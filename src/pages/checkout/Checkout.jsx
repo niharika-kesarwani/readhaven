@@ -134,7 +134,15 @@ export const Checkout = () => {
             <button onClick={() => placeOrderBtnHandler()}>Place Order</button>
           </div>
           {showAddressModal && (
-            <div className="checkout_addAddress_modal">
+            <div
+              className="checkout_addAddress_modal"
+              onClick={() =>
+                addressDispatch({
+                  type: SET_SHOW_ADDRESS_MODAL,
+                  payload: false,
+                })
+              }
+            >
               <AddressModal />
             </div>
           )}

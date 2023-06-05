@@ -77,7 +77,12 @@ export const ProfileAddress = () => {
         </ul>
       )}
       {showAddressModal && (
-        <div className="profileAddress_modal">
+        <div
+          className="profileAddress_modal"
+          onClick={() =>
+            addressDispatch({ type: SET_SHOW_ADDRESS_MODAL, payload: false })
+          }
+        >
           <AddressModal />
         </div>
       )}

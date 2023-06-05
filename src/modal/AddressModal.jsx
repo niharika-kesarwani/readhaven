@@ -47,7 +47,7 @@ export const AddressModal = () => {
   };
 
   return (
-    <div className="addressModal">
+    <div className="addressModal" onClick={(e) => e.stopPropagation()}>
       <h2>Edit / Add New Address</h2>
       <form onSubmit={handleAddressSubmit}>
         <label>
