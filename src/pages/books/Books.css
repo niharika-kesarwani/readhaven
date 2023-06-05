@@ -159,7 +159,7 @@
 }
 
 .books .books_list li:hover {
-  scale: 1.05;
+  box-shadow: var(--selected-product-box-shadow);
 }
 
 @media (max-width: 768px) {
