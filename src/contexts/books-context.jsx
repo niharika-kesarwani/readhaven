@@ -96,8 +96,7 @@ export const BooksProvider = ({ children }) => {
         )
       : ratingFilteredBooks;
 
-  const toggleFilters = () =>
-    setDisplayFilters((displayFilters) => !displayFilters);
+  const toggleFilters = (value) => setDisplayFilters(() => value);
 
   return (
     <BooksContext.Provider

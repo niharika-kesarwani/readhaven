@@ -49,6 +49,7 @@
   grid-area: action;
   display: flex;
   justify-content: end;
+  margin-right: 0.5rem;
 }
 
 .header_wrapper .header .header_action p {

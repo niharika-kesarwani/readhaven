@@ -51,7 +51,7 @@ export const Books = () => {
             >
               <h4>Clear Filters</h4>
             </button>
-            <div onClick={() => toggleFilters()}>
+            <div onClick={() => toggleFilters(false)}>
               <CancelIcon className="cancel-btn" />
             </div>
           </div>
@@ -126,7 +126,7 @@ export const Books = () => {
             Showing All Books{" "}
             <p>(Showing {categoryFilteredBooks?.length} books)</p>
           </h2>
-          <div onClick={() => toggleFilters()}>
+          <div onClick={() => toggleFilters(true)}>
             <TuneIcon className="tune-icon" />
           </div>
         </div>
