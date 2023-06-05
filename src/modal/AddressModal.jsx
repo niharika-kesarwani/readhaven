@@ -14,7 +14,8 @@ export const AddressModal = () => {
   const { SET_SHOW_ADDRESS_MODAL, SET_ADDRESS_DETAILS, SET_DUMMY_ADDRESS } =
     addressTypes;
 
-  const { name, area, city, state, pincode, phoneNumber } = addressFormData;
+  const { _id, name, area, city, state, pincode, phoneNumber } =
+    addressFormData;
 
   const dummyAddress = {
     name: "Niharika Kesarwani",
@@ -40,14 +41,14 @@ export const AddressModal = () => {
     if (isAddressPresent) {
       editAddress(isAddressPresent._id, addressFormData);
     } else {
-      addToAddress({ ...addressFormData, _id: uuid() });
+      addToAddress(addressFormData);
     }
     addressDispatch({ type: SET_SHOW_ADDRESS_MODAL, payload: false });
   };
 
   return (
     <div className="addressModal">
-      <h2>Add New Address</h2>
+      <h2>Edit / Add New Address</h2>
       <form onSubmit={handleAddressSubmit}>
         <label>
           <input
@@ -121,7 +122,7 @@ export const AddressModal = () => {
         </label>
         <div>
           <button type="submit">
-            <p>Add</p>
+            <p>Edit / Add</p>
           </button>
           <button
             onClick={() =>
@@ -134,7 +135,13 @@ export const AddressModal = () => {
         <button
           type="button"
           onClick={() =>
-            addressDispatch({ type: SET_DUMMY_ADDRESS, payload: dummyAddress })
+            addressDispatch({
+              type: SET_DUMMY_ADDRESS,
+              payload:
+                _id !== ""
+                  ? { ...dummyAddress, _id: _id }
+                  : { ...dummyAddress, _id: uuid() },
+            })
           }
         >
           <p>Fill with Dummy Values</p>
