@@ -19,8 +19,8 @@ export const Login = () => {
   });
 
   const guestUserDetails = {
-    email: "adarshbalika@gmail.com",
-    password: "adarshbalika",
+    email: "userguest@readhaven.com",
+    password: "userguest",
   };
 
   const handleInput = (e) =>
