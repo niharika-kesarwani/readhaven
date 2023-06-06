@@ -213,6 +213,7 @@ export const BookCard = ({ book, wishlistPage }) => {
                 ) : (
                   <div className="book_card_wishlist_qty">
                     <p>Added to Cart</p>
+                    <p>{findItemInCart(_id).qty}</p>
                     <p>+</p>
                   </div>
                 )}

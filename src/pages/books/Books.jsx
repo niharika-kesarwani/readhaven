@@ -103,7 +103,7 @@ export const Books = () => {
           />
           <div>
             {ratingsList?.map((item) => (
-              <p>{item}</p>
+              <p key={item}>{item}</p>
             ))}
           </div>
         </div>
@@ -125,6 +125,7 @@ export const Books = () => {
                   type="checkbox"
                   id={_id}
                   checked={categoryInput.includes(categoryName)}
+                  readOnly
                 />{" "}
                 {categoryName}
               </p>
