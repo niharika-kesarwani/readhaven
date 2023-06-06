@@ -82,8 +82,8 @@ export const CartBookCard = ({ book }) => {
             <div className="cart_book_card_qty_wrapper">
               <div className="cart_book_card_qty">
                 <button
-                  style={{ cursor: qty === 1 && "not-allowed" }}
-                  disabled={qty === 1}
+                  style={{ cursor: qty <= 1 && "not-allowed" }}
+                  disabled={qty <= 1}
                   onClick={(e) => {
                     e.preventDefault();
                     handleCartCardBtnsClick(

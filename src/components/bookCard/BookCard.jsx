@@ -129,9 +129,9 @@ export const BookCard = ({ book, wishlistPage }) => {
                     <button
                       className="book_card_button"
                       style={{
-                        cursor: findItemInCart(_id).qty === 1 && "not-allowed",
+                        cursor: findItemInCart(_id).qty <= 1 && "not-allowed",
                       }}
-                      disabled={findItemInCart(_id).qty === 1}
+                      disabled={findItemInCart(_id).qty <= 1}
                       onClick={(e) => {
                         e.preventDefault();
                         handleCardBtnsClick(
