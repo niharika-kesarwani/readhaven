@@ -94,7 +94,7 @@
 .books .books_filters .books_filters_rating {
   display: flex;
   flex-direction: column;
-  row-gap: 0.25rem;
+  row-gap: 0.5rem;
   accent-color: var(--secondary-color);
 }
 
@@ -107,6 +107,11 @@
 .books .books_filters .books_filters_rating div {
   display: flex;
   justify-content: space-between;
+}
+
+.books .books_filters .books_filters_rating div p {
+  padding: 0;
+  font-size: small;
 }
 
 .books .books_filters .books_filters_category {

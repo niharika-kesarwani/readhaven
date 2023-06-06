@@ -27,6 +27,7 @@ export const Books = () => {
   } = useCategories();
 
   const { SORT_FILTER, RATING_FILTER, CLEAR_FILTER } = filterTypes;
+  const ratingsList = ["1.0", "2.0", "3.0", "4.0", "5.0"];
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -101,8 +102,9 @@ export const Books = () => {
             }
           />
           <div>
-            <p>1.0</p>
-            <p>5.0</p>
+            {ratingsList?.map((item) => (
+              <p>{item}</p>
+            ))}
           </div>
         </div>
         <hr />
