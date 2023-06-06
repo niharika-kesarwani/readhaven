@@ -46,7 +46,7 @@ export const ProfileAddress = () => {
         <Error />
       ) : (
         <ul className="profileAddress_list">
-          {address?.map((add) => {
+          {address?.map((add, index) => {
             const { _id, name, area, city, state, pincode, phoneNumber } = add;
             return (
               <li key={_id}>
@@ -70,7 +70,7 @@ export const ProfileAddress = () => {
                     Delete
                   </button>
                 </div>
-                <hr />
+                {index < address?.length - 1 && <hr />}
               </li>
             );
           })}
