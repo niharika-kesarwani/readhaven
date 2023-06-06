@@ -19,6 +19,7 @@
   border-radius: 5px;
   border: none;
   background-color: var(--secondary-color);
+  transition: var(--button-transition);
 }
 
 .home .home_hero .shop_btn:hover {
@@ -49,6 +50,7 @@
   column-gap: 0.5rem;
   border-radius: 5px;
   border: 1px solid var(--primary-color);
+  transition: var(--button-transition);
 }
 
 .home .home_wrapper .home_wrapper_item:hover {

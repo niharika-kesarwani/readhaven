@@ -135,6 +135,9 @@ export const CartProvider = ({ children }) => {
     0
   );
 
+  const findItemInCart = (findId) =>
+    cartState?.cart?.find(({ _id }) => _id === findId);
+
   return (
     <CartContext.Provider
       value={{
@@ -149,6 +152,7 @@ export const CartProvider = ({ children }) => {
         emptyCart,
         totalPrice,
         totalDiscount,
+        findItemInCart,
       }}
     >
       {children}

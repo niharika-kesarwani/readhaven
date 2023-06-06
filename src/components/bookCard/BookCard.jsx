@@ -11,7 +11,8 @@ export const BookCard = ({ book, wishlistPage }) => {
   const { getBookById } = useBooks();
   const { addToWishlist, isPresentInWishlist, deleteFromWishlist } =
     useWishlist();
-  const { addToCart, isPresentInCart, updateQuantityInCart } = useCart();
+  const { addToCart, isPresentInCart, updateQuantityInCart, findItemInCart } =
+    useCart();
   const { currentUser } = useAuth();
   const navigate = useNavigate();
   const cardTimerId = useRef();
@@ -120,23 +121,77 @@ export const BookCard = ({ book, wishlistPage }) => {
             <p>₹ {originalPrice - discountPrice}</p>
             <p>₹ {originalPrice}</p>
           </h3>
-          {!wishlistPage && (
-            <button
-              className="book_card_button"
-              onClick={(e) => {
-                e.preventDefault();
-                handleCardBtnsClick(600, addToCartBtnHandler, book);
-              }}
-            >
-              <p>
-                {currentUser
-                  ? isPresentInCart(book) === -1
-                    ? "Add to Cart"
-                    : "Go to Cart"
-                  : "Add to Cart"}
-              </p>
-            </button>
-          )}
+          {!wishlistPage &&
+            (currentUser ? (
+              isPresentInCart(book) !== -1 ? (
+                <div className="book_card_btn_qty_wrapper">
+                  <div className="cart_book_card_qty">
+                    <button
+                      className="book_card_button"
+                      style={{
+                        cursor: findItemInCart(_id).qty === 1 && "not-allowed",
+                      }}
+                      disabled={findItemInCart(_id).qty === 1}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        handleCardBtnsClick(
+                          600,
+                          updateQuantityBtnHandler,
+                          book,
+                          "decrement"
+                        );
+                      }}
+                    >
+                      -
+                    </button>
+                    <p>{findItemInCart(_id).qty}</p>
+                    <button
+                      className="book_card_button"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        handleCardBtnsClick(
+                          600,
+                          updateQuantityBtnHandler,
+                          book,
+                          "increment"
+                        );
+                      }}
+                    >
+                      +
+                    </button>
+                  </div>
+                  <button
+                    className="book_card_button"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleCardBtnsClick(600, addToCartBtnHandler, book);
+                    }}
+                  >
+                    <p>Go to Cart</p>
+                  </button>
+                </div>
+              ) : (
+                <button
+                  className="book_card_button"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleCardBtnsClick(600, addToCartBtnHandler, book);
+                  }}
+                >
+                  <p>Add to Cart</p>
+                </button>
+              )
+            ) : (
+              <button
+                className="book_card_button"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleCardBtnsClick(600, addToCartBtnHandler, book);
+                }}
+              >
+                <p>Add to Cart</p>
+              </button>
+            ))}
           {wishlistPage && (
             <button
               className="book_card_button"
