@@ -5,6 +5,7 @@ import { BookCard } from "../../components/bookCard/BookCard";
 import { filterTypes } from "../../constants/filterTypes";
 import TuneIcon from "@mui/icons-material/Tune";
 import CancelIcon from "@mui/icons-material/Cancel";
+import ClearOutlinedIcon from "@mui/icons-material/ClearOutlined";
 import { Loader } from "../../components/loader/Loader";
 import { Error } from "../../components/error/Error";
 
@@ -24,6 +25,7 @@ export const Books = () => {
     isErrorCategories,
     categoriesState: { categories },
     getCategoryById,
+    getCategoryByName,
   } = useCategories();
 
   const { SORT_FILTER, RATING_FILTER, CLEAR_FILTER } = filterTypes;
@@ -43,19 +45,38 @@ export const Books = () => {
         }
       >
         <div className="books_filters_heading">
-          <h2>Filters</h2>
-          <div>
-            <button
-              onClick={() =>
-                booksDispatch({ type: CLEAR_FILTER, payload: books })
-              }
-            >
-              <h4>Clear Filters</h4>
-            </button>
-            <div onClick={() => toggleFilters(false)}>
-              <CancelIcon className="cancel-btn" />
+          <div className="books_filters_heading_title">
+            <h2>Filters</h2>
+            <div>
+              <button
+                onClick={() =>
+                  booksDispatch({ type: CLEAR_FILTER, payload: books })
+                }
+              >
+                <h4>Clear Filters</h4>
+              </button>
+              <div onClick={() => toggleFilters(false)}>
+                <CancelIcon className="cancel-btn" />
+              </div>
             </div>
           </div>
+          {categoryInput.length > 0 && (
+            <div className="books_filters_selected">
+              {categoryInput?.map((category) => (
+                <div
+                  className="books_filters_selected_card"
+                  onClick={() =>
+                    getCategoryById(getCategoryByName(category)._id)
+                  }
+                >
+                  <p>{category}</p>
+                  <div>
+                    <ClearOutlinedIcon />
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
         <hr />
         <div className="books_filters_price">
@@ -112,15 +133,7 @@ export const Books = () => {
           <h3>Sort By Category</h3>
           <ul>
             {categories?.map(({ _id, categoryName }) => (
-              <p
-                key={_id}
-                onClick={() => getCategoryById(_id)}
-                className={
-                  categoryInput.includes(categoryName)
-                    ? "input_checked"
-                    : undefined
-                }
-              >
+              <p key={_id} onClick={() => getCategoryById(_id)}>
                 <input
                   type="checkbox"
                   id={_id}

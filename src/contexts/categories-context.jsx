@@ -76,6 +76,11 @@ export const CategoriesProvider = ({ children }) => {
     }
   };
 
+  const getCategoryByName = (searchCategory) =>
+    categoriesState?.categories?.find(
+      ({ categoryName }) => categoryName === searchCategory
+    );
+
   return (
     <CategoriesContext.Provider
       value={{
@@ -84,6 +89,7 @@ export const CategoriesProvider = ({ children }) => {
         categoriesState,
         categoriesDispatch,
         getCategoryById,
+        getCategoryByName,
       }}
     >
       {children}

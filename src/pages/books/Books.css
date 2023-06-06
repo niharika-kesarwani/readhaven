@@ -21,12 +21,6 @@
   padding: 0.25rem 0.5rem;
 }
 
-.books .books_filters .input_checked {
-  outline: 1px solid var(--secondary-color);
-  border-radius: 5px;
-  background: var(--secondary-color);
-}
-
 .books .books_filters p:hover {
   cursor: pointer;
   outline: 1px solid var(--primary-color);
@@ -41,37 +35,66 @@
 
 .books .books_filters .books_filters_heading {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  row-gap: 1rem;
+}
+
+.books .books_filters .books_filters_heading .books_filters_heading_title {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
   align-items: center;
   flex-wrap: wrap;
   row-gap: 0.5rem;
 }
 
-.books .books_filters .books_filters_heading div {
+.books .books_filters .books_filters_heading .books_filters_heading_title div {
   display: flex;
   column-gap: 1rem;
   align-items: center;
 }
 
-.books .books_filters .books_filters_heading div button {
+.books
+  .books_filters
+  .books_filters_heading
+  .books_filters_heading_title
+  div
+  button {
   border: none;
   background: var(--secondary-color);
   padding: 0.5rem 1rem;
   border-radius: 5px;
 }
 
-.books .books_filters .books_filters_heading div button:hover {
+.books
+  .books_filters
+  .books_filters_heading
+  .books_filters_heading_title
+  div
+  button:hover {
   background: white;
   outline: 1px solid var(--primary-color);
   cursor: pointer;
-  scale: 1.2;
 }
 
-.books .books_filters .books_filters_heading div div {
+.books
+  .books_filters
+  .books_filters_heading
+  .books_filters_heading_title
+  div
+  div {
   color: var(--primary-color);
 }
 
-.books .books_filters .books_filters_heading div div:hover {
+.books
+  .books_filters
+  .books_filters_heading
+  .books_filters_heading_title
+  div
+  div:hover {
   color: var(--primary-color);
   cursor: pointer;
   scale: 1.2;
@@ -83,6 +106,58 @@
 .books .books_filters .books_filters_category {
   margin: 0.25rem 0;
   padding: 0.25rem 0;
+}
+
+.books .books_filters .books_filters_heading .books_filters_selected {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 0.5rem;
+}
+
+.books
+  .books_filters
+  .books_filters_heading
+  .books_filters_selected
+  .books_filters_selected_card {
+  display: flex;
+  border: 1px solid var(--primary-color);
+  border-radius: 5px;
+  align-items: center;
+  justify-content: center;
+  background: var(--secondary-color);
+  padding: 0 0.125rem;
+}
+
+.books
+  .books_filters
+  .books_filters_heading
+  .books_filters_selected
+  .books_filters_selected_card:hover {
+  background: white;
+  cursor: pointer;
+}
+
+.books
+  .books_filters
+  .books_filters_heading
+  .books_filters_selected
+  .books_filters_selected_card
+  div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.25rem;
+}
+
+.books
+  .books_filters
+  .books_filters_heading
+  .books_filters_selected
+  .books_filters_selected_card
+  div:hover {
+  cursor: pointer;
 }
 
 .books .books_filters .books_filters_price {
@@ -98,6 +173,12 @@
   accent-color: var(--secondary-color);
 }
 
+.books
+  .books_filters
+  .books_filters_heading
+  .books_filters_selected
+  .books_filters_selected_card
+  p,
 .books .books_filters .books_filters_rating input:hover,
 .books .books_filters .books_filters_rating p:hover {
   outline: none;
@@ -220,11 +301,12 @@
     row-gap: 1rem;
   }
 
-  .books .books_filters .books_filters_heading div button:hover {
-    scale: 1.1;
-  }
-
-  .books .books_filters .books_filters_heading div div {
+  .books
+    .books_filters
+    .books_filters_heading
+    .books_filters_heading_title
+    div
+    div {
     display: none;
   }
 
