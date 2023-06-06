@@ -27,13 +27,16 @@
   background: var(--secondary-color);
 }
 
-.books .books_filters p:hover,
-.books .books_filters input:hover {
+.books .books_filters p:hover {
   cursor: pointer;
   outline: 1px solid var(--primary-color);
   border-radius: 5px;
   background: var(--secondary-color);
   opacity: 0.9;
+}
+
+.books .books_filters input:hover {
+  cursor: pointer;
 }
 
 .books .books_filters .books_filters_heading {
