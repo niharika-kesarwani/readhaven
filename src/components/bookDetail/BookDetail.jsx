@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useNavigate, useParams } from "react-router";
 import "./BookDetail.css";
 import {
@@ -18,7 +18,6 @@ import { filterTypes } from "../../constants/filterTypes";
 
 export const BookDetail = () => {
   const { bookId } = useParams();
-
   const {
     booksState: { books, bookDetail },
     booksDispatch,
@@ -31,11 +30,10 @@ export const BookDetail = () => {
     getCategoryById,
   } = useCategories();
   const { isPresentInCart, addToCart } = useCart();
-
   const navigate = useNavigate();
   const { currentUser } = useAuth();
-
   const { CLEAR_FILTER } = filterTypes;
+  const detailCardTimerId = useRef();
 
   getBookById(bookId);
 
@@ -60,8 +58,7 @@ export const BookDetail = () => {
     updatedAt,
   } = bookDetail;
 
-  const addToCartBtnHandler = (e, book) => {
-    e.preventDefault();
+  const addToCartBtnHandler = (book) => {
     if (currentUser) {
       isPresentInCart(book) === -1 ? addToCart(book) : navigate("/cart");
     } else {
@@ -87,6 +84,13 @@ export const BookDetail = () => {
     navigate("/books");
   };
 
+  const handleDetailCardBtnsClick = (delay, callback, ...args) => {
+    clearTimeout(detailCardTimerId.current);
+    detailCardTimerId.current = setTimeout(() => {
+      callback(...args);
+    }, delay);
+  };
+
   useEffect(() => booksDispatch({ type: CLEAR_FILTER, payload: books }), []);
 
   return (
@@ -107,18 +111,36 @@ export const BookDetail = () => {
                   isPresentInWishlist(bookDetail) !== -1 ? (
                     <FavoriteIcon
                       className="wishlist_icon"
-                      onClick={() => deleteFromWishlist(bookDetail)}
+                      onClick={() =>
+                        handleDetailCardBtnsClick(
+                          600,
+                          deleteFromWishlist,
+                          bookDetail
+                        )
+                      }
                     />
                   ) : (
                     <FavoriteBorderIcon
                       className="wishlist_icon"
-                      onClick={() => addToWishlistBtnHandler(bookDetail)}
+                      onClick={() =>
+                        handleDetailCardBtnsClick(
+                          600,
+                          addToWishlistBtnHandler,
+                          bookDetail
+                        )
+                      }
                     />
                   )
                 ) : (
                   <FavoriteBorderIcon
                     className="wishlist_icon"
-                    onClick={() => addToWishlistBtnHandler(bookDetail)}
+                    onClick={() =>
+                      handleDetailCardBtnsClick(
+                        600,
+                        addToWishlistBtnHandler,
+                        bookDetail
+                      )
+                    }
                   />
                 )}
               </div>
@@ -152,7 +174,9 @@ export const BookDetail = () => {
             </p>
             <button
               className="button"
-              onClick={(e) => addToCartBtnHandler(e, bookDetail)}
+              onClick={(e) =>
+                handleDetailCardBtnsClick(600, addToCartBtnHandler, bookDetail)
+              }
             >
               <p>
                 {currentUser

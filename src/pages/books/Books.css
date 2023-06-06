@@ -18,11 +18,22 @@
 .books .books_filters p {
   display: flex;
   column-gap: 0.25rem;
+  padding: 0.25rem 0.5rem;
+}
+
+.books .books_filters .input_checked {
+  outline: 1px solid var(--secondary-color);
+  border-radius: 5px;
+  background: var(--secondary-color);
 }
 
 .books .books_filters p:hover,
 .books .books_filters input:hover {
   cursor: pointer;
+  outline: 1px solid var(--primary-color);
+  border-radius: 5px;
+  background: var(--secondary-color);
+  opacity: 0.9;
 }
 
 .books .books_filters .books_filters_heading {
@@ -82,6 +93,12 @@
   flex-direction: column;
   row-gap: 0.25rem;
   accent-color: var(--secondary-color);
+}
+
+.books .books_filters .books_filters_rating input:hover,
+.books .books_filters .books_filters_rating p:hover {
+  outline: none;
+  background: none;
 }
 
 .books .books_filters .books_filters_rating div {

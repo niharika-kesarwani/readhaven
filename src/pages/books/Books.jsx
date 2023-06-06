@@ -61,6 +61,7 @@ export const Books = () => {
           <h3>Sort By Price</h3>
           <p
             onClick={() => booksDispatch({ type: SORT_FILTER, payload: "HTL" })}
+            className={sortInput?.includes("HTL") && "input_checked"}
           >
             <input
               type="radio"
@@ -74,6 +75,7 @@ export const Books = () => {
           </p>
           <p
             onClick={() => booksDispatch({ type: SORT_FILTER, payload: "LTH" })}
+            className={sortInput?.includes("LTH") && "input_checked"}
           >
             <input
               type="radio"
@@ -108,7 +110,13 @@ export const Books = () => {
           <h3>Sort By Category</h3>
           <ul>
             {categories?.map(({ _id, categoryName }) => (
-              <p key={_id} onClick={() => getCategoryById(_id)}>
+              <p
+                key={_id}
+                onClick={() => getCategoryById(_id)}
+                className={
+                  categoryInput.includes(categoryName) && "input_checked"
+                }
+              >
                 <input
                   type="checkbox"
                   checked={categoryInput.includes(categoryName)}

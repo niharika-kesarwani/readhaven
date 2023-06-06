@@ -4,16 +4,13 @@ import { NavLink } from "react-router-dom";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import DeleteIcon from "@mui/icons-material/Delete";
+import { useRef } from "react";
 
 export const CartBookCard = ({ book }) => {
   const { addToWishlist, isPresentInWishlist, deleteFromWishlist } =
     useWishlist();
-  const {
-    removeFromCart,
-    updateQuantityInCart,
-    updateQtyBtnClickTime,
-    setUpdateQtyBtnClickTime,
-  } = useCart();
+  const { removeFromCart, updateQuantityInCart } = useCart();
+  const cartCardTimerId = useRef();
 
   const {
     _id,
@@ -38,14 +35,19 @@ export const CartBookCard = ({ book }) => {
     wishlist,
   } = book;
 
-  const removeFromCartBtnHandler = (e, book) => {
-    e.preventDefault();
+  const removeFromCartBtnHandler = (book) => {
     removeFromCart(book);
   };
 
-  const updateQuantityBtnHandler = (e, book, actionType) => {
-    e.preventDefault();
+  const updateQuantityBtnHandler = (book, actionType) => {
     updateQuantityInCart(book, actionType);
+  };
+
+  const handleCartCardBtnsClick = (delay, callback, ...args) => {
+    clearTimeout(cartCardTimerId.current);
+    cartCardTimerId.current = setTimeout(() => {
+      callback(...args);
+    }, delay);
   };
 
   return (
@@ -56,12 +58,14 @@ export const CartBookCard = ({ book }) => {
           {isPresentInWishlist(book) !== -1 ? (
             <FavoriteIcon
               className="wishlist_icon"
-              onClick={() => deleteFromWishlist(book)}
+              onClick={() =>
+                handleCartCardBtnsClick(600, deleteFromWishlist, book)
+              }
             />
           ) : (
             <FavoriteBorderIcon
               className="wishlist_icon"
-              onClick={() => addToWishlist(book)}
+              onClick={() => handleCartCardBtnsClick(600, addToWishlist, book)}
             />
           )}
         </div>
@@ -79,13 +83,15 @@ export const CartBookCard = ({ book }) => {
               <div className="cart_book_card_qty">
                 <button
                   style={{ cursor: qty === 1 && "not-allowed" }}
-                  disabled={
-                    new Date().getTime() - updateQtyBtnClickTime < 300 ||
-                    qty === 1
-                  }
+                  disabled={qty === 1}
                   onClick={(e) => {
-                    setUpdateQtyBtnClickTime(new Date().getTime());
-                    updateQuantityBtnHandler(e, book, "decrement");
+                    e.preventDefault();
+                    handleCartCardBtnsClick(
+                      600,
+                      updateQuantityBtnHandler,
+                      book,
+                      "decrement"
+                    );
                   }}
                 >
                   -
@@ -93,8 +99,13 @@ export const CartBookCard = ({ book }) => {
                 <p>{qty}</p>
                 <button
                   onClick={(e) => {
-                    setUpdateQtyBtnClickTime(new Date().getTime());
-                    updateQuantityBtnHandler(e, book, "increment");
+                    e.preventDefault();
+                    handleCartCardBtnsClick(
+                      600,
+                      updateQuantityBtnHandler,
+                      book,
+                      "increment"
+                    );
                   }}
                 >
                   +
@@ -102,7 +113,10 @@ export const CartBookCard = ({ book }) => {
               </div>
               <div
                 className="cart_book_card_qty_remove_btn"
-                onClick={(e) => removeFromCartBtnHandler(e, book)}
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleCartCardBtnsClick(600, removeFromCartBtnHandler, book);
+                }}
               >
                 <DeleteIcon />
               </div>

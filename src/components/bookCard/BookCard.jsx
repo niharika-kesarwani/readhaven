@@ -1,4 +1,5 @@
 import "./BookCard.css";
+import { useRef } from "react";
 import { useAuth, useBooks, useCart, useWishlist } from "../../index.js";
 import { NavLink, useNavigate } from "react-router-dom";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
@@ -13,6 +14,7 @@ export const BookCard = ({ book, wishlistPage }) => {
   const { addToCart, isPresentInCart, updateQuantityInCart } = useCart();
   const { currentUser } = useAuth();
   const navigate = useNavigate();
+  const cardTimerId = useRef();
 
   const {
     _id,
@@ -37,8 +39,7 @@ export const BookCard = ({ book, wishlistPage }) => {
     wishlist,
   } = book;
 
-  const addToCartBtnHandler = (e, book) => {
-    e.preventDefault();
+  const addToCartBtnHandler = (book) => {
     if (currentUser) {
       isPresentInCart(book) === -1 ? addToCart(book) : navigate("/cart");
     } else {
@@ -47,8 +48,7 @@ export const BookCard = ({ book, wishlistPage }) => {
     }
   };
 
-  const updateQuantityBtnHandler = (e, book, actionType) => {
-    e.preventDefault();
+  const updateQuantityBtnHandler = (book, actionType) => {
     updateQuantityInCart(book, actionType);
   };
 
@@ -59,6 +59,13 @@ export const BookCard = ({ book, wishlistPage }) => {
       navigate("/login");
       toast.error("Please login to continue adding to wishlist!");
     }
+  };
+
+  const handleCardBtnsClick = (delay, callback, ...args) => {
+    clearTimeout(cardTimerId.current);
+    cardTimerId.current = setTimeout(() => {
+      callback(...args);
+    }, delay);
   };
 
   return (
@@ -76,18 +83,24 @@ export const BookCard = ({ book, wishlistPage }) => {
             isPresentInWishlist(book) !== -1 ? (
               <FavoriteIcon
                 className="wishlist_icon"
-                onClick={() => deleteFromWishlist(book)}
+                onClick={() =>
+                  handleCardBtnsClick(600, deleteFromWishlist, book)
+                }
               />
             ) : (
               <FavoriteBorderIcon
                 className="wishlist_icon"
-                onClick={() => addToWishlistBtnHandler(book)}
+                onClick={() =>
+                  handleCardBtnsClick(600, addToWishlistBtnHandler, book)
+                }
               />
             )
           ) : (
             <FavoriteBorderIcon
               className="wishlist_icon"
-              onClick={() => addToWishlistBtnHandler(book)}
+              onClick={() =>
+                handleCardBtnsClick(600, addToWishlistBtnHandler, book)
+              }
             />
           )}
         </div>
@@ -110,7 +123,10 @@ export const BookCard = ({ book, wishlistPage }) => {
           {!wishlistPage && (
             <button
               className="book_card_button"
-              onClick={(e) => addToCartBtnHandler(e, book)}
+              onClick={(e) => {
+                e.preventDefault();
+                handleCardBtnsClick(600, addToCartBtnHandler, book);
+              }}
             >
               <p>
                 {currentUser
@@ -124,11 +140,17 @@ export const BookCard = ({ book, wishlistPage }) => {
           {wishlistPage && (
             <button
               className="book_card_button"
-              onClick={(e) =>
+              onClick={(e) => {
+                e.preventDefault();
                 isPresentInCart(book) === -1
-                  ? addToCartBtnHandler(e, book)
-                  : updateQuantityBtnHandler(e, book, "increment")
-              }
+                  ? handleCardBtnsClick(600, addToCartBtnHandler, book)
+                  : handleCardBtnsClick(
+                      600,
+                      updateQuantityBtnHandler,
+                      book,
+                      "increment"
+                    );
+              }}
             >
               <div className="book_card_button_text">
                 {isPresentInCart(book) === -1 ? (
