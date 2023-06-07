@@ -45,13 +45,12 @@ export const addNewAddressHandler = function (schema, request) {
         }
       );
     }
-    const userAddresses = schema.users.findBy({ _id: userId }).address;
+    let userAddresses = schema.users.findBy({ _id: userId }).address;
     const { address } = JSON.parse(request.requestBody);
-    userAddresses.push({
-      ...address,
-      createdAt: formatDate(),
-      updatedAt: formatDate(),
-    });
+    userAddresses = [
+      { ...address, createdAt: formatDate(), updatedAt: formatDate() },
+      ...userAddresses,
+    ];
     this.db.users.update({ _id: userId }, { address: userAddresses });
     return new Response(201, {}, { address: userAddresses });
   } catch (error) {
