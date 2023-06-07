@@ -9,6 +9,11 @@
   border-radius: 5px;
 }
 
+.addressCard_page:hover,
+.addressCard_page_selected {
+  background: var(--secondary-color);
+}
+
 .addressCard_page:hover {
   cursor: pointer;
 }

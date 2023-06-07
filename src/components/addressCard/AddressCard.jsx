@@ -13,7 +13,11 @@ export const AddressCard = ({ address }) => {
 
   return (
     <div
-      className="addressCard_page"
+      className={
+        selectedAddressId === _id
+          ? "addressCard_page addressCard_page_selected"
+          : "addressCard_page"
+      }
       onClick={() =>
         addressDispatch({ type: SELECT_ADDRESS_CHECKOUT, payload: _id })
       }

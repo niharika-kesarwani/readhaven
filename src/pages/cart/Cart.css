@@ -119,6 +119,7 @@
   border: 0;
   padding: 0.25rem;
   text-transform: uppercase;
+  border-radius: 5px;
 }
 
 .cart_page

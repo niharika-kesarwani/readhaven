@@ -173,7 +173,7 @@ export const BookDetail = () => {
               ))}
             </p>
             <button
-              className="button"
+              className="add_cart_button"
               onClick={(e) =>
                 handleDetailCardBtnsClick(600, addToCartBtnHandler, bookDetail)
               }

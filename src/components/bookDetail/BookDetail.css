@@ -116,6 +116,7 @@
   color: black;
   border: none;
   font-style: italic;
+  border-radius: 5px;
 }
 
 .bookDetail .bookDetail_content .genres button:hover {
@@ -124,7 +125,7 @@
   scale: 1.05;
 }
 
-.bookDetail .bookDetail_content .button {
+.bookDetail .bookDetail_content .add_cart_button {
   display: flex;
   width: fit-content;
   align-items: center;
@@ -134,9 +135,10 @@
   border: none;
   color: white;
   margin: 0 auto;
+  border-radius: 5px;
 }
 
-.bookDetail .bookDetail_content .button:hover {
+.bookDetail .bookDetail_content .add_cart_button:hover {
   scale: 1.1;
   cursor: pointer;
 }
@@ -157,7 +159,7 @@
     padding: 0;
   }
 
-  .bookDetail .bookDetail_content .button {
+  .bookDetail .bookDetail_content .add_cart_button {
     margin: 0;
     padding: 0.75rem 1rem;
   }
