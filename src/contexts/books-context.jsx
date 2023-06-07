@@ -72,7 +72,7 @@ export const BooksProvider = ({ children }) => {
 
   const sortFilteredBooks =
     booksState?.sortInput.length > 0
-      ? searchFilteredBooks?.sort((a, b) =>
+      ? [...searchFilteredBooks]?.sort((a, b) =>
           booksState?.sortInput === "LTH"
             ? a?.originalPrice -
               a?.discountPrice -
