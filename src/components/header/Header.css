@@ -102,6 +102,17 @@
   justify-content: center;
 }
 
+@media (min-width: 375px) {
+  .header_wrapper .header .header_action .store,
+  .header_wrapper .header .header_action .wishlist,
+  .header_wrapper .header .header_action .cart,
+  .header_wrapper .header .header_action .user,
+  .header_wrapper .header .header_action .login,
+  .header_wrapper .header .header_action .logout {
+    padding: 10px 5px;
+  }
+}
+
 @media (min-width: 768px) {
   .header_wrapper .header {
     grid-template-columns: repeat(3, 1fr);
