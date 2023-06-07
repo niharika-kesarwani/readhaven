@@ -63,7 +63,7 @@
 .header_wrapper .header .header_action .login,
 .header_wrapper .header .header_action .logout {
   padding: 10px 3px;
-  scale: 0.8;
+  scale: 1;
 }
 
 .header_wrapper .header .header_action .logout {
@@ -76,7 +76,7 @@
 .header_wrapper .header .header_action .user:hover,
 .header_wrapper .header .header_action .login:hover,
 .header_wrapper .header .header_action .logout:hover {
-  scale: 1;
+  scale: 1.2;
   cursor: pointer;
   color: var(--secondary-color);
 }
@@ -124,7 +124,7 @@
   .header_wrapper .header .header_action .login,
   .header_wrapper .header .header_action .logout {
     padding: 10px;
-    scale: 1;
+    scale: 1.2;
   }
 
   .header_wrapper .header .header_action .store:hover,
@@ -133,7 +133,7 @@
   .header_wrapper .header .header_action .user:hover,
   .header_wrapper .header .header_action .login:hover,
   .header_wrapper .header .header_action .logout:hover {
-    scale: 1.2;
+    scale: 1.4;
   }
 
   .header_wrapper .header .navlink p {
@@ -150,7 +150,7 @@
   .header_wrapper .header .header_action .login,
   .header_wrapper .header .header_action .logout {
     padding: 10px 15px;
-    scale: 1.2;
+    scale: 1.4;
   }
 
   .header_wrapper .header .header_action .store:hover,
@@ -159,7 +159,7 @@
   .header_wrapper .header .header_action .user:hover,
   .header_wrapper .header .header_action .login:hover,
   .header_wrapper .header .header_action .logout:hover {
-    scale: 1.4;
+    scale: 1.6;
   }
 
   .header_wrapper .header .navlink p {
