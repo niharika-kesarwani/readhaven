@@ -30,6 +30,7 @@
   background: var(--secondary-color);
   border: 1px solid var(--primary-color);
   border-radius: 5px;
+  align-self: center;
 }
 
 .checkout_page .checkout_content .checkout_address .checkout_address_btn:hover {
@@ -118,5 +119,9 @@
 
   .checkout_page .checkout_content .checkout_address ul {
     min-width: 400px;
+  }
+
+  .checkout_page .checkout_content .checkout_address .checkout_address_btn {
+    align-self: flex-start;
   }
 }

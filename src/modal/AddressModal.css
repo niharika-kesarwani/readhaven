@@ -38,6 +38,7 @@
   border: 1px solid var(--primary-color);
   border-radius: 5px;
   color: white;
+  flex-grow: 1;
 }
 
 .addressModal form button:hover {
