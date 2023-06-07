@@ -5,8 +5,12 @@
   margin: 1rem 0;
   display: flex;
   align-items: flex-start;
-  column-gap: 1rem;
+  column-gap: 0.5rem;
   border-radius: 5px;
+}
+
+.addressCard_page input {
+  margin: 0.25rem;
 }
 
 .addressCard_page:hover,

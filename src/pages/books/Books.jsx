@@ -82,20 +82,6 @@ export const Books = () => {
         <div className="books_filters_price">
           <h3>Sort By Price</h3>
           <p
-            onClick={() => booksDispatch({ type: SORT_FILTER, payload: "HTL" })}
-            className={sortInput?.includes("HTL") ? "input_checked" : undefined}
-          >
-            <input
-              type="radio"
-              name="sort"
-              checked={sortInput?.includes("HTL")}
-              onChange={() =>
-                booksDispatch({ type: SORT_FILTER, payload: "HTL" })
-              }
-            />{" "}
-            High To Low
-          </p>
-          <p
             onClick={() => booksDispatch({ type: SORT_FILTER, payload: "LTH" })}
             className={sortInput?.includes("LTH") ? "input_checked" : undefined}
           >
@@ -108,6 +94,20 @@ export const Books = () => {
               }
             />{" "}
             Low To High
+          </p>
+          <p
+            onClick={() => booksDispatch({ type: SORT_FILTER, payload: "HTL" })}
+            className={sortInput?.includes("HTL") ? "input_checked" : undefined}
+          >
+            <input
+              type="radio"
+              name="sort"
+              checked={sortInput?.includes("HTL")}
+              onChange={() =>
+                booksDispatch({ type: SORT_FILTER, payload: "HTL" })
+              }
+            />{" "}
+            High To Low
           </p>
         </div>
         <hr />

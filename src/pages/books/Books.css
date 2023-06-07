@@ -24,6 +24,16 @@
   padding: 0.25rem 0.5rem;
 }
 
+.books .books_filters .input_checked {
+  outline: 1px solid var(--secondary-color);
+  border-radius: 5px;
+  background: var(--secondary-color);
+}
+
+.books .books_filters p input {
+  display: none;
+}
+
 .books .books_filters p:hover {
   cursor: pointer;
   outline: 1px solid var(--primary-color);
