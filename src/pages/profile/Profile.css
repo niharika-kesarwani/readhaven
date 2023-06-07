@@ -1,5 +1,5 @@
 .profile_page {
-  max-width: 1440px;
+  max-width: 750px;
   border: 1px solid rgb(198, 197, 197);
   box-shadow: var(--card-box-shadow);
   padding: 1rem;
