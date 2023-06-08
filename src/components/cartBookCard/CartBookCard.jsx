@@ -53,7 +53,9 @@ export const CartBookCard = ({ book }) => {
   return (
     <NavLink to={`/bookDetails/${_id}`} className="cart_book_card_navlink">
       <li key={_id} className="cart_book_card">
-        <img src={coverImg} alt={title} />
+        <div className="cart_book_card_image">
+          <img src={coverImg} alt={title} />
+        </div>
         <div onClick={(e) => e.preventDefault()}>
           {isPresentInWishlist(book) !== -1 ? (
             <FavoriteIcon

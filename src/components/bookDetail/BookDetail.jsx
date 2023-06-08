@@ -99,7 +99,9 @@ export const BookDetail = () => {
         <Loader />
       ) : (
         <div className="bookDetail">
-          <img src={coverImg} alt={title} />
+          <div className="bookDetail_image">
+            <img src={coverImg} alt={title} />
+          </div>
           <div className="bookDetail_content">
             <div className="heading">
               <div className="heading_name">

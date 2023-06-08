@@ -33,11 +33,18 @@
   margin: 0.5rem 0;
   width: 100%;
   column-gap: 1rem;
+  padding: 0 1rem;
 }
 
 .cart_page .cart_block .cart_block_items {
   order: 2;
   grid-area: "items";
+}
+
+.cart_page .cart_block .cart_block_items ul {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
 }
 
 .cart_page .cart_block .cart_block_price_details_wrapper {

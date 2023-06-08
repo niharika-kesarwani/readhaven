@@ -10,17 +10,22 @@
   box-shadow: var(--card-box-shadow);
   border-radius: 5px;
   display: flex;
-  max-height: 225px;
-  width: 90%;
-  margin: 0.5rem 0;
-  padding: 0.5rem 0;
+  width: 100%;
+  max-width: 350px;
+  margin: 0.5rem 1rem;
+  gap: 0.5rem;
   position: relative;
+  overflow: hidden;
 }
 
-.cart_book_card img {
+.cart_book_card .cart_book_card_image {
+  width: 150px;
+}
+
+.cart_book_card .cart_book_card_image img {
   height: 100%;
-  width: 50%;
-  object-fit: contain;
+  width: 100%;
+  object-fit: cover;
 }
 
 .cart_book_card .wishlist_icon {
@@ -42,8 +47,8 @@
   flex-direction: column;
   width: 100%;
   justify-content: space-between;
-  padding: 1rem;
-  row-gap: 0.5rem;
+  padding: 1rem 1rem 1rem 0;
+  row-gap: 1rem;
   text-align: left;
 }
 
@@ -156,12 +161,6 @@
 }
 
 @media (min-width: 375px) {
-  .cart_book_card {
-    padding: 1rem 0;
-    min-width: 350px;
-    width: 75%;
-  }
-
   .cart_book_card .wishlist_icon {
     top: 0;
     right: 0;
@@ -188,14 +187,13 @@
 
 @media (min-width: 768px) {
   .cart_book_card {
-    min-width: 500px;
+    flex-direction: row;
+    gap: 0.5rem;
+    max-width: 500px;
+    max-height: 225px;
   }
 
-  .cart_book_card img {
-    width: 70%;
-  }
-
-  .cart_book_card .cart_book_card_content {
-    row-gap: 5%;
+  .cart_book_card .cart_book_card_image {
+    width: 350px;
   }
 }

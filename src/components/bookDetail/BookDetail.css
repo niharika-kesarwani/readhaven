@@ -7,22 +7,21 @@
   background: var(--book-card-background-color);
   display: flex;
   flex-direction: column;
-  align-items: center;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
   margin: 2rem;
-  padding: 1rem;
+  max-width: 340px;
 }
 
 .bookDetail img {
-  max-width: 60%;
-  max-height: 300px;
+  width: 100%;
+  height: 100%;
 }
 
 .bookDetail .bookDetail_content {
   display: flex;
   flex-direction: column;
-  max-width: 340px;
-  padding-top: 1rem;
+  justify-content: space-between;
+  padding: 1rem;
   row-gap: 1rem;
 }
 
@@ -80,6 +79,7 @@
   font-weight: bold;
   color: var(--discounted-price-color);
 }
+
 .bookDetail .bookDetail_content .price_rating .rating {
   display: flex;
   justify-content: space-evenly;
@@ -147,16 +147,17 @@
   .bookDetail {
     flex-direction: row;
     column-gap: 2rem;
+    max-width: unset;
+    max-height: 525px;
   }
 
-  .bookDetail img {
-    max-width: 50%;
-    max-height: 300px;
+  .bookDetail .bookDetail_image {
+    width: 350px;
   }
 
   .bookDetail .bookDetail_content {
     max-width: 100vh;
-    padding: 0;
+    padding: 1rem 1rem 1rem 0;
   }
 
   .bookDetail .bookDetail_content .add_cart_button {
