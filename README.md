@@ -8,7 +8,7 @@ A books e-commerce website for all book lovers!
 
 ## DEMO VIDEO
 
-https://github.com/niharika-kesarwani/readhaven/assets/45658446/ebb2e7ba-6f5a-41b9-8901-4a5f6eb14e45
+https://github.com/niharika-kesarwani/readhaven/assets/45658446/d4948e6e-066e-47f6-975f-467e5be28296
 
 ---
 
