@@ -23,11 +23,7 @@
   transition: transform 0.5s ease-in;
 }
 
-.book_card .book_image_card img:hover,
 .book_card:hover img {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
   transform: scale(1.1) rotate(2deg);
 }
 

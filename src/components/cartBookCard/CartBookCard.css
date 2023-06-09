@@ -18,14 +18,25 @@
   overflow: hidden;
 }
 
+.cart_book_card:hover {
+  box-shadow: var(--selected-product-box-shadow);
+}
+
 .cart_book_card .cart_book_card_image {
   width: 150px;
+  overflow: hidden;
 }
 
 .cart_book_card .cart_book_card_image img {
   height: 100%;
   width: 100%;
   object-fit: cover;
+  transform: scale(1) rotate(0);
+  transition: transform 0.5s ease-in;
+}
+
+.cart_book_card:hover img {
+  transform: scale(1.1) rotate(2deg);
 }
 
 .cart_book_card .wishlist_icon {
