@@ -20,4 +20,5 @@
 
 .addressCard_page:hover {
   cursor: pointer;
+  transition-duration: 500ms;
 }

@@ -25,6 +25,7 @@
 .wishlist_page .wishlist_block .wishlist_empty button:hover {
   scale: 1.1;
   cursor: pointer;
+  transition-duration: 500ms;
 }
 
 .wishlist_page .wishlist_block ul {
@@ -48,6 +49,7 @@
 
 .wishlist_page .wishlist_block ul li:hover {
   box-shadow: var(--selected-product-box-shadow);
+  transition-duration: 500ms;
 }
 
 @media (min-width: 768px) {

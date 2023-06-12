@@ -25,6 +25,7 @@
 .cart_page .cart_empty button:hover {
   scale: 1.1;
   cursor: pointer;
+  transition-duration: 500ms;
 }
 
 .cart_page .cart_block {
@@ -136,6 +137,7 @@
   button:hover {
   cursor: pointer;
   scale: 1.025;
+  transition-duration: 500ms;
 }
 
 @media (min-width: 768px) {

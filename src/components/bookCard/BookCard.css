@@ -28,7 +28,7 @@
 }
 
 .book_card .wishlist_icon {
-  padding: 5% 5% 10% 10%;
+  padding: 2.5% 2.5% 7.5% 7.5%;
   position: absolute;
   top: 0;
   margin-left: -50px;
@@ -137,6 +137,7 @@
   background-color: white;
   color: black;
   border: 1.5px solid var(--secondary-color);
+  transition-duration: 500ms;
 }
 
 .book_card .book_card_content .book_card_btn_qty_wrapper button,
@@ -172,6 +173,12 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+@media (min-width: 528px) {
+  .book_card .wishlist_icon {
+    padding: 2.5% 2.5% 10% 10%;
+  }
 }
 
 @media (min-width: 768px) {

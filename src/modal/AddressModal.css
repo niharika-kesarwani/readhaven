@@ -34,8 +34,8 @@
 
 .addressModal form button {
   padding: 0.25rem 1rem;
-  background: var(--secondary-color);
-  border: 1px solid var(--primary-color);
+  background: var(--primary-color);
+  border: 1px solid transparent;
   border-radius: 5px;
   color: white;
   flex-grow: 1;
@@ -43,5 +43,8 @@
 
 .addressModal form button:hover {
   cursor: pointer;
-  background: var(--primary-color);
+  background: white;
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  transition-duration: 500ms;
 }

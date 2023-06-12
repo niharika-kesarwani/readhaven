@@ -20,6 +20,7 @@
 
 .cart_book_card:hover {
   box-shadow: var(--selected-product-box-shadow);
+  transition-duration: 500ms;
 }
 
 .cart_book_card .cart_book_card_image {
@@ -97,7 +98,7 @@
   align-items: center;
   justify-content: space-around;
   background-color: var(--secondary-color);
-  border: none;
+  border: 1.5px solid transparent;
   padding: 0.25rem 0.5rem;
   text-transform: uppercase;
 }
@@ -106,7 +107,8 @@
   cursor: pointer;
   background-color: white;
   color: black;
-  outline: 1.5px solid var(--secondary-color);
+  border: 1.5px solid var(--secondary-color);
+  transition-duration: 500ms;
 }
 
 .cart_book_card .cart_book_card_content .cart_book_card_button {

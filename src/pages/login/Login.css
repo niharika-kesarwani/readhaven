@@ -65,6 +65,7 @@
 .login_page .login_btn_login:hover {
   cursor: pointer;
   background: var(--primary-color);
+  transition-duration: 500ms;
 }
 
 .login_page .login_btn_test {
@@ -75,6 +76,7 @@
 .login_page .login_btn_test:hover {
   background: var(--primary-color);
   color: white;
+  transition-duration: 500ms;
 }
 
 .login_page .navlink {
@@ -96,4 +98,5 @@
 .login_page .login_btn_new_acc:hover {
   cursor: pointer;
   color: var(--primary-color);
+  transition-duration: 500ms;
 }

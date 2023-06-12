@@ -25,6 +25,7 @@
 .home .home_hero .shop_btn:hover {
   scale: 1.15;
   cursor: pointer;
+  transition-duration: 500ms;
 }
 
 .home h1 {
@@ -57,6 +58,7 @@
   background: var(--secondary-color);
   cursor: pointer;
   scale: 1.1;
+  transition-duration: 250ms;
 }
 
 @media (min-width: 768px) {

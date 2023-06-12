@@ -10,4 +10,5 @@
 
 .go_to_top:hover {
   scale: 2.25;
+  transition-duration: 500ms;
 }

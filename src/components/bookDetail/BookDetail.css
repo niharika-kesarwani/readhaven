@@ -144,6 +144,7 @@
 .bookDetail .bookDetail_content .add_cart_button:hover {
   scale: 1.1;
   cursor: pointer;
+  transition-duration: 500ms;
 }
 
 @media (min-width: 768px) {

@@ -34,10 +34,9 @@
 }
 
 .checkout_page .checkout_content .checkout_address .checkout_address_btn:hover {
-  background: white;
-  border: 1.5px solid var(--secondary-color);
   cursor: pointer;
   scale: 1.1;
+  transition-duration: 500ms;
 }
 
 .checkout_page .checkout_content .checkout_order_summary {
@@ -90,9 +89,8 @@
 
 .checkout_page .checkout_content .checkout_order_summary button:hover {
   cursor: pointer;
-  background: white;
-  border: 1.5px solid var(--secondary-color);
   scale: 1.05;
+  transition-duration: 500ms;
 }
 
 .checkout_page .checkout_content .checkout_addAddress_modal {

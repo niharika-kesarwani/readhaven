@@ -28,6 +28,7 @@
   .profileAddress_delete_btn:hover {
   cursor: pointer;
   scale: 1.1;
+  transition-duration: 500ms;
 }
 
 .profileAddress_page .profileAddress_list {

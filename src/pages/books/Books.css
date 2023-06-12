@@ -22,6 +22,7 @@
   display: flex;
   column-gap: 0.25rem;
   padding: 0.25rem 0.5rem;
+  outline: 1px solid transparent;
 }
 
 .books .books_filters .input_checked {
@@ -36,6 +37,7 @@
   border-radius: 5px;
   background: var(--secondary-color);
   opacity: 0.9;
+  transition-duration: 250ms;
 }
 
 .books .books_filters input:hover {
@@ -72,7 +74,7 @@
   .books_filters_heading_title
   div
   button {
-  border: none;
+  border: 1px solid transparent;
   background: var(--secondary-color);
   padding: 0.5rem 1rem;
   border-radius: 5px;
@@ -85,8 +87,9 @@
   div
   button:hover {
   background: white;
-  outline: 1px solid var(--primary-color);
+  border: 1px solid var(--primary-color);
   cursor: pointer;
+  transition-duration: 250ms;
 }
 
 .books
@@ -107,6 +110,7 @@
   color: var(--primary-color);
   cursor: pointer;
   scale: 1.2;
+  transition-duration: 250ms;
 }
 
 .books .books_filters .books_filters_heading,
@@ -248,6 +252,7 @@
 .books .books_list .books_list_heading .tune-icon:hover {
   cursor: pointer;
   scale: 1.2;
+  transition-duration: 500ms;
 }
 
 .books .books_list .books_list_block {
@@ -275,7 +280,7 @@
   flex-direction: column;
   align-items: center;
   justify-self: center;
-  width: 200px;
+  width: 250px;
   height: 450px;
   overflow: hidden;
 }
@@ -289,6 +294,13 @@
 
 .books .books_list .books_list_block ul a:hover {
   box-shadow: var(--selected-product-box-shadow);
+  transition-duration: 500ms;
+}
+
+@media (min-width: 528px) {
+  .books .books_list .books_list_block ul a {
+    width: 200px;
+  }
 }
 
 @media (max-width: 768px) {
